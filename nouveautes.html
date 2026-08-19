@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
@@ -17,7 +18,8 @@ body{
 }
 
 .container{
-    width:1200px;
+    width:95%;
+    max-width:1200px;
     margin:auto;
     background:linear-gradient(to bottom,#5a0000,#2b0000);
     box-shadow:0 0 60px black;
@@ -25,80 +27,83 @@ body{
 }
 
 h1{
-    font-size:48px;
+    font-size:38px;
     color:#ffe600;
     padding-top:18px;
-    margin-top:0;
-    margin-bottom:20px;
-    text-shadow:0 0 18px #ffcc00;
+    margin:0 0 15px 0;
+    text-shadow:0 0 15px #ffcc00;
 }
 
 .text{
-    width:900px;
+    width:88%;
     margin:auto;
-    font-size:19px;
-    line-height:1.35;
+    font-size:15px;
+    line-height:1.25;
     text-align:left;
-    padding:25px 35px;
+    padding:20px 30px;
 }
 
 h2{
+    font-size:22px;
+    margin:12px 0 8px 0;
     color:#ffe600;
-    font-size:28px;
-    margin-top:18px;
-    margin-bottom:16px;
-    text-shadow:0 0 10px #ffcc00;
-}
-
-h3{
-    color:#ffe600;
-    font-size:21px;
-    margin-top:18px;
-    margin-bottom:10px;
     text-shadow:0 0 8px #ffcc00;
 }
 
+h3{
+    font-size:17px;
+    margin:14px 0 4px 0;
+    color:#ffe600;
+    text-shadow:0 0 6px #ffcc00;
+}
+
 p{
-    margin-top:10px;
-    margin-bottom:12px;
+    font-size:15px;
+    line-height:1.25;
+    margin:3px 0 8px 0;
 }
 
 ul{
-    margin-top:8px;
-    margin-bottom:12px;
+    margin:5px 0 10px 20px;
+    padding-left:18px;
 }
 
 li{
-    margin-bottom:4px;
+    margin:2px 0;
+}
+
+hr{
+    margin:14px 0;
+    border:0;
+    border-top:1px solid #666;
 }
 
 .button{
     display:inline-block;
-    margin-top:20px;
-    padding:8px 24px;
+    margin-top:18px;
+    padding:8px 22px;
     background:#000080;
     color:#ffe600;
     text-decoration:none;
-    font-size:20px;
-    border-radius:10px;
+    font-size:17px;
+    border-radius:9px;
     font-weight:bold;
     border:2px solid #ffe600;
 }
 
+.button:hover{
+    background:#001a66;
+}
+
 .footer{
-    margin-top:25px;
+    margin-top:20px;
     padding-bottom:20px;
-    font-size:20px;
+    font-size:16px;
     color:#dddddd;
 }
 
-hr{
-    margin-top:24px;
-    margin-bottom:24px;
-    border:1px solid #666;
-}
-
 </style>
+
 </head>
 
 <body>
@@ -113,6 +118,7 @@ hr{
 
 <ul>
 <li>Le mode FIGURES retrouve toute sa rapidité grâce à une optimisation du moteur de calcul.</li>
+
 <li>Nouveau mode <b>REJOUER DIRECT</b> : affichage immédiat de la dernière image d’une session avec reprise instantanée des expérimentations.</li>
 </ul>
 
@@ -157,26 +163,47 @@ du système de sessions et de la stabilité de l'interface utilisateur.
 
 <ul>
 <li>Ajout d’un réglage de vitesse avant le replay des sessions.</li>
+
 <li>Les sessions rejouées restituent désormais un état de travail normal permettant de poursuivre immédiatement les expérimentations.</li>
+
 <li>Amélioration de la prise en compte des fonds, du mode Incrusté et des couleurs de toile lors du replay des sessions.</li>
+
 <li>Correction du bouton <b>RECORD</b></li>
+
 <li>Amélioration du centrage des dessins grâce à un réglage fin du centre X/Y</li>
+
 <li>Amélioration de la présentation générale de l’interface</li>
+
 <li>Bouton <b>Couleur Toile</b> mis en évidence au démarrage</li>
+
 <li>Correction de l’affichage du texte « Couleur Toile » après relecture d’une session</li>
+
 <li>Amélioration de la gestion des sessions <b>.vasareli</b></li>
+
 <li>Meilleure prise en compte des contrôles lors des relectures</li>
+
 <li>Correction de plusieurs problèmes d’affichage liés aux replays</li>
+
 <li>Amélioration de la stabilité générale de VasareliMania</li>
+
 <li>Optimisations diverses de l’interface utilisateur</li>
+
 <li>Ajout du clignotement de <b>Couleur Toile</b> au démarrage</li>
+
 <li>Vitesse de fonctionnement retrouvée</li>
+
 <li>Sessions et Replay toujours pleinement fonctionnels</li>
 </ul>
 
 <p>
+Cette amélioration transforme la relecture d'une session en véritable point de départ
+pour de nouvelles créations. Une session peut être rejouée, puis immédiatement
+modifiée et enrichie afin de poursuivre les expérimentations.
+</p>
+
+<p>
 Cette mise à jour améliore le confort d'utilisation quotidien de VasareliMania
-tout en conservant la compatibilité complète avec les sessions enregistrées
+tout en conservant la compatibilité avec les sessions enregistrées
 et le système Replay.
 </p>
 
@@ -193,13 +220,20 @@ au Replay et à la fluidité générale de VasareliMania.
 
 <ul>
 <li>Button7 (<b>InvertCoul</b>) désormais pris en compte dans les sessions</li>
+
 <li>Button75 (<b>TurboInvertColor / TurboInvertLD</b>) désormais pris en compte dans les sessions</li>
+
 <li>Message <b>REPLAY EN COURS</b> stabilisé dans Panel5</li>
+
 <li>Réintégration propre de <b>ResetEtatAvantReplay</b></li>
+
 <li>Suppression du clignotement des textures pendant les relectures</li>
+
 <li>Suppression des flashs d'affichage pendant les sessions</li>
+
 <li>Affichage uniquement à la fin de chaque :
 <br><b>----- FIN ETAT COMPLET -----</b></li>
+
 <li>Relecture des sessions beaucoup plus fluide</li>
 </ul>
 
@@ -225,12 +259,17 @@ et du site Web.
 <ul>
 <li>Création automatique du dossier :
 <br><b>C:\Sessions VasareliMania</b></li>
+
 <li>Support des fichiers <b>.vasareli</b></li>
+
 <li>Association automatique des fichiers <b>.vasareli</b></li>
+
 <li>Double-clic sur une session :
 <br>ouverture automatique dans VasareliMania</li>
+
 <li>Amélioration du système Replay
 <br>(Pause / Reprise / Arrêt)</li>
+
 <li>Renommage du fichier d'installation :
 <br><b>VasareliMania-Setup.msi</b></li>
 </ul>
@@ -310,3 +349,4 @@ Pierre Tcherukine © 2008-2026
 </body>
 
 </html>
+
