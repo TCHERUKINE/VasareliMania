@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
@@ -103,7 +102,6 @@ hr{
 }
 
 </style>
-
 </head>
 
 <body>
@@ -116,31 +114,91 @@ hr{
 
 <h2>Version 2026.08.18</h2>
 
+<h3>Rejouer les sessions</h3>
 <p>
-Cette mise à jour marque une étape importante dans l'amélioration du système
-de sessions et de leur relecture dans VasareliMania.
+Le système de sessions a été fortement amélioré.
+Les actions peuvent maintenant être rejouées avec affichage des étapes intermédiaires,
+pause, reprise, arrêt et retour à l’état précédent.
+L’interface finale est automatiquement restaurée dans le bon mode :
+Sans Motif, KEPLER, POLYGONES, Motif Tricolore ou Motif Quadricolore.
 </p>
 
-<h3>Amélioration du Replay des sessions</h3>
-
-<ul>
-<li>Amélioration de la restitution des états intermédiaires pendant la relecture des sessions.</li>
-
-<li>Meilleure prise en compte des différents modes de création lors du Replay.</li>
-
-<li>Amélioration de l'affichage des étapes successives d'une création enregistrée.</li>
-
-<li>Restitution correcte de la dernière image d'une session avec son mode de travail correspondant.</li>
-
-<li>Après la relecture, VasareliMania retrouve un état de travail permettant de poursuivre immédiatement les expérimentations.</li>
-
-<li>Amélioration générale de la stabilité et de la fidélité du système de sessions.</li>
-</ul>
-
+<h3>Contrôle du Rejouer</h3>
 <p>
-Le Replay permet désormais de mieux visualiser la construction progressive
-d'une création tout en conservant la possibilité de reprendre le travail
-à partir de l'état final enregistré.
+Pendant la lecture d’une session, un panneau de contrôle indique l’action en cours
+et le nombre total d’actions.
+Les commandes permettent de mettre en pause, reprendre, arrêter
+ou revenir à l’étape précédente.
+Une lecture directe sans temporisation reste également disponible.
+</p>
+
+<h3>Amélioration des rendus intermédiaires</h3>
+<p>
+Les images intermédiaires du Rejouer sont maintenant réellement recalculées
+à chaque étape.
+Les paramètres des formes, couleurs, textures, dégradés et motifs
+sont resynchronisés avant chaque rendu.
+</p>
+
+<h3>Formes et motifs</h3>
+<p>
+Les modes POLYGONES, Motif Tricolore et Motif Quadricolore
+ont été corrigés et stabilisés dans le Rejouer.
+Les formes conservent leurs réglages, leurs couleurs,
+leurs dégradés et leurs paramètres géométriques.
+</p>
+
+<h3>KEPLER</h3>
+<p>
+Le mode KEPLER est entièrement restauré après le Rejouer,
+avec ses couleurs, ses dégradés, ses commandes et son interface spécifique.
+</p>
+
+<h3>Création de GIF animés</h3>
+<p>
+VasareliMania permet de mémoriser une suite d’images
+puis de créer directement un GIF animé.
+La vitesse d’animation et le nom du fichier peuvent être choisis avant l’enregistrement.
+Les GIF sont générés avec ImageMagick.
+</p>
+
+<h3>Dégradés et textures</h3>
+<p>
+Les réglages de dégradés, d’inversion des couleurs,
+d’inversion du sens des dégradés et de textures
+ont été améliorés dans les différents modes de dessin.
+L’orientation des textures peut également être réglée.
+</p>
+
+<h3>Alternance des formes</h3>
+<p>
+Il est possible d’alterner plusieurs formes au cours d’un même dessin,
+avec différents modes de répétition.
+Cette fonction permet de créer des compositions beaucoup plus variées.
+</p>
+
+<h3>Interface</h3>
+<p>
+L’interface a été affinée et plusieurs éléments sont maintenant automatiquement
+affichés ou masqués selon le mode réellement utilisé.
+Les panneaux Sans Motif, KEPLER, POLYGONES et Formes
+retrouvent leur état correct après le Rejouer.
+</p>
+
+<h3>Nettoyage et optimisation</h3>
+<p>
+Une importante révision du code a été effectuée :
+suppression d’anciennes routines devenues inutiles,
+suppression de doublons, simplification de plusieurs traitements
+et conservation des fonctions de diagnostic utiles.
+Le programme est ainsi plus léger et plus facile à maintenir.
+</p>
+
+<h3>Installation</h3>
+<p>
+Le programme d’installation a été mis à jour afin d’inclure
+les bibliothèques nécessaires à la création des GIF animés,
+notamment les composants ImageMagick.
 </p>
 
 <hr>
