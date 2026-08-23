@@ -112,9 +112,92 @@ hr{
 
 <div class="text">
 
+<!-- ===================================================== -->
+<!-- VERSION 2026.08.23 -->
+<!-- ===================================================== -->
+
+<h2>Version 2026.08.23</h2>
+
+<h3>Nouveau : NUAGES</h3>
+
+<p>
+Un nouveau mode <strong>NUAGES</strong> a été ajouté à VasareliMania.
+Il permet de créer des fonds composés de formes déformées et colorées,
+avec de nombreux réglages permettant de modifier leur aspect et leur organisation.
+</p>
+
+<p>
+NUAGES peut être utilisé comme fond pour enrichir les compositions
+et se combine avec les différents modes de création de VasareliMania.
+Il permet d'obtenir rapidement des arrière-plans très variés,
+allant de formes douces et ondulées à des structures géométriques beaucoup plus marquées.
+</p>
+
+<h3>NUAGES et les sessions</h3>
+
+<p>
+Le mode NUAGES est maintenant pris en charge par le système de sessions.
+Les créations utilisant un fond NUAGES peuvent être enregistrées puis rejouées,
+y compris lorsqu'elles sont associées aux modes de formes et à POLYGONES.
+</p>
+
+<p>
+La restauration de l'image et de l'interface à la fin du replay a été améliorée
+afin que la session se termine dans le mode correspondant réellement
+à la dernière création affichée.
+</p>
+
+<h3>Rejouer les sessions</h3>
+
+<p>
+Le système de replay des sessions a été fortement amélioré.
+Les différentes étapes d'une création peuvent être rejouées avec affichage
+des états intermédiaires, pause, reprise et arrêt.
+</p>
+
+<p>
+Le mode de lecture directe permet également de reconstruire immédiatement
+l'état final d'une session sans afficher toutes les étapes intermédiaires.
+</p>
+
+<h3>Restauration de l'interface</h3>
+
+<p>
+La restauration de l'interface après le replay a été améliorée pour les différents
+modes de VasareliMania : Sans Motif, KEPLER, POLYGONES,
+Motif Tricolore, Motif Quadricolore et FORMES.
+</p>
+
+<p>
+Une attention particulière a été apportée aux sessions combinant
+<strong>NUAGES, FOND et POLYGONES</strong>, afin de retrouver à la fin du replay
+l'image finale correcte ainsi qu'une interface immédiatement utilisable
+pour poursuivre la création.
+</p>
+
+<h3>Améliorations générales</h3>
+
+<p>
+De nombreuses corrections ont été apportées au système de sessions,
+à l'enchaînement des différents modes, à la restitution des paramètres
+et à la synchronisation entre le dessin affiché et l'interface.
+</p>
+
+<p>
+Après le replay d'une session, VasareliMania est désormais prêt à continuer
+le travail directement à partir de l'état final restauré.
+</p>
+
+<hr>
+
+<!-- ===================================================== -->
+<!-- VERSION 2026.08.18 -->
+<!-- ===================================================== -->
+
 <h2>Version 2026.08.18</h2>
 
 <h3>Rejouer les sessions</h3>
+
 <p>
 Le système de sessions a été fortement amélioré.
 Les actions peuvent maintenant être rejouées avec affichage des étapes intermédiaires,
@@ -124,6 +207,7 @@ Sans Motif, KEPLER, POLYGONES, Motif Tricolore ou Motif Quadricolore.
 </p>
 
 <h3>Contrôle du Rejouer</h3>
+
 <p>
 Pendant la lecture d’une session, un panneau de contrôle indique l’action en cours
 et le nombre total d’actions.
@@ -133,6 +217,7 @@ Une lecture directe sans temporisation reste également disponible.
 </p>
 
 <h3>Amélioration des rendus intermédiaires</h3>
+
 <p>
 Les images intermédiaires du Rejouer sont maintenant réellement recalculées
 à chaque étape.
@@ -141,6 +226,7 @@ sont resynchronisés avant chaque rendu.
 </p>
 
 <h3>Formes et motifs</h3>
+
 <p>
 Les modes POLYGONES, Motif Tricolore et Motif Quadricolore
 ont été corrigés et stabilisés dans le Rejouer.
@@ -149,12 +235,14 @@ leurs dégradés et leurs paramètres géométriques.
 </p>
 
 <h3>KEPLER</h3>
+
 <p>
 Le mode KEPLER est entièrement restauré après le Rejouer,
 avec ses couleurs, ses dégradés, ses commandes et son interface spécifique.
 </p>
 
 <h3>Création de GIF animés</h3>
+
 <p>
 VasareliMania permet de mémoriser une suite d’images
 puis de créer directement un GIF animé.
@@ -163,6 +251,7 @@ Les GIF sont générés avec ImageMagick.
 </p>
 
 <h3>Dégradés et textures</h3>
+
 <p>
 Les réglages de dégradés, d’inversion des couleurs,
 d’inversion du sens des dégradés et de textures
@@ -171,6 +260,7 @@ L’orientation des textures peut également être réglée.
 </p>
 
 <h3>Alternance des formes</h3>
+
 <p>
 Il est possible d’alterner plusieurs formes au cours d’un même dessin,
 avec différents modes de répétition.
@@ -178,6 +268,7 @@ Cette fonction permet de créer des compositions beaucoup plus variées.
 </p>
 
 <h3>Interface</h3>
+
 <p>
 L’interface a été affinée et plusieurs éléments sont maintenant automatiquement
 affichés ou masqués selon le mode réellement utilisé.
@@ -186,6 +277,7 @@ retrouvent leur état correct après le Rejouer.
 </p>
 
 <h3>Nettoyage et optimisation</h3>
+
 <p>
 Une importante révision du code a été effectuée :
 suppression d’anciennes routines devenues inutiles,
@@ -195,6 +287,7 @@ Le programme est ainsi plus léger et plus facile à maintenir.
 </p>
 
 <h3>Installation</h3>
+
 <p>
 Le programme d’installation a été mis à jour afin d’inclure
 les bibliothèques nécessaires à la création des GIF animés,
@@ -203,12 +296,22 @@ notamment les composants ImageMagick.
 
 <hr>
 
+<!-- ===================================================== -->
+<!-- VERSION 2026.06.24 -->
+<!-- ===================================================== -->
+
 <h2>Version 2026.06.24</h2>
 
 <ul>
-<li>Le mode FIGURES retrouve toute sa rapidité grâce à une optimisation du moteur de calcul.</li>
+<li>
+Le mode FIGURES retrouve toute sa rapidité grâce à une optimisation du moteur de calcul.
+</li>
 
-<li>Nouveau mode <b>REJOUER DIRECT</b> : affichage immédiat de la dernière image d’une session avec reprise instantanée des expérimentations.</li>
+<li>
+Nouveau mode <b>REJOUER DIRECT</b> :
+affichage immédiat de la dernière image d’une session
+avec reprise instantanée des expérimentations.
+</li>
 </ul>
 
 <p>
@@ -218,6 +321,10 @@ complète de toutes les étapes intermédiaires.
 </p>
 
 <hr>
+
+<!-- ===================================================== -->
+<!-- VERSION 2026.06.22 -->
+<!-- ===================================================== -->
 
 <h2>Version 2026.06.22</h2>
 
@@ -230,16 +337,24 @@ Validation complète du mode Möbius Quadricolore.
 <li>Sliders de réglage désormais pleinement actifs</li>
 <li>Inversion du dégradé fonctionnelle</li>
 <li>Inversion des couleurs fonctionnelle</li>
-<li>Position de la liaison centrale CS2/CS3 désormais réactive par bouton et roulette de souris</li>
+<li>
+Position de la liaison centrale CS2/CS3 désormais réactive
+par bouton et roulette de souris
+</li>
 </ul>
 
 <p>
 Le mode Möbius Quadricolore dispose maintenant d'un contrôle complet des couleurs,
-du dégradé et de la position de la liaison centrale, offrant davantage de souplesse
-pour les expérimentations et la création de nouveaux effets visuels.
+du dégradé et de la position de la liaison centrale,
+offrant davantage de souplesse pour les expérimentations
+et la création de nouveaux effets visuels.
 </p>
 
 <hr>
+
+<!-- ===================================================== -->
+<!-- VERSION 2026.06.18 -->
+<!-- ===================================================== -->
 
 <h2>Version 2026.06.18</h2>
 
@@ -251,43 +366,81 @@ du système de sessions et de la stabilité de l'interface utilisateur.
 <h3>Corrections et améliorations</h3>
 
 <ul>
-<li>Ajout d’un réglage de vitesse avant le replay des sessions.</li>
 
-<li>Les sessions rejouées restituent désormais un état de travail normal permettant de poursuivre immédiatement les expérimentations.</li>
+<li>
+Ajout d’un réglage de vitesse avant le replay des sessions.
+</li>
 
-<li>Amélioration de la prise en compte des fonds, du mode Incrusté et des couleurs de toile lors du replay des sessions.</li>
+<li>
+Les sessions rejouées restituent désormais un état de travail normal
+permettant de poursuivre immédiatement les expérimentations.
+</li>
 
-<li>Correction du bouton <b>RECORD</b></li>
+<li>
+Amélioration de la prise en compte des fonds,
+du mode Incrusté et des couleurs de toile lors du replay des sessions.
+</li>
 
-<li>Amélioration du centrage des dessins grâce à un réglage fin du centre X/Y</li>
+<li>
+Correction du bouton <b>RECORD</b>.
+</li>
 
-<li>Amélioration de la présentation générale de l’interface</li>
+<li>
+Amélioration du centrage des dessins grâce à un réglage fin du centre X/Y.
+</li>
 
-<li>Bouton <b>Couleur Toile</b> mis en évidence au démarrage</li>
+<li>
+Amélioration de la présentation générale de l’interface.
+</li>
 
-<li>Correction de l’affichage du texte « Couleur Toile » après relecture d’une session</li>
+<li>
+Bouton <b>Couleur Toile</b> mis en évidence au démarrage.
+</li>
 
-<li>Amélioration de la gestion des sessions <b>.vasareli</b></li>
+<li>
+Correction de l’affichage du texte « Couleur Toile »
+après relecture d’une session.
+</li>
 
-<li>Meilleure prise en compte des contrôles lors des relectures</li>
+<li>
+Amélioration de la gestion des sessions <b>.vasareli</b>.
+</li>
 
-<li>Correction de plusieurs problèmes d’affichage liés aux replays</li>
+<li>
+Meilleure prise en compte des contrôles lors des relectures.
+</li>
 
-<li>Amélioration de la stabilité générale de VasareliMania</li>
+<li>
+Correction de plusieurs problèmes d’affichage liés aux replays.
+</li>
 
-<li>Optimisations diverses de l’interface utilisateur</li>
+<li>
+Amélioration de la stabilité générale de VasareliMania.
+</li>
 
-<li>Ajout du clignotement de <b>Couleur Toile</b> au démarrage</li>
+<li>
+Optimisations diverses de l’interface utilisateur.
+</li>
 
-<li>Vitesse de fonctionnement retrouvée</li>
+<li>
+Ajout du clignotement de <b>Couleur Toile</b> au démarrage.
+</li>
 
-<li>Sessions et Replay toujours pleinement fonctionnels</li>
+<li>
+Vitesse de fonctionnement retrouvée.
+</li>
+
+<li>
+Sessions et Replay toujours pleinement fonctionnels.
+</li>
+
 </ul>
 
 <p>
-Cette amélioration transforme la relecture d'une session en véritable point de départ
-pour de nouvelles créations. Une session peut être rejouée, puis immédiatement
-modifiée et enrichie afin de poursuivre les expérimentations.
+Cette amélioration transforme la relecture d'une session
+en véritable point de départ pour de nouvelles créations.
+Une session peut être rejouée, puis immédiatement modifiée et enrichie
+afin de poursuivre les expérimentations.
 </p>
 
 <p>
@@ -297,6 +450,10 @@ et le système Replay.
 </p>
 
 <hr>
+
+<!-- ===================================================== -->
+<!-- VERSION 2026.06.14 -->
+<!-- ===================================================== -->
 
 <h2>Version 2026.06.14</h2>
 
@@ -308,22 +465,42 @@ au Replay et à la fluidité générale de VasareliMania.
 <h3>Améliorations du système Replay</h3>
 
 <ul>
-<li>Button7 (<b>InvertCoul</b>) désormais pris en compte dans les sessions</li>
 
-<li>Button75 (<b>TurboInvertColor / TurboInvertLD</b>) désormais pris en compte dans les sessions</li>
+<li>
+Button7 (<b>InvertCoul</b>) désormais pris en compte dans les sessions.
+</li>
 
-<li>Message <b>REPLAY EN COURS</b> stabilisé dans Panel5</li>
+<li>
+Button75 (<b>TurboInvertColor / TurboInvertLD</b>)
+désormais pris en compte dans les sessions.
+</li>
 
-<li>Réintégration propre de <b>ResetEtatAvantReplay</b></li>
+<li>
+Message <b>REPLAY EN COURS</b> stabilisé dans Panel5.
+</li>
 
-<li>Suppression du clignotement des textures pendant les relectures</li>
+<li>
+Réintégration propre de <b>ResetEtatAvantReplay</b>.
+</li>
 
-<li>Suppression des flashs d'affichage pendant les sessions</li>
+<li>
+Suppression du clignotement des textures pendant les relectures.
+</li>
 
-<li>Affichage uniquement à la fin de chaque :
-<br><b>----- FIN ETAT COMPLET -----</b></li>
+<li>
+Suppression des flashs d'affichage pendant les sessions.
+</li>
 
-<li>Relecture des sessions beaucoup plus fluide</li>
+<li>
+Affichage uniquement à la fin de chaque :
+<br>
+<b>----- FIN ETAT COMPLET -----</b>
+</li>
+
+<li>
+Relecture des sessions beaucoup plus fluide.
+</li>
+
 </ul>
 
 <p>
@@ -335,38 +512,60 @@ des créations enregistrées.
 
 <hr>
 
+<!-- ===================================================== -->
+<!-- VERSION 2026.06.10 -->
+<!-- ===================================================== -->
+
 <h2>Version 2026.06.10</h2>
 
 <p>
 Cette version marque une étape importante dans l'évolution de VasareliMania,
-avec plusieurs améliorations majeures du logiciel, du système de sessions
-et du site Web.
+avec plusieurs améliorations majeures du logiciel,
+du système de sessions et du site Web.
 </p>
 
 <h3>Améliorations du système de sessions</h3>
 
 <ul>
-<li>Création automatique du dossier :
-<br><b>C:\Sessions VasareliMania</b></li>
 
-<li>Support des fichiers <b>.vasareli</b></li>
+<li>
+Création automatique du dossier :
+<br>
+<b>C:\Sessions VasareliMania</b>
+</li>
 
-<li>Association automatique des fichiers <b>.vasareli</b></li>
+<li>
+Support des fichiers <b>.vasareli</b>.
+</li>
 
-<li>Double-clic sur une session :
-<br>ouverture automatique dans VasareliMania</li>
+<li>
+Association automatique des fichiers <b>.vasareli</b>.
+</li>
 
-<li>Amélioration du système Replay
-<br>(Pause / Reprise / Arrêt)</li>
+<li>
+Double-clic sur une session :
+<br>
+ouverture automatique dans VasareliMania.
+</li>
 
-<li>Renommage du fichier d'installation :
-<br><b>VasareliMania-Setup.msi</b></li>
+<li>
+Amélioration du système Replay
+<br>
+(Pause / Reprise / Arrêt).
+</li>
+
+<li>
+Renommage du fichier d'installation :
+<br>
+<b>VasareliMania-Setup.msi</b>
+</li>
+
 </ul>
 
 <p>
 Ces améliorations préparent l'arrivée d'une véritable bibliothèque
-de sessions permettant de sauvegarder, partager et rejouer des créations
-complètes réalisées avec VasareliMania.
+de sessions permettant de sauvegarder, partager et rejouer
+des créations complètes réalisées avec VasareliMania.
 </p>
 
 <h3>Sessions enregistrables et rejouables</h3>
@@ -374,17 +573,20 @@ complètes réalisées avec VasareliMania.
 <p>
 Un nouveau système de sessions permet d'enregistrer les actions effectuées
 dans le logiciel afin de pouvoir les rejouer ultérieurement.
-L'objectif est de retrouver exactement une création précédente, d'étudier sa
-construction étape par étape ou de poursuivre un travail interrompu.
+L'objectif est de retrouver exactement une création précédente,
+d'étudier sa construction étape par étape
+ou de poursuivre un travail interrompu.
 </p>
 
 <h3>Remaniement de l'interface utilisateur</h3>
 
 <p>
 L'interface a été progressivement réorganisée afin de rendre l'utilisation
-du logiciel plus intuitive. Les différents modes de création ont été clarifiés,
-plusieurs commandes ont été regroupées et de nouvelles pages d'aide sont
-désormais disponibles sur le site de VasareliMania.
+du logiciel plus intuitive.
+Les différents modes de création ont été clarifiés,
+plusieurs commandes ont été regroupées
+et de nouvelles pages d'aide sont désormais disponibles
+sur le site de VasareliMania.
 </p>
 
 <h3>Nouvelles fonctions de dégradés</h3>
@@ -404,7 +606,8 @@ De nombreuses améliorations ont été apportées au moteur de dégradés :
 
 <p>
 Ces évolutions permettent d'obtenir des effets visuels plus riches,
-plus progressifs et plus proches de l'esprit de l'Op Art et de Victor Vasarely.
+plus progressifs et plus proches de l'esprit de l'Op Art
+et de Victor Vasarely.
 </p>
 
 <h3>Développement du site Web VasareliMania</h3>
@@ -438,5 +641,3 @@ Pierre Tcherukine © 2008-2026
 </body>
 
 </html>
-
-
