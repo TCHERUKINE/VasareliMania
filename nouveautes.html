@@ -116,6 +116,39 @@ Retour accueil
 
 <div class="text">
 
+<!-- VERSION 2026.09.09 -->
+<section class="update">
+
+<h2>9 septembre 2026</h2>
+<h3>Replay des sessions</h3>
+<p>
+Importantes améliorations du moteur de lecture des sessions,
+notamment pour les créations utilisant
+<strong>Sans Motif</strong>, les dégradés, les textures
+et les incrustations.
+</p>
+<ul>
+<li>Forte réduction du temps de replay pour certaines sessions complexes utilisant dégradés, textures et incrustations.</li>
+<li>Suppression de recalculs graphiques inutiles qui pouvaient provoquer des attentes de plusieurs dizaines de secondes.</li>
+<li>Correction de plusieurs affichages intermédiaires incorrects lors du passage entre les modes <strong>Incrusté</strong> et <strong>Non Incrusté</strong>.</li>
+<li>Optimisation du retrait et de l'application des textures en réutilisant la base dégradée déjà calculée lorsque cela est possible.</li>
+<li>Correction du fonctionnement des sélecteurs de textures afin d'éviter certains redessins multiples inutiles.</li>
+<li>Amélioration du replay des créations combinant <strong>FORMES</strong> avec un <strong>FOND</strong>, notamment le fond <strong>NUAGES</strong>.</li>
+<li>Meilleure restitution de l'enchaînement original des opérations pendant le replay.</li>
+<li>Compatibilité améliorée avec les sessions enregistrées précédemment, qui peuvent bénéficier de ces corrections sans être réenregistrées.</li>
+</ul>
+<h3>Résultat</h3>
+<p>
+Le replay est désormais nettement plus rapide et plus fidèle
+à la création originale, y compris pour des sessions complexes
+comportant dégradés, textures, incrustations et changements
+de fond.
+</p>
+</section>
+
+<hr>
+
+
 <!-- ===================================================== -->
 <!-- VERSION 2026.09.04 -->
 <!-- ===================================================== -->
