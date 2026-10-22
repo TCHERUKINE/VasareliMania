@@ -1,1 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mode d'emploi complet Utiliser Avec Motif de VasareliMania : KEPLER, POLYGONES, tricolore, quadricolore, couleurs, dégradés, géométrie, textures, incrustation et sessions.">
+<title>Utiliser Avec Motif — VasareliMania</title>
+<style>
+    :root { color-scheme: dark; --fond:#120000; --panneau:#210706; --cartouche:#2a0a07; --liseret:#775744;
+      --bleu:#07065a; --bleu-clair:#17237b; --jaune:#ffe269; --texte:#f6ecdd; --secondaire:#d0bcac; --vert:#b4e5b3; --lien:#ffdc63; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+    body { margin:0; background:var(--fond); color:var(--texte); font: 16px/1.62 Arial, Helvetica, sans-serif; }
+    a { color:var(--lien); text-underline-offset: 3px; }
+    a:hover, a:focus-visible { color:white; }
+    :focus-visible { outline:2px solid var(--jaune); outline-offset:3px; }
+    .saut {position:absolute; left:-9999px; top:0;}
+    .saut:focus {position:fixed; z-index:99; left:12px; top:12px; background:var(--jaune); color:#000; padding:9px 14px;}
+    .conteneur { width:95%; max-width:1400px; margin:0 auto; }
+    .haut { padding:20px 0 17px; border-bottom:1px solid var(--liseret); }
+    .haut-ligne { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+    .marque { font-size:1.38rem; color:var(--jaune); font-weight:700; letter-spacing:.2px; }
+    .sousmarque {font-size:.88rem; color:var(--secondaire);}
+    .navigation {display:flex; flex-wrap:wrap; gap:7px;}
+    .navigation a,.retour-haut,.appel { display:inline-block; border:1px solid #a58963; background:#080857;
+      color:var(--jaune); border-radius:5px; padding:6px 13px; font-size:.9rem; font-weight:bold; text-decoration:none; }
+    .navigation a:hover,.retour-haut:hover,.appel:hover {background:#222399;color:#fff;}
+    .bandeau {margin:21px 0 19px; padding:16px 20px; border:1px solid var(--liseret); background:#200704; border-radius:8px;}
+    .bandeau h1 {color:var(--jaune); font-size:1.32rem; margin:0 0 5px;}
+    .bandeau p {margin:5px 0;}
+    .version {color:var(--secondaire); font-size:.88rem;}
+    .mise-en-page {display:grid; grid-template-columns:242px minmax(0,1fr); gap:23px; align-items:start; padding-bottom:48px;}
+    .sommaire { position:sticky; top:16px; border:1px solid var(--liseret); background:#1b0505; border-radius:7px; padding:12px 12px 13px; max-height:calc(100vh - 32px); overflow:auto; }
+    .sommaire strong {display:block; font-size:1rem; color:var(--jaune); margin:0 0 6px;}
+    .sommaire a {display:block; text-decoration:none; padding:4px 7px; color:#f3e2b4; border-radius:3px; font-size:.88rem; line-height:1.35;}
+    .sommaire a:hover,.sommaire a:focus-visible {background:#191966; color:#fff;}
+    main {min-width:0;}
+    section {margin:0 0 18px; padding:18px 21px 19px; border:1px solid #674635; border-radius:8px; background:var(--panneau);}
+    section h2 {color:var(--jaune); font-size:1.15rem; line-height:1.3; margin:0 0 10px; padding-bottom:7px; border-bottom:1px solid #6b4632;}
+    section h3 {color:#ffe3aa; font-size:1.02rem; line-height:1.35; margin:16px 0 6px;}
+    section p {margin:8px 0 10px;}
+    section ul, section ol {margin:7px 0 12px; padding-left:22px;}
+    li {margin:4px 0;}
+    .note {border-left:3px solid #e6b957; background:#2c170b; padding:9px 12px; margin:13px 0;}
+    .astuce {border-left-color:#86d6a9; background:#0b241b;}
+    .attention {border-left-color:#ff917c; background:#381414;}
+    .grille {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; margin:12px 0;}
+    .mini {background:#080e44; border:1px solid #494a93; border-radius:6px; padding:10px 12px;}
+    .mini strong {color:#fff099;}
+    .mini p {font-size:.93rem; margin:5px 0 0;}
+    .defilement {overflow-x:auto; max-width:100%; margin:10px 0 14px;}
+    table {border-collapse:collapse; width:100%; font-size:.93rem;}
+    th,td {border:1px solid #71503c; padding:7px 10px; vertical-align:top; text-align:left;}
+    th {background:#17135a; color:#fff19b; font-weight:bold;}
+    tbody tr:nth-child(even) {background:#2b100b;}
+    kbd {white-space:nowrap; border:1px solid #ab967b; border-bottom-width:2px; border-radius:4px;
+       background:#1a204f; color:#fff; padding:1px 5px; font:700 .9em Arial, sans-serif;}
+    code {font-family:Consolas,"Courier New",monospace; color:#f8dda8; word-break:break-word;}
+    .nom-forme {color:#ffe296; font-weight:bold;}
+    .etapes li {padding-left:3px; margin-bottom:7px;}
+    .formes {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:13px 0;}
+    .forme {border:1px solid #644b39; border-radius:5px; padding:10px 12px; background:#190a11;}
+    .forme h3 {margin:0 0 3px; font-size:1rem; color:#ffe28c;}
+    .forme p {margin:3px 0; font-size:.91rem; line-height:1.48;}
+    .famille {font-size:.88rem; text-transform:uppercase; letter-spacing:.4px; color:#d3b4a4; margin:15px 0 4px; font-weight:bold;}
+    .raccourcis {display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
+    .raccourcis span {display:inline-block; padding:6px 9px; border:1px solid #79764a; background:#181646; border-radius:5px;}
+    .legende {font-size:.86rem; color:var(--secondaire);}
+    .bas {border-top:1px solid var(--liseret); text-align:center; padding:18px 15px 24px; color:#d6b7a9; font-size:.86rem;}
+    .retour-haut {display:inline-block; margin-top:4px;}
+    @media(max-width:960px) {.mise-en-page {grid-template-columns:1fr;gap:12px;} .sommaire{position:static;max-height:none;} .sommaire nav{columns:2;} }
+    @media(max-width:650px) {body{font-size:15px;}.conteneur{width:96%;} .bandeau{padding:13px;}
+      section{padding:13px 13px 15px;} .grille,.formes{grid-template-columns:1fr;} .sommaire nav{columns:1;} th,td{padding:6px;} }
+    @media print { :root{color-scheme:light;} body{background:white;color:#111;font-size:10pt;} .navigation,.sommaire,.retour-haut{display:none!important;}
+      .mise-en-page{display:block;} .conteneur{width:100%;max-width:none;} .haut,.bandeau,section{background:#fff;color:#111;border-color:#aaa;}
+      h1,h2,h3,.marque,.forme h3,.nom-forme,.bandeau h1,section h2,section h3{color:#111;} table th{color:#111;background:#eee;}
+      .mini,.forme,.note{background:#fff;color:#111;border-color:#aaa;} a{color:#111;} section {break-inside:avoid-page;} }
+  
+    .bouton-vm {display:inline-block; padding:3px 9px; border:1px solid #e2c451; background:#09085b; color:#ffe76d; border-radius:4px; font-weight:bold; font-size:.88em;}
+    .parcours{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0 2px;}
+    .parcours span {display:inline-block; padding:4px 9px; background:#0b1049; border:1px solid #665b44; border-radius:4px; font-size:.87rem;}
+    .parcours em {color:#ffe269; font-size:.95rem; font-style:normal;}
+    .question {margin-top:13px;}
+    details {border:1px solid #755344; background:#2b0c0a; border-radius:5px; margin:9px 0; padding:7px 12px;}
+    summary {cursor:pointer; color:#ffe5a4; font-weight:700;}
+    details p {margin:6px 0 2px;}
+    .mark {color:#ffe296; font-weight:700;}
+    .code-copie {background:#0e1247; border:1px solid #655b6c; padding:11px; overflow-x:auto; border-radius:5px;}
+    @media print { details {break-inside:avoid;} details>p {display:block;} .bouton-vm,.parcours span{background:white;color:black;border:1px solid #999;} }
+
+@media print { details>p{display:block!important} }
+</style>
+</head>
+<body id="haut">
+<a class="saut" href="#corps">Aller directement au mode d'emploi</a>
+<header class="haut"><div class="conteneur haut-ligne">
+<div><div class="marque">VasareliMania</div><div class="sousmarque">Créer et personnaliser les motifs géométriques</div></div>
+<nav class="navigation" aria-label="Navigation du site">
+<a href="index.html">Accueil</a>
+<a href="presentation.html">Mode d'emploi</a>
+<a href="utiliser-formes.html">Utiliser les FORMES</a>
+<a href="utiliser-sans-motif.html">Sans Motif</a>
+<a href="utiliser-record-rejouer.html">RECORD / REJOUER</a>
+<a href="nouveautes.html">Nouveautés</a>
+</nav></div></header>
+<div class="conteneur">
+<div class="bandeau">
+<h1>Utiliser AVEC MOTIF — mode d'emploi exhaustif</h1>
+<p>KEPLER, POLYGONES, MOTIF TRICOLORE et MOTIF QUADRICOLORE : apprendre à choisir, construire, colorer, déformer, incruster et enregistrer ses créations.</p>
+<p class="version">Édition du 22 octobre 2026 · VasareliMania pour Windows · Guide vérifié à partir de la version Form1 à 23 formes</p>
+<div class="parcours" aria-label="Parcours rapide"><span>FORMES</span><em>→</em><span>Avec Motif</span><em>→</em><span>Choix du motif</span><em>→</em><span>Couleurs et géométrie</span><em>→</em><span>SAUVE / RECORD</span></div>
+</div>
+<div class="mise-en-page">
+<aside class="sommaire" aria-label="Sommaire"><strong>Sommaire</strong><nav><a href="#comprendre">1. Comprendre le mode « Avec Motif »</a>
+<a href="#premier-dessin">2. Premier dessin en huit étapes</a>
+<a href="#basculer">3. Activer et quitter « Avec Motif »</a>
+<a href="#choix">4. Les quatre choix disponibles dans la liste</a>
+<a href="#interface">5. Lire l’interface et ses commandes</a>
+<a href="#kepler">6. KEPLER : découvrir le motif</a>
+<a href="#kepler-couleurs">7. KEPLER : changer les trois couleurs</a>
+<a href="#kepler-degrades">8. KEPLER : dégradés, opposition et inversion</a>
+<a href="#polygones">9. POLYGONES : construire des étoiles et des figures</a>
+<a href="#polygones-reglages">10. POLYGONES : tous les réglages du panneau</a>
+<a href="#polygones-couleurs">11. POLYGONES : passer de tricolore à quadricolore</a>
+<a href="#tricolore">12. MOTIF TRICOLORE : méthode complète</a>
+<a href="#quadricolore">13. MOTIF QUADRICOLORE : méthode complète</a>
+<a href="#geom-structure">14. Colonnes, Diviseur, SIMPLE et COMPLEXE</a>
+<a href="#geom-detail">15. Échelle, rotation, déformations et tracés</a>
+<a href="#formes">16. Associer les motifs aux 23 formes</a>
+<a href="#palette">17. Palette de couleurs des FORMES et Tracé 2</a>
+<a href="#inversions">18. Inversions de couleurs et variations de dégradé</a>
+<a href="#textures">19. Utiliser les TEXTURES avec les motifs</a>
+<a href="#teintes-od">20. Bouton O / D : couleurs originales ou décalées</a>
+<a href="#alternance">21. Alterner plusieurs formes dans un même dessin</a>
+<a href="#fond">22. Associer un motif à un FOND</a>
+<a href="#incrustation">23. Incrustation, interface masquée et retour</a>
+<a href="#record">24. Enregistrer les réglages avec RECORD</a>
+<a href="#rejouer">25. Revoir un motif avec REJOUER</a>
+<a href="#sauvegarder">26. Sauvegarder une image et créer une animation</a>
+<a href="#ateliers">27. Huit ateliers pratiques à reproduire</a>
+<a href="#depannage">28. Dépannage détaillé</a>
+<a href="#glossaire">29. Glossaire rapide et aide-mémoire</a></nav></aside>
+<main id="corps">
+<section id="comprendre">
+<h2>1. Comprendre le mode « Avec Motif »</h2>
+<p><strong>Avec Motif</strong> est le mode de VasareliMania consacré aux dessins géométriques enrichis d’un <strong>motif interne</strong>. Il ne se limite pas à colorier les formes : selon le motif sélectionné, il construit des figures répétées, des courbes, des polygones, des volumes colorés et leurs variations.</p>
+<div class="grille"><div class="mini"><strong>Sans Motif</strong><p>Peinture d’aplats et de dégradés, interface propre au moteur Turbo pour les remplissages simples.</p></div><div class="mini"><strong>Avec Motif</strong><p>Moteur de dessin historique enrichi : choix KEPLER, POLYGONES, MOTIF TRICOLORE et MOTIF QUADRICOLORE, avec commandes adaptées.</p></div></div>
+<div class="note"><strong>Version documentée :</strong> VasareliMania du <strong>22 octobre 2026</strong>, programme Windows, code de référence Form1 à 23 formes. Ce guide décrit les choix actuellement disponibles et évite de présenter comme active une ancienne option retirée.</div>
+<p>Les deux modes utilisent une partie des réglages géométriques de la même application, mais <strong>ils n’affichent pas les mêmes commandes</strong> et ne suivent pas le même circuit de rendu. Pour apprendre les 23 formes elles-mêmes, consultez aussi <a href="utiliser-formes.html">Utiliser les FORMES</a>.</p>
+</section>
+
+<section id="premier-dessin">
+<h2>2. Premier dessin en huit étapes</h2>
+<ol class="etapes">
+<li>Lancez <strong>VasareliMania</strong> et placez-vous sur la partie <span class="bouton-vm">FORMES</span>.</li>
+<li>Repérez le bouton <span class="bouton-vm">Sans Motif</span> ou <span class="bouton-vm">Avec Motif</span> : <strong>le texte indique le mode courant</strong>.</li>
+<li>Si vous voyez <strong>Sans Motif</strong>, cliquez une fois pour faire apparaître <strong>Avec Motif</strong>.</li>
+<li>Dans la liste des motifs qui s’ouvre, sélectionnez <strong>MOTIF TRICOLORE</strong> pour un premier essai simple. La liste peut apparaître sans sélection initiale : c’est normal.</li>
+<li>Commencez avec une structure <strong>SIMPLE</strong>, peu de colonnes et une forme géométrique connue ; évitez de modifier plusieurs paramètres simultanément.</li>
+<li>Choisissez les couleurs des surfaces par les commandes visibles du panneau FORMES, puis la couleur <strong>Tracé 2</strong> si vous voulez distinguer les contours.</li>
+<li>Modifiez doucement <strong>Échelle</strong> puis <strong>Rotation</strong> ; observez comment le motif change à l’intérieur des cellules.</li>
+<li>Comparez avec <strong>MOTIF QUADRICOLORE</strong>, puis essayez <strong>POLYGONES</strong> et <strong>KEPLER</strong>. Conservez les résultats intéressants avec les outils d’enregistrement ou de sauvegarde.</li>
+</ol>
+<div class="parcours" aria-label="Parcours rapide"><span>FORMES</span><em>→</em><span>Avec Motif</span><em>→</em><span>Choisir un motif</span><em>→</em><span>Couleurs</span><em>→</em><span>Géométrie</span><em>→</em><span>Sauvegarder</span></div>
+<div class="note astuce">Pour commencer, privilégiez <strong>un seul changement par essai</strong> : d’abord le motif, ensuite les couleurs, puis les paramètres géométriques.</div>
+</section>
+
+<section id="basculer">
+<h2>3. Activer et quitter « Avec Motif »</h2>
+<p>Le bouton de bascule n’est pas un lien vers une autre fenêtre : il change le <strong>moteur graphique actif</strong> et adapte automatiquement l’interface.</p>
+<div class="defilement"><table><thead><tr><th>Texte affiché</th><th>Signification</th><th>Contrôles caractéristiques</th></tr></thead><tbody>
+<tr><td><span class="bouton-vm">Sans Motif</span></td><td>Vous êtes dans le mode sans motifs internes.</td><td>PEINDRE et Peindre Dégradé du mode Sans Motif ; liste des formes/modes correspondante.</td></tr>
+<tr><td><span class="bouton-vm">Avec Motif</span></td><td>Vous êtes dans le mode à motifs internes.</td><td>Liste KEPLER, POLYGONES, MOTIF TRICOLORE, MOTIF QUADRICOLORE ; curseurs spécialisés et boutons de motif.</td></tr>
+</tbody></table></div>
+<p><strong>Pour passer dans Avec Motif :</strong> cliquez sur <em>Sans Motif</em>, puis sélectionnez un motif. Le programme masque les boutons propres à la peinture Turbo et affiche les réglages correspondants au moteur Avec Motif.</p>
+<p><strong>Pour revenir :</strong> cliquez sur <em>Avec Motif</em> ; l’interface réaffiche les commandes du mode Sans Motif et restaure certains paramètres de diviseur lorsqu’on travaille en SIMPLE.</p>
+<div class="note attention"><strong>Ne pas confondre :</strong> l’inscription <strong>Avec Motif</strong> à l’écran indique le mode actif, tandis que le bouton <strong>Non Incrusté / Incrusté</strong> concerne la superposition des images. Pendant l’incrustation, le bouton de changement de mode peut être masqué.</div>
+</section>
+
+<section id="choix">
+<h2>4. Les quatre choix disponibles dans la liste</h2>
+<p>Lorsque le mode Avec Motif est actif, la liste principale des motifs propose les entrées suivantes :</p>
+<div class="defilement"><table><thead><tr><th>Choix</th><th>Type de dessin</th><th>Réglages particuliers</th></tr></thead><tbody>
+<tr><td><strong>KEPLER</strong></td><td>Motif historique utilisant notamment trois composantes colorées.</td><td>Couleurs Kr, Kb, Kj ; inversion de dégradé Kepler ; dégradés de couleurs opposées et leur intensité.</td></tr>
+<tr><td><strong>POLYGONES</strong></td><td>Figures polygonales / étoilées, avec structure interne paramétrable.</td><td>Panneau des segments, dimensions, position, courbure, rendu TRI/QUAD.</td></tr>
+<tr><td><strong>MOTIF TRICOLORE</strong></td><td>Motif interne fondé sur une organisation à trois couleurs.</td><td>Palette de FORMES, géométrie, déformations, couleurs et textures.</td></tr>
+<tr><td><strong>MOTIF QUADRICOLORE</strong></td><td>Motif interne offrant quatre composantes colorées.</td><td>Palette élargie, géométrie, rotation, déformations, textures.</td></tr>
+</tbody></table></div>
+<p><strong>Sélection :</strong> cliquez sur une ligne de la liste. L’interface change immédiatement et affiche, ou masque, les commandes utiles à cette famille.</p>
+<div class="note">La version examinée retire de la liste visible l’ancienne entrée <strong>« MOTIF TRICOLORE &amp; QUADRICOLORE »</strong>. Elle ne doit donc pas être recherchée comme un cinquième choix de l’interface.</div>
+</section>
+
+<section id="interface">
+<h2>5. Lire l’interface et ses commandes</h2>
+<p>Dans VasareliMania, les commandes communes (formes, couleurs, géométrie) et les commandes spécifiques à un motif coexistent. Certaines disparaissent dès que leur motif n’est plus sélectionné.</p>
+<div class="defilement"><table><thead><tr><th>Commande ou zone</th><th>À quoi sert-elle ?</th></tr></thead><tbody>
+<tr><td><strong>FORMES / FOND</strong></td><td>Choisir si l’on travaille sur le dessin des formes ou sur son arrière-plan.</td></tr>
+<tr><td><strong>Sans Motif / Avec Motif</strong></td><td>Changer le moteur de dessin des formes.</td></tr>
+<tr><td><strong>Liste des motifs</strong></td><td>Choisir KEPLER, POLYGONES, MOTIF TRICOLORE ou MOTIF QUADRICOLORE.</td></tr>
+<tr><td><strong>SIMPLE / COMPLEXE</strong></td><td>Modifier le mode de construction et les possibilités de géométrie.</td></tr>
+<tr><td><strong>Colonnes et Diviseur</strong></td><td>Régler la répétition et la subdivision de la composition.</td></tr>
+<tr><td><strong>Échelle, Rotation, Déformation</strong></td><td>Changer taille, orientation et dessin des figures.</td></tr>
+<tr><td><strong>Tracé 2</strong></td><td>Choisir la couleur du contour utilisée pour le rendu Avec Motif.</td></tr>
+<tr><td><strong>BS1 / BS2 / BSC</strong></td><td>Couleurs de surfaces utilisées par plusieurs constructions géométriques.</td></tr>
+<tr><td><strong>CS1 à CS4</strong></td><td>Autres couleurs de la palette FORMES, selon le dessin choisi.</td></tr>
+<tr><td><strong>Kr / Kb / Kj</strong></td><td>Rouge, bleu et jaune du mode KEPLER (les teintes sont personnalisables).</td></tr>
+<tr><td><strong>TRICOLORE / QUADRICOLORE</strong></td><td>Commutation du nombre de couleurs dans POLYGONES.</td></tr>
+<tr><td><strong>TEXTURES</strong></td><td>Choisir et régler le traitement texturé lorsqu’il est disponible.</td></tr>
+<tr><td><strong>O / D</strong></td><td>Conserver les teintes originales ou activer le décalage automatique des teintes.</td></tr>
+<tr><td><strong>Incrusté</strong></td><td>Combiner le dessin des formes avec le fond.</td></tr>
+<tr><td><strong>RECORD / REJOUER</strong></td><td>Mémoriser puis restituer les états successifs d’une création.</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="kepler">
+<h2>6. KEPLER : découvrir le motif</h2>
+<p>Le mode <strong>KEPLER</strong> possède son propre rendu géométrique et sa palette de trois couleurs. C’est l’une des familles les plus distinctives de VasareliMania.</p>
+<ol><li>Activez <strong>Avec Motif</strong> puis choisissez <span class="bouton-vm">KEPLER</span> dans la liste.</li><li>Observez les commandes Kepler qui apparaissent : boutons des couleurs, inversion du dégradé, et réglage de dégradés opposés.</li><li>Choisissez une palette où les trois teintes se distinguent nettement.</li><li>Augmentez ou diminuez progressivement la taille et la déformation ; modifiez ensuite le nombre de colonnes.</li><li>Essayez l’inversion du dégradé pour créer une seconde version du même dessin.</li></ol>
+<p>Les couleurs de base s’appellent historiquement <strong>Kr</strong> (rouge), <strong>Kb</strong> (bleu) et <strong>Kj</strong> (jaune), mais elles ne sont pas limitées à leurs couleurs d’origine : le sélecteur permet de leur attribuer d’autres teintes.</p>
+<div class="note astuce">Pour bien comprendre KEPLER, préparez une version aux couleurs originales, puis ne changez que <strong>Kr</strong>. Comparez avant de toucher aux deux autres couleurs.</div>
+</section>
+
+<section id="kepler-couleurs">
+<h2>7. KEPLER : changer les trois couleurs</h2>
+<div class="defilement"><table><thead><tr><th>Bouton</th><th>Couleur concernée</th><th>Action</th></tr></thead><tbody>
+<tr><td><span class="bouton-vm">Kr</span></td><td>Rouge Kepler</td><td>Ouvre un choix des couleurs Kepler ; cette commande permet également de parcourir successivement les trois couleurs.</td></tr>
+<tr><td><span class="bouton-vm">Kb</span> (le libellé peut paraître « Klb »)</td><td>Bleu Kepler</td><td>Ouvre le sélecteur de la composante bleue.</td></tr>
+<tr><td><span class="bouton-vm">Kj</span></td><td>Jaune Kepler</td><td>Ouvre le sélecteur de la composante jaune.</td></tr>
+</tbody></table></div>
+<p>Après ouverture du sélecteur, observez l’aperçu de couleur, puis validez avec <strong>OK</strong> si la teinte vous convient. Le programme peut rafraîchir le dessin lors de l’aperçu ; le choix validé devient la couleur mémorisée.</p>
+<h3>Construire une palette lisible</h3>
+<ul><li>Un <strong>rouge chaud</strong>, un <strong>bleu froid</strong> et un <strong>jaune clair</strong> donnent un contraste traditionnel.</li><li>Trois couleurs de luminosités différentes rendent les superpositions plus lisibles.</li><li>Des tons proches créent une ambiance plus douce, mais peuvent rendre certaines limites moins visibles.</li><li>La couleur <strong>Tracé 2</strong> permet de traiter séparément les contours du motif.</li></ul>
+</section>
+
+<section id="kepler-degrades">
+<h2>8. KEPLER : dégradés, opposition et inversion</h2>
+<p>Le moteur KEPLER sait moduler les couleurs entre des zones plus claires et plus sombres. Trois actions sont importantes :</p>
+<div class="defilement"><table><thead><tr><th>Action</th><th>Effet</th><th>Comment s’en servir</th></tr></thead><tbody>
+<tr><td><strong>Dégradé Couleurs opposées</strong></td><td>Active ou désactive une variante fondée sur les couleurs opposées aux teintes Kepler.</td><td>Cliquez une fois pour comparer ; recliquez pour revenir.</td></tr>
+<tr><td><strong>Molette de la souris sur ce bouton</strong></td><td>Modifie l’intensité du dégradé opposé par pas de 5, dans une plage de 0 à 100.</td><td>Placez le pointeur sur le bouton de dégradés opposés, puis tournez la molette progressivement.</td></tr>
+<tr><td><strong>Inverser Dégradé Kepler</strong></td><td>Bascule l’inversion de la progression du dégradé Kepler.</td><td>Comparez les mêmes couleurs avant et après inversion.</td></tr>
+</tbody></table></div>
+<div class="note">La commande d’inversion peut modifier son libellé après l’activation (<em>Inversé Dégradé Kepler</em>). Cette variation indique l’état courant, et non un autre outil.</div>
+<h3>Exercice recommandé</h3><ol><li>Sélectionnez KEPLER et choisissez trois couleurs bien contrastées.</li><li>Activez <strong>Dégradé Couleurs opposées</strong>.</li><li>Réglez l’intensité avec la molette du bouton ; comparez faible, moyenne et forte intensités.</li><li>Utilisez ensuite <strong>Inverser Dégradé Kepler</strong> pour découvrir une nouvelle lecture du même dessin.</li></ol>
+</section>
+
+<section id="polygones">
+<h2>9. POLYGONES : construire des étoiles et des figures</h2>
+<p><strong>POLYGONES</strong> construit une famille de figures polygonales, notamment étoilées. En sélectionnant ce motif, un panneau de réglages spécialisé apparaît.</p>
+<ol><li>Passez en Avec Motif et sélectionnez <span class="bouton-vm">POLYGONES</span>.</li><li>Commencez par modifier légèrement <strong>Nb de Segments</strong>.</li><li>Agissez sur <strong>Dim Externe</strong> et les dimensions internes pour faire varier les branches et les creux.</li><li>Choisissez une représentation <strong>Droite</strong> ou <strong>Courbe</strong> lorsque le bouton est disponible.</li><li>Réglez le contour <strong>Tracé 2</strong> et les couleurs de surface, puis augmentez la densité de la composition.</li></ol>
+<div class="note astuce">Un nombre de segments modéré et des couleurs nettement séparées donnent généralement la meilleure lecture du motif au début.</div>
+</section>
+
+<section id="polygones-reglages">
+<h2>10. POLYGONES : tous les réglages du panneau</h2>
+<p>Le panneau spécifique comporte plusieurs curseurs ; leurs noms restent les meilleurs repères, même si la disposition varie selon la taille de la fenêtre.</p>
+<div class="defilement"><table><thead><tr><th>Réglage</th><th>Rôle et expérimentation</th></tr></thead><tbody>
+<tr><td><strong>Nb de Segments</strong></td><td>Change le nombre de segments utilisés pour la silhouette de la figure. Tester peu, puis davantage de segments.</td></tr>
+<tr><td><strong>Dim Externe</strong></td><td>Agit sur le rayon/la taille extérieure de la figure.</td></tr>
+<tr><td><strong>Dim Interne 1</strong></td><td>Modifie la première dimension interne du polygone.</td></tr>
+<tr><td><strong>Dim Interne 2</strong></td><td>Modifie la seconde dimension interne : permet notamment de modifier la profondeur relative des creux.</td></tr>
+<tr><td><strong>Pos. Horizontale</strong></td><td>Décale la figure ou le rendu sur l’axe horizontal.</td></tr>
+<tr><td><strong>Pos. Verticale</strong></td><td>Décale la figure ou le rendu sur l’axe vertical.</td></tr>
+<tr><td><strong>Droite / Courbe</strong></td><td>Bascule entre un tracé polygonal à segments droits et une variante courbe.</td></tr>
+<tr><td><strong>Curseur de tension</strong></td><td>Lorsque Courbe est sélectionné, ajuste la tension/courbure du tracé.</td></tr>
+<tr><td><strong>Dégradé Flou</strong></td><td>Agit sur la souplesse de la transition du dégradé du panneau.</td></tr>
+<tr><td><strong>Netteté dégradé</strong></td><td>Modifie la netteté du traitement de dégradé.</td></tr>
+</tbody></table></div>
+<p>Il n’existe pas une valeur universellement meilleure : l’effet de chaque curseur dépend de la taille des figures, du nombre de colonnes et de la palette. Laissez l’une des dimensions constante pour comparer correctement les autres.</p>
+</section>
+
+<section id="polygones-couleurs">
+<h2>11. POLYGONES : passer de tricolore à quadricolore</h2>
+<p>En mode POLYGONES, le bouton <span class="bouton-vm">TRICOLORE</span> / <span class="bouton-vm">QUADRICOLORE</span> sert de <strong>commutateur de rendu</strong>.</p>
+<ol><li>Sélectionnez <strong>POLYGONES</strong> dans la liste des motifs.</li><li>Repérez le bouton portant <em>TRICOLORE</em> ou <em>QUADRICOLORE</em>.</li><li>Cliquez pour changer de variante. Le libellé change et le dessin est recalculé.</li><li>Comparez les répartitions colorées sans modifier la géométrie.</li><li>Recliquez pour retrouver l’autre variante.</li></ol>
+<div class="note"><strong>Différence importante :</strong> ce bouton de POLYGONES ne signifie pas que vous avez nécessairement quitté POLYGONES pour sélectionner <em>MOTIF TRICOLORE</em> dans la liste. Ce sont deux commandes distinctes.</div>
+</section>
+
+<section id="tricolore">
+<h2>12. MOTIF TRICOLORE : méthode complète</h2>
+<p>La ligne <span class="bouton-vm">MOTIF TRICOLORE</span> active une construction géométrique propre, différente du mode POLYGONES tricolore. Elle exploite la géométrie des formes, des couleurs de surface et le contour du moteur Avec Motif.</p>
+<h3>Procédure</h3><ol><li>Sélectionnez <strong>MOTIF TRICOLORE</strong> dans la liste.</li><li>Choisissez une figure simple pour visualiser plus facilement la structure.</li><li>Réglez les couleurs <strong>BS1, BS2 et BSC</strong>, et, lorsque leur rôle est visible, les commandes de palette des formes.</li><li>Modifiez l’échelle : observez les zones colorées se rapprocher ou s’éloigner.</li><li>Modifiez la rotation, puis les déformations X et Y pour produire des variantes.</li><li>Réglez <strong>Tracé 2</strong> : un contour plus fin accentue les surfaces, un contour plus épais renforce la structure.</li><li>Testez le bouton <strong>O/D</strong> pour comparer les couleurs originales avec les teintes automatiquement décalées.</li></ol>
+<p>Dans ce mode, les réglages peuvent dépendre des positions des figures dans la grille : la rotation n’est pas nécessairement identique partout dans la composition.</p>
+<div class="note astuce">Pour un motif tricolore équilibré, essayez une couleur sombre, une couleur vive et une troisième plus lumineuse.</div>
+</section>
+
+<section id="quadricolore">
+<h2>13. MOTIF QUADRICOLORE : méthode complète</h2>
+<p>Le <span class="bouton-vm">MOTIF QUADRICOLORE</span> ajoute des possibilités de répartition colorée à l’intérieur d’un même dessin. Les constructions et effets diffèrent de ceux du MOTIF TRICOLORE.</p>
+<ol><li>Dans la liste, sélectionnez <strong>MOTIF QUADRICOLORE</strong>.</li><li>Choisissez une forme, une taille et un nombre de colonnes compatibles avec une lecture claire du dessin.</li><li>Préparez quatre teintes distinctes dans la palette de FORMES utilisée par ce motif.</li><li>Réglez <strong>Tracé 2</strong> indépendamment des surfaces.</li><li>Changez l’orientation, puis la déformation pour découvrir les variantes.</li><li>Si vous souhaitez un rendu plus nuancé, testez les réglages de dégradé et de texture disponibles dans cette configuration.</li><li>Comparez avec le même dessin en MOTIF TRICOLORE pour comprendre le rôle de la quatrième zone colorée.</li></ol>
+<h3>Quelques palettes à essayer</h3><div class="grille"><div class="mini"><strong>Contraste Vasarely</strong><p>Bleu profond, rouge vif, jaune lumineux, blanc cassé.</p></div><div class="mini"><strong>Palette douce</strong><p>Bordeaux, vieux rose, beige, gris bleuté.</p></div><div class="mini"><strong>Optique</strong><p>Noir, blanc, jaune intense, bleu électrique.</p></div><div class="mini"><strong>Dégradé chromatique</strong><p>Quatre teintes progressives, par exemple bleu, turquoise, vert, citron.</p></div></div>
+</section>
+
+<section id="geom-structure">
+<h2>14. Colonnes, Diviseur, SIMPLE et COMPLEXE</h2>
+<p>La construction d’une composition repose principalement sur la répétition des motifs et sur la division interne de la géométrie.</p>
+<div class="defilement"><table><thead><tr><th>Commande</th><th>Influence sur le dessin</th><th>Conseil pratique</th></tr></thead><tbody>
+<tr><td><strong>Colonnes</strong></td><td>Modifie la densité de la grille : moins de colonnes, motifs plus grands ; plus de colonnes, motifs plus petits et plus nombreux.</td><td>Commencer faible pour étudier un motif isolé.</td></tr>
+<tr><td><strong>Diviseur</strong></td><td>Intervient dans la subdivision des formes et dans le calcul des dimensions de la répétition.</td><td>Le modifier après avoir stabilisé les colonnes.</td></tr>
+<tr><td><strong>SIMPLE</strong></td><td>Construction de base avec des relations de paramètres simplifiées.</td><td>Idéal pour se familiariser avec un nouveau motif.</td></tr>
+<tr><td><strong>COMPLEXE</strong></td><td>Construction plus élaborée ; certaines bornes et fonctions de subdivision changent.</td><td>Comparer avec la même palette et les mêmes colonnes.</td></tr>
+<tr><td><strong>FIGURES</strong></td><td>Change la configuration géométrique des répétitions.</td><td>Observer d’abord le résultat avec une seule couleur de contour.</td></tr>
+</tbody></table></div>
+<p>Le passage à Avec Motif peut initialiser le <strong>Diviseur à 1 en SIMPLE</strong>. Cela évite de réutiliser sans adaptation une subdivision héritée de Sans Motif. Le retour en Sans Motif peut restaurer l’ancienne valeur.</p>
+<div class="note attention">Lorsque le motif semble trop petit ou peu visible, ne modifiez pas toutes les commandes : <strong>réduisez les colonnes</strong>, vérifiez le diviseur et regardez l’échelle.</div>
+</section>
+
+<section id="geom-detail">
+<h2>15. Échelle, rotation, déformations et tracés</h2>
+<h3>Échelle</h3><p>Elle modifie la taille du motif dans son espace de construction. Une petite valeur laisse davantage de place autour du motif ; une grande valeur renforce sa présence, mais peut entraîner des chevauchements visuels.</p>
+<h3>Rotation</h3><p>Elle change l’orientation. Selon la famille choisie, une rotation de la figure peut se combiner avec des variations locales liées à sa position dans la grille.</p>
+<h3>Déformations X et Y</h3><p>Elles agissent séparément sur la géométrie horizontale et verticale. Tester d’abord X seul, puis Y seul, enfin les deux en combinaison.</p>
+<h3>Épaisseur des contours</h3><p>Le moteur Avec Motif emploie <strong>Tracé 2</strong> pour la couleur du contour et un réglage d’épaisseur du tracé. Ajustez l’épaisseur en fonction de la taille finale : un trait trop large peut masquer les détails d’un petit motif.</p>
+<h3>Curseurs spécifiques</h3><p>Les curseurs propres au mode Avec Motif interviennent également sur la dimension et l’équilibre <strong>convexe / concave</strong> des figures. Leur effet dépend du motif ; ce n’est pas une erreur si deux motifs ne réagissent pas de la même manière.</p>
+<div class="note astuce">Un protocole simple : conserver les couleurs, faire trois captures avec trois rotations, puis conserver la plus lisible avant de modifier les déformations.</div>
+</section>
+
+<section id="formes">
+<h2>16. Associer les motifs aux 23 formes</h2>
+<p>La version du 22 octobre 2026 de VasareliMania comporte <strong>23 formes</strong>. Elles ne sont pas toutes équivalentes : certaines reposent sur une silhouette géométrique standard, d’autres utilisent un rendu spécifique (par exemple des formes planétaires ou thématiques).</p>
+<ol><li>Commencez par un motif standard et une forme simple.</li><li>Changez la forme sans modifier la palette ; observez quels paramètres modifient le résultat.</li><li>Si vous utilisez les formes spéciales (dont Mars, Jupiter ou les phases), vérifiez quelles commandes propres à ces formes restent affichées dans le mode courant.</li><li>Ne supposez pas que les réglages spéciaux d’une forme fonctionnent de la même façon en KEPLER, POLYGONES et motifs tricolores/quadricolores.</li></ol>
+<p>Pour le <strong>catalogue détaillé des 23 formes</strong>, leurs curseurs et les fonctions spéciales : <a href="utiliser-formes.html">consulter le guide Utiliser les FORMES</a>.</p>
+</section>
+
+<section id="palette">
+<h2>17. Palette de couleurs des FORMES et Tracé 2</h2>
+<p>Le mode Avec Motif combine généralement une couleur de contour et plusieurs couleurs de surface. Certaines palettes sont utilisées par plusieurs algorithmes ; d’autres sont propres à KEPLER.</p>
+<div class="defilement"><table><thead><tr><th>Commande</th><th>Usage principal</th><th>Précaution</th></tr></thead><tbody>
+<tr><td><strong>Tracé 2</strong></td><td>Couleur du contour du mode Avec Motif.</td><td>Éviter la même teinte et la même luminosité que les surfaces adjacentes.</td></tr>
+<tr><td><strong>BS1 / BS2</strong></td><td>Deux couleurs principales de certaines surfaces géométriques.</td><td>Choisir des teintes contrastées.</td></tr>
+<tr><td><strong>BSC</strong></td><td>Couleur complémentaire de certaines constructions de surface.</td><td>Tester d’abord une nuance claire ou sombre distincte.</td></tr>
+<tr><td><strong>CS1 / CS2 / CS3 / CS4</strong></td><td>Palette étendue des formes selon les modes.</td><td>Les quatre couleurs n’interviennent pas nécessairement dans chaque motif.</td></tr>
+<tr><td><strong>Kr / Kb / Kj</strong></td><td>Palette propre à KEPLER.</td><td>Ne pas les confondre avec les couleurs de FOND.</td></tr>
+<tr><td><strong>Couleur Toile / fond</strong></td><td>Couleur de l’arrière-plan.</td><td>Choisir une valeur qui contraste avec les contours.</td></tr>
+</tbody></table></div>
+<p>Pour éditer une couleur, cliquez sur le bouton de couleur, choisissez la nouvelle teinte et validez dans le sélecteur. Le dessin peut être recalculé immédiatement.</p>
+<h3>Éviter les pièges</h3><ul><li>Deux couleurs très proches donnent parfois l’impression que le motif manque une zone.</li><li>Un contour sombre sur une toile sombre est peu visible.</li><li>Dans les modes multi-couleurs, ne jugez pas l’effet d’une teinte isolément : vérifiez sa relation avec les autres.</li></ul>
+</section>
+
+<section id="inversions">
+<h2>18. Inversions de couleurs et variations de dégradé</h2>
+<p>VasareliMania possède plusieurs types d’inversion. Elles n’ont <strong>pas le même rôle</strong>.</p>
+<div class="defilement"><table><thead><tr><th>Commande</th><th>Ce qu’elle change</th></tr></thead><tbody>
+<tr><td><strong>Inversion Couleurs</strong></td><td>Échange certaines relations de couleurs du dessin des FORMES.</td></tr>
+<tr><td><strong>Inverser Dégradé</strong></td><td>Inverse le sens d’un dégradé du dessin quand ce réglage est disponible.</td></tr>
+<tr><td><strong>Inverser Dégradé Kepler</strong></td><td>Inversion dédiée à la progression du dégradé de KEPLER.</td></tr>
+<tr><td><strong>Dégradé Couleurs opposées</strong></td><td>Active une transformation spécifique de KEPLER à partir de couleurs opposées.</td></tr>
+<tr><td><strong>O / D</strong></td><td>Conserve les teintes originales ou applique une variation automatique par forme.</td></tr>
+</tbody></table></div>
+<p>Pour comprendre précisément l’effet, ne modifiez qu’un bouton, observez le rendu, puis restaurez-le avant de passer au suivant. Une inversion n’est pas nécessairement une simple permutation de tous les boutons visibles.</p>
+</section>
+
+<section id="textures">
+<h2>19. Utiliser les TEXTURES avec les motifs</h2>
+<p>La commande <span class="bouton-vm">TEXTURES</span> ouvre des options de traitement texturé. Selon les motifs, la texture peut modifier l’apparence des contours ou être intégrée au rendu interne.</p>
+<ol><li>Sélectionnez d’abord le motif et obtenez un résultat satisfaisant sans multiplication des effets.</li><li>Ouvrez <strong>TEXTURES</strong> et choisissez une texture disponible.</li><li>Réglez son épaisseur ou les contrôles qui apparaissent selon le mode.</li><li>Observez le motif à l’échelle réelle : un motif dense peut perdre en netteté si la texture est trop prononcée.</li><li>Comparez à une version sans traitement texturé.</li></ol>
+<p>La version actuelle comprend aussi des réglages liés à la <strong>taille, au contraste, à la densité et à l’orientation</strong> des textures dans les espaces où ils sont exposés, en particulier pour le FOND. Ces commandes ne sont pas toutes affichées en permanence dans Avec Motif.</p>
+<div class="note">Si un bouton de texture disparaît, vérifiez le motif actif, la zone <strong>FORMES/FOND</strong> et l’état <strong>Incrusté</strong> avant de conclure qu’il manque.</div>
+</section>
+
+<section id="teintes-od">
+<h2>20. Bouton O / D : couleurs originales ou décalées</h2>
+<p>Dans la version documentée, un petit bouton affiche <span class="bouton-vm">O</span> ou <span class="bouton-vm">D</span> dans l’espace FORMES.</p>
+<div class="grille"><div class="mini"><strong>O = Originales</strong><p>Conserve les teintes originales de la palette, avec le rendu de référence du motif.</p></div><div class="mini"><strong>D = Décalées</strong><p>Active une variation automatique des teintes selon la forme, ce qui apporte davantage de diversité dans les compositions comportant plusieurs figures.</p></div></div>
+<p>Le clic alterne entre les deux états. L’interface distingue également les états par des couleurs de bouton. Le programme recalcule le dessin dans FORMES lorsqu’on active ce réglage.</p>
+<h3>Comparer correctement</h3><ol><li>Conservez la même grille et la même palette.</li><li>Observez le résultat en <strong>O</strong>.</li><li>Passez en <strong>D</strong>, sans changer autre chose.</li><li>Revenez à <strong>O</strong> si vous préférez la fidélité aux couleurs initiales.</li></ol>
+</section>
+
+<section id="alternance">
+<h2>21. Alterner plusieurs formes dans un même dessin</h2>
+<p>VasareliMania peut associer plusieurs formes dans une composition. Le réglage <strong>2 FORMES ENSEMBLE</strong> permet de passer entre <strong>2, 3 et 4 formes</strong>, puis de revenir à 2 ; la liste de sélection des formes supplémentaires apparaît lors de la préparation du mélange.</p>
+<ol><li>Préparez d’abord un motif simple, par exemple MOTIF TRICOLORE.</li><li>Activez le nombre de formes voulu avec le bouton prévu à cet effet.</li><li>Choisissez successivement les formes proposées dans l’interface.</li><li>Terminez leur sélection avant de lancer ou juger le rendu final.</li><li>Comparez un mélange de formes géométriques proches et un mélange de silhouettes très différentes.</li></ol>
+<p>La fonction <strong>Alterné</strong> permet également d’organiser une alternance dans les modes concernés.</p>
+<div class="note attention">Les commandes d’alternance et les listes de choix peuvent être masquées dans certains états, notamment pendant une incrustation. Cela ne signifie pas nécessairement que les réglages enregistrés ont été effacés.</div>
+</section>
+
+<section id="fond">
+<h2>22. Associer un motif à un FOND</h2>
+<p>VasareliMania distingue l’image des <strong>FORMES</strong> et l’image du <strong>FOND</strong>. Le FOND possède son propre ensemble de couleurs, de textures, de dégradés et de paramètres.</p>
+<ol><li>Passez dans <strong>FOND</strong>.</li><li>Choisissez un type de fond et réglez ses couleurs. Les options proposées incluent notamment des constructions tricolores, quadricolores et carrées, selon l’interface sélectionnée.</li><li>Travaillez éventuellement la texture du fond (type, orientation, taille, contraste et densité).</li><li>Revenez dans <strong>FORMES</strong>, placez-vous en <strong>Avec Motif</strong> et sélectionnez KEPLER, POLYGONES ou un motif coloré.</li><li>Adaptez les couleurs du dessin au contraste du fond.</li><li>Utilisez <strong>Incrusté</strong> pour composer les deux images.</li></ol>
+<p>Les boutons <strong>IM 1 / IM 2</strong> servent à consulter alternativement les deux images dans l’interface, selon l’état courant. Une sauvegarde d’image fusionnée peut réunir FOND et FORMES.</p>
+<div class="note astuce">Un FOND très chargé associé à un motif très dense peut devenir difficile à lire. Pour les premiers essais, utilisez un arrière-plan plus calme que les formes.</div>
+</section>
+
+<section id="incrustation">
+<h2>23. Incrustation, interface masquée et retour</h2>
+<p>L’incrustation superpose ou combine les deux espaces graphiques. Le programme adapte son interface : <strong>certains boutons disparaissent automatiquement</strong> pendant ce mode pour éviter des actions incompatibles.</p>
+<h3>Procédure conseillée</h3><ol><li>Préparez et visualisez séparément FOND et FORMES.</li><li>Activez la commande <strong>Incrusté</strong> lorsqu’elle est disponible.</li><li>Vérifiez le résultat combiné et son contraste.</li><li>Si vous souhaitez changer le moteur de dessin, revenez d’abord en <strong>Non Incrusté</strong> si le bouton Avec Motif est masqué.</li><li>Revenez ensuite au motif de votre choix et réactivez l’incrustation pour comparer.</li></ol>
+<p>KEPLER dispose d’un agencement particulier des commandes en mode incrusté ; son bouton de dégradés opposés peut rester accessible alors que d’autres contrôles sont masqués.</p>
+</section>
+
+<section id="record">
+<h2>24. Enregistrer les réglages avec RECORD</h2>
+<p><strong>RECORD</strong> sert à enregistrer une succession d’actions et d’états de la composition, afin de retrouver ou de montrer sa construction. Il est différent d’une simple sauvegarde PNG ou JPEG.</p>
+<ol><li>Placez-vous sur le mode et le motif à documenter.</li><li>Appuyez sur <span class="bouton-vm">RECORD</span> pour démarrer une session.</li><li>Modifiez quelques réglages : sélection du motif, couleurs, taille, rotation, textures ou inversion.</li><li>Terminez l’enregistrement avec <strong>STOP</strong> selon l’interface de session.</li><li>Attribuez un nom au fichier de session proposé.</li></ol>
+<p>Le format de session de VasareliMania utilise l’extension <code>.vasareli</code>. Le programme mémorise des états complets pour restituer les transformations intermédiaires, y compris les paramètres propres aux modes motifs.</p>
+<div class="note attention">Le programme empêche le démarrage d’un nouveau RECORD en mode <strong>Incrusté</strong>. Si le bouton ne réagit pas, revenez en <strong>Non Incrusté</strong>, puis relancez l’enregistrement ; la commande STOP d’une session déjà active reste distincte.</div>
+<p>Pour les variantes des modèles de couleurs et les détails des sessions, consultez <a href="utiliser-record-rejouer.html">le guide RECORD / REJOUER</a>.</p>
+</section>
+
+<section id="rejouer">
+<h2>25. Revoir un motif avec REJOUER</h2>
+<p>Avec <span class="bouton-vm">REJOUER</span>, vous pouvez ouvrir un fichier <code>.vasareli</code> enregistré et retrouver la suite des opérations. L’application rétablit les réglages utiles avant les rendus intermédiaires.</p>
+<ol><li>Cliquez sur <strong>REJOUER</strong>.</li><li>Choisissez une session existante.</li><li>Lancez ou parcourez la lecture avec les commandes disponibles.</li><li>Observez le passage entre motifs, les couleurs et les paramètres géométriques.</li><li>À la fin, vérifiez l’état de l’interface ; certaines commandes peuvent être masquées ou restaurées en fonction du dernier mode enregistré.</li></ol>
+<p>Dans la version du 22 octobre 2026, la restitution des modes <strong>KEPLER</strong>, <strong>POLYGONES</strong>, <strong>MOTIF TRICOLORE</strong> et <strong>MOTIF QUADRICOLORE</strong> a été révisée, notamment pour les états intermédiaires et le retour à l’interface normale après la lecture.</p>
+<div class="note astuce">Pour tester la fidélité d’une session, enregistrez une séquence courte avec un seul changement de motif et deux changements de couleur, puis rejouez-la.</div>
+</section>
+
+<section id="sauvegarder">
+<h2>26. Sauvegarder une image et créer une animation</h2>
+<h3>Image fixe</h3><p>La commande <strong>SAUVE</strong> permet de conserver une image. La sauvegarde fusionnée des pages FOND et FORMES propose les formats <strong>PNG, JPEG et BMP</strong> selon la boîte de dialogue utilisée.</p>
+<p>Privilégiez <strong>PNG</strong> pour conserver des traits nets et des aplats propres ; <strong>JPEG</strong> convient à un partage plus compact lorsque la compression avec pertes ne pose pas problème.</p>
+<h3>Animation GIF</h3><p>VasareliMania peut également enregistrer une suite d’images et créer un <strong>GIF animé</strong>. Les commandes dédiées permettent de commencer une séquence, de mémoriser les images et de choisir la vitesse de l’animation avant la création du fichier. Le fonctionnement exact de l’interface dépend de l’état de la séquence ; n’utilisez pas RECORD comme un substitut automatique au bouton de capture des images d’animation.</p>
+<h3>Presse-papiers</h3><p>La commande <strong>Presse Papier</strong> est pratique pour transférer l’image courante vers un autre logiciel, lorsque ce transfert est souhaité.</p>
+<div class="note">Une image fixe conserve le rendu visible ; un fichier <code>.vasareli</code> conserve une session de création. Pour archiver un travail important, gardez <strong>les deux</strong>.</div>
+</section>
+
+<section id="ateliers">
+<h2>27. Huit ateliers pratiques à reproduire</h2>
+<div class="formes">
+<div class="forme"><h3>Atelier A — Premier tricolore</h3><p>FORMES → Avec Motif → MOTIF TRICOLORE → peu de colonnes → trois couleurs franches → rotation légère. But : identifier le rôle de chaque surface.</p></div>
+<div class="forme"><h3>Atelier B — Le même dessin en quatre couleurs</h3><p>Reprendre A, sélectionner MOTIF QUADRICOLORE, attribuer quatre teintes et conserver tous les autres réglages. But : comparer les deux familles.</p></div>
+<div class="forme"><h3>Atelier C — Étoile polygonale</h3><p>POLYGONES → régler Nb de Segments → Dim Externe → Dim Interne 1/2 → Tracé 2. But : créer une silhouette étoilée nette.</p></div>
+<div class="forme"><h3>Atelier D — Droite contre courbe</h3><p>Sur POLYGONES, garder les mêmes couleurs puis alterner Droite et Courbe, en modifiant la tension lorsqu’elle est visible. But : comparer deux contours.</p></div>
+<div class="forme"><h3>Atelier E — KEPLER classique</h3><p>KEPLER → choisir Kr rouge, Kb bleu et Kj jaune → réduire les colonnes → régler l’échelle. But : travailler les rapports chromatiques.</p></div>
+<div class="forme"><h3>Atelier F — KEPLER en couleurs opposées</h3><p>Reprendre E → activer Dégradé Couleurs opposées → utiliser la molette sur son bouton → Inverser Dégradé Kepler. But : comprendre les transitions.</p></div>
+<div class="forme"><h3>Atelier G — Alternance colorée</h3><p>MOTIF TRICOLORE ou QUADRICOLORE → composer avec 2, puis 3 formes → comparer O et D. But : créer une grille non uniforme.</p></div>
+<div class="forme"><h3>Atelier H — Composition complète</h3><p>Préparer FOND → revenir en FORMES → choisir un motif → régler les textures → Incrusté → SAUVE et RECORD si nécessaire. But : produire une œuvre complète.</p></div>
+</div>
+<p>Pour chaque atelier, comparez le résultat après <strong>un seul réglage</strong>. Gardez au moins une image témoin avant de multiplier les variations.</p>
+</section>
+
+<section id="depannage">
+<h2>28. Dépannage détaillé</h2>
+<details><summary>Je clique sur « Avec Motif », mais je ne vois pas de dessin particulier.</summary><p>La liste des motifs est volontairement laissée sans sélection lors de l’entrée dans le mode. Choisissez explicitement KEPLER, POLYGONES, MOTIF TRICOLORE ou MOTIF QUADRICOLORE.</p></details>
+<details><summary>Où est passé le bouton PEINDRE ?</summary><p>Le bouton PEINDRE du moteur Turbo est propre à Sans Motif. En Avec Motif, la sélection et le rendu du motif utilisent un autre circuit. Revenez à Sans Motif pour retrouver la peinture de ce mode.</p></details>
+<details><summary>Le panneau des segments ne s’affiche plus.</summary><p>Il est associé à POLYGONES. Vérifiez que POLYGONES est sélectionné et que vous êtes dans FORMES plutôt que FOND.</p></details>
+<details><summary>Je ne trouve pas TRICOLORE / QUADRICOLORE.</summary><p>Le bouton de commutation est principalement prévu pour POLYGONES. Dans les familles MOTIF TRICOLORE et MOTIF QUADRICOLORE, choisissez directement les lignes correspondantes dans la liste.</p></details>
+<details><summary>Les boutons Kr, Kb et Kj ont disparu.</summary><p>Ils sont liés à KEPLER. Revenez sur KEPLER ; certaines commandes sont aussi masquées en FOND, en incrustation ou pendant la restitution d’une session.</p></details>
+<details><summary>Le dégradé de KEPLER ne change pas avec la molette.</summary><p>Pointez le bouton Dégradé Couleurs opposées et faites tourner la molette dessus. Vérifiez que KEPLER est actif. L’intensité est bornée entre 0 et 100.</p></details>
+<details><summary>Les figures sont trop petites.</summary><p>Réduisez les colonnes et ajustez l’échelle. Vérifiez ensuite les dimensions internes du motif si vous travaillez dans POLYGONES.</p></details>
+<details><summary>Les traits recouvrent les couleurs.</summary><p>Diminuez l’épaisseur du contour (Tracé 2 et réglages associés) ou augmentez l’échelle des formes.</p></details>
+<details><summary>Je ne distingue pas les couleurs du motif.</summary><p>Choisissez une palette avec des écarts de luminosité plus marqués et une couleur de toile contrastée. Comparez ensuite O et D si ce bouton est visible.</p></details>
+<details><summary>Pourquoi les couleurs ne changent-elles pas comme dans Sans Motif ?</summary><p>Les deux modes utilisent des palettes et des moteurs de rendu différents. En Avec Motif, vérifiez notamment Tracé 2, BS/CS ou Kr/Kb/Kj ; Couleur 1 et Couleur 2 de Sans Motif ne sont pas les seules références utiles.</p></details>
+<details><summary>La composition n’a plus le même Diviseur après le changement de mode.</summary><p>Le passage à Avec Motif initialise normalement le diviseur à 1 en mode SIMPLE. Le retour à Sans Motif peut restaurer la valeur précédente.</p></details>
+<details><summary>Les contrôles changent de position ou disparaissent.</summary><p>Le programme affiche des panneaux différents pour KEPLER, POLYGONES, les motifs TRI/QUAD, FOND et Incrusté. Vérifiez d’abord le mode sélectionné.</p></details>
+<details><summary>Je ne trouve pas « MOTIF TRICOLORE &amp; QUADRICOLORE ».</summary><p>Cette ancienne entrée est retirée de la liste active de la version de référence. Utilisez les deux modes séparés.</p></details>
+<details><summary>RECORD ne démarre pas.</summary><p>En mode Incrusté, le démarrage d’un nouveau RECORD est bloqué. Revenez à Non Incrusté avant de commencer une nouvelle session.</p></details>
+<details><summary>Le REJOUER restitue les couleurs mais pas le panneau attendu.</summary><p>Attendez la fin de la lecture et vérifiez la dernière sélection de motif ; des protections d’interface évitent les changements involontaires au terme du replay. Si nécessaire, re-sélectionnez ensuite le motif souhaité.</p></details>
+<details><summary>Le dessin met plus de temps à se recalculer.</summary><p>Un grand nombre de figures, les textures, le mode complexe et certains dégradés demandent davantage de calculs. Simplifiez une seule dimension à la fois : colonnes, texture ou complexité.</p></details>
+<details><summary>Je voudrais simplement conserver l’œuvre terminée.</summary><p>Utilisez SAUVE pour une image. RECORD est utile si vous souhaitez également garder ou rejouer les opérations successives.</p></details>
+</section>
+
+<section id="glossaire">
+<h2>29. Glossaire rapide et aide-mémoire</h2>
+<div class="defilement"><table><thead><tr><th>Vous voulez…</th><th>Faites ceci</th></tr></thead><tbody>
+<tr><td>Activer les motifs</td><td>FORMES → bouton Sans Motif → affiche <strong>Avec Motif</strong>.</td></tr>
+<tr><td>Commencer un dessin</td><td>Sélectionner un choix dans la liste ; aucun motif n’est présélectionné au basculement.</td></tr>
+<tr><td>Créer un dessin Kepler</td><td>Liste → <strong>KEPLER</strong> → Kr / Kb / Kj.</td></tr>
+<tr><td>Changer le dégradé Kepler</td><td><strong>Dégradé Couleurs opposées</strong> et molette ; éventuellement <strong>Inverser Dégradé Kepler</strong>.</td></tr>
+<tr><td>Créer des étoiles</td><td>Liste → <strong>POLYGONES</strong> → Nb de Segments + dimensions.</td></tr>
+<tr><td>Changer TRI/QUAD dans POLYGONES</td><td>Bouton <strong>TRICOLORE / QUADRICOLORE</strong>.</td></tr>
+<tr><td>Faire un motif à trois couleurs</td><td>Liste → <strong>MOTIF TRICOLORE</strong>.</td></tr>
+<tr><td>Faire un motif à quatre couleurs</td><td>Liste → <strong>MOTIF QUADRICOLORE</strong>.</td></tr>
+<tr><td>Changer la couleur du contour</td><td><strong>Tracé 2</strong>.</td></tr>
+<tr><td>Changer la densité générale</td><td><strong>Colonnes</strong> et <strong>Diviseur</strong>.</td></tr>
+<tr><td>Variations automatiques de teintes</td><td><strong>O / D</strong>, dans FORMES.</td></tr>
+<tr><td>Ajouter un fond</td><td>Travailler dans <strong>FOND</strong>, revenir dans FORMES, puis <strong>Incrusté</strong>.</td></tr>
+<tr><td>Conserver la création</td><td><strong>SAUVE</strong> pour une image ; <strong>RECORD</strong> pour une session.</td></tr>
+<tr><td>Retrouver les commandes Sans Motif</td><td>Cliquer sur <strong>Avec Motif</strong> afin que le bouton indique <strong>Sans Motif</strong>.</td></tr>
+</tbody></table></div>
+<p>Guides complémentaires : <a href="utiliser-sans-motif.html">Utiliser Sans Motif</a>, <a href="utiliser-formes.html">Utiliser les FORMES</a>, <a href="utiliser-record-rejouer.html">RECORD / REJOUER</a> et <a href="nouveautes.html">Nouveautés</a>.</p>
+<div class="note astuce"><strong>Principe de travail :</strong> choisir d’abord une famille de motifs, construire la grille, définir la palette, peaufiner l’effet, puis sauvegarder. Un réglage à la fois rend les expérimentations beaucoup plus faciles à comprendre.</div>
+</section>
+<p><a class="retour-haut" href="#haut">↑ Revenir au début du guide</a></p>
+</main></div></div>
+<footer class="bas">VasareliMania · © 2008–2026 · Guide d’utilisation AVEC MOTIF
+<p><a href="presentation.html">Retour au mode d'emploi</a> · <a href="index.html">Accueil</a></p></footer>
+</body></html>
 
