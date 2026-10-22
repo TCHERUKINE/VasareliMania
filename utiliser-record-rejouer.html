@@ -1,1 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guide complet de RECORD et REJOUER dans VasareliMania : enregistrer une session, choisir son nom, retrouver un fichier .vasareli, vitesse, pause, molette, modèles C FOND et C FORMES, fichiers GIF et dépannage.">
+<title>Utiliser RECORD et REJOUER — VasareliMania</title>
+<style>
+    :root { color-scheme: dark; --fond:#120000; --panneau:#210706; --cartouche:#2a0a07; --liseret:#775744;
+      --bleu:#07065a; --bleu-clair:#17237b; --jaune:#ffe269; --texte:#f6ecdd; --secondaire:#d0bcac; --vert:#b4e5b3; --lien:#ffdc63; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+    body { margin:0; background:var(--fond); color:var(--texte); font: 16px/1.62 Arial, Helvetica, sans-serif; }
+    a { color:var(--lien); text-underline-offset: 3px; }
+    a:hover, a:focus-visible { color:white; }
+    :focus-visible { outline:2px solid var(--jaune); outline-offset:3px; }
+    .saut {position:absolute; left:-9999px; top:0;}
+    .saut:focus {position:fixed; z-index:99; left:12px; top:12px; background:var(--jaune); color:#000; padding:9px 14px;}
+    .conteneur { width:95%; max-width:1400px; margin:0 auto; }
+    .haut { padding:20px 0 17px; border-bottom:1px solid var(--liseret); }
+    .haut-ligne { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+    .marque { font-size:1.38rem; color:var(--jaune); font-weight:700; letter-spacing:.2px; }
+    .sousmarque {font-size:.88rem; color:var(--secondaire);}
+    .navigation {display:flex; flex-wrap:wrap; gap:7px;}
+    .navigation a,.retour-haut,.appel { display:inline-block; border:1px solid #a58963; background:#080857;
+      color:var(--jaune); border-radius:5px; padding:6px 13px; font-size:.9rem; font-weight:bold; text-decoration:none; }
+    .navigation a:hover,.retour-haut:hover,.appel:hover {background:#222399;color:#fff;}
+    .bandeau {margin:21px 0 19px; padding:16px 20px; border:1px solid var(--liseret); background:#200704; border-radius:8px;}
+    .bandeau h1 {color:var(--jaune); font-size:1.32rem; margin:0 0 5px;}
+    .bandeau p {margin:5px 0;}
+    .version {color:var(--secondaire); font-size:.88rem;}
+    .mise-en-page {display:grid; grid-template-columns:242px minmax(0,1fr); gap:23px; align-items:start; padding-bottom:48px;}
+    .sommaire { position:sticky; top:16px; border:1px solid var(--liseret); background:#1b0505; border-radius:7px; padding:12px 12px 13px; max-height:calc(100vh - 32px); overflow:auto; }
+    .sommaire strong {display:block; font-size:1rem; color:var(--jaune); margin:0 0 6px;}
+    .sommaire a {display:block; text-decoration:none; padding:4px 7px; color:#f3e2b4; border-radius:3px; font-size:.88rem; line-height:1.35;}
+    .sommaire a:hover,.sommaire a:focus-visible {background:#191966; color:#fff;}
+    main {min-width:0;}
+    section {margin:0 0 18px; padding:18px 21px 19px; border:1px solid #674635; border-radius:8px; background:var(--panneau);}
+    section h2 {color:var(--jaune); font-size:1.15rem; line-height:1.3; margin:0 0 10px; padding-bottom:7px; border-bottom:1px solid #6b4632;}
+    section h3 {color:#ffe3aa; font-size:1.02rem; line-height:1.35; margin:16px 0 6px;}
+    section p {margin:8px 0 10px;}
+    section ul, section ol {margin:7px 0 12px; padding-left:22px;}
+    li {margin:4px 0;}
+    .note {border-left:3px solid #e6b957; background:#2c170b; padding:9px 12px; margin:13px 0;}
+    .astuce {border-left-color:#86d6a9; background:#0b241b;}
+    .attention {border-left-color:#ff917c; background:#381414;}
+    .grille {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; margin:12px 0;}
+    .mini {background:#080e44; border:1px solid #494a93; border-radius:6px; padding:10px 12px;}
+    .mini strong {color:#fff099;}
+    .mini p {font-size:.93rem; margin:5px 0 0;}
+    .defilement {overflow-x:auto; max-width:100%; margin:10px 0 14px;}
+    table {border-collapse:collapse; width:100%; font-size:.93rem;}
+    th,td {border:1px solid #71503c; padding:7px 10px; vertical-align:top; text-align:left;}
+    th {background:#17135a; color:#fff19b; font-weight:bold;}
+    tbody tr:nth-child(even) {background:#2b100b;}
+    kbd {white-space:nowrap; border:1px solid #ab967b; border-bottom-width:2px; border-radius:4px;
+       background:#1a204f; color:#fff; padding:1px 5px; font:700 .9em Arial, sans-serif;}
+    code {font-family:Consolas,"Courier New",monospace; color:#f8dda8; word-break:break-word;}
+    .nom-forme {color:#ffe296; font-weight:bold;}
+    .etapes li {padding-left:3px; margin-bottom:7px;}
+    .formes {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:13px 0;}
+    .forme {border:1px solid #644b39; border-radius:5px; padding:10px 12px; background:#190a11;}
+    .forme h3 {margin:0 0 3px; font-size:1rem; color:#ffe28c;}
+    .forme p {margin:3px 0; font-size:.91rem; line-height:1.48;}
+    .famille {font-size:.88rem; text-transform:uppercase; letter-spacing:.4px; color:#d3b4a4; margin:15px 0 4px; font-weight:bold;}
+    .raccourcis {display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
+    .raccourcis span {display:inline-block; padding:6px 9px; border:1px solid #79764a; background:#181646; border-radius:5px;}
+    .legende {font-size:.86rem; color:var(--secondaire);}
+    .bas {border-top:1px solid var(--liseret); text-align:center; padding:18px 15px 24px; color:#d6b7a9; font-size:.86rem;}
+    .retour-haut {display:inline-block; margin-top:4px;}
+    @media(max-width:960px) {.mise-en-page {grid-template-columns:1fr;gap:12px;} .sommaire{position:static;max-height:none;} .sommaire nav{columns:2;} }
+    @media(max-width:650px) {body{font-size:15px;}.conteneur{width:96%;} .bandeau{padding:13px;}
+      section{padding:13px 13px 15px;} .grille,.formes{grid-template-columns:1fr;} .sommaire nav{columns:1;} th,td{padding:6px;} }
+    @media print { :root{color-scheme:light;} body{background:white;color:#111;font-size:10pt;} .navigation,.sommaire,.retour-haut{display:none!important;}
+      .mise-en-page{display:block;} .conteneur{width:100%;max-width:none;} .haut,.bandeau,section{background:#fff;color:#111;border-color:#aaa;}
+      h1,h2,h3,.marque,.forme h3,.nom-forme,.bandeau h1,section h2,section h3{color:#111;} table th{color:#111;background:#eee;}
+      .mini,.forme,.note{background:#fff;color:#111;border-color:#aaa;} a{color:#111;} section {break-inside:avoid-page;} }
+  
+    .parcours{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:12px 0;}
+    .etiquette{display:inline-block;background:#11175f;color:#ffed98;border:1px solid #7272a0;padding:7px 10px;border-radius:5px;font-weight:bold;font-size:.88rem;}
+    .separateur{color:#d8bb88;font-size:1.12rem;}
+    .identite{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:9px 0 13px;}
+    .bouton-exemple{display:inline-block;min-width:82px;text-align:center;background:#070707;border:2px solid #d3c6ba;color:#f04a43;border-radius:3px;padding:5px 10px;font-size:.91rem;font-weight:bold;}
+    .bouton-exemple.lecture{color:#75e68a;}
+    .bouton-exemple.arret{background:#920b0b;color:#ffe768;}
+    .bouton-exemple.gif{color:#f0e57a;}
+    .fichier{display:block;background:#140f3e;border:1px solid #515186;padding:9px 12px;border-radius:5px;white-space:normal;overflow-wrap:anywhere;margin:7px 0;font: .92rem/1.6 Consolas,monospace;color:#fff1b5;}
+    details{margin:9px 0;border:1px solid #755344;border-radius:5px;background:#250c0a;padding:8px 12px;}
+    summary{cursor:pointer;font-weight:bold;color:#ffe29c;}
+    details p{margin:8px 0 3px;}
+    .hautdroite{margin-left:auto;}
+    @media print {details{break-inside:avoid;}details>p{display:block;} .bouton-exemple,.etiquette,.fichier{color:#111;border-color:#777;background:#fff;}}
+</style>
+</head>
+<body id="haut">
+<a class="saut" href="#corps">Aller au mode d'emploi</a>
+<header class="haut">
+  <div class="conteneur haut-ligne">
+    <div><div class="marque">VasareliMania</div><div class="sousmarque">Enregistrer et retrouver vos créations</div></div>
+    <nav class="navigation" aria-label="Navigation du site">
+      <a href="index.html">Accueil</a>
+      <a href="utiliser-formes.html">Utiliser les FORMES</a>
+      <a href="sessions.html">Sessions</a>
+      <a href="exemples.html">Exemples de sessions</a>
+      <a href="nouveautes.html">Nouveautés</a>
+    </nav>
+  </div>
+</header>
+<div class="conteneur">
+  <div class="bandeau">
+    <h1>Utiliser RECORD et REJOUER — mode d'emploi complet</h1>
+    <p>Enregistrer une suite de choix et de réglages, lui donner un nom, la rejouer à différentes vitesses, mettre en pause et naviguer entre ses étapes, ou créer un modèle de couleurs pour une composition future.</p>
+    <p class="version">Guide basé sur VasareliMania du 22 octobre 2026 · 23 formes · Windows / Framework 4.8 · Fichiers <code>.vasareli</code></p>
+    <div class="parcours" aria-label="Résumé du parcours">
+       <span class="etiquette">RECORD</span><span class="separateur">→</span><span class="etiquette">Créer et régler</span><span class="separateur">→</span><span class="etiquette">STOP</span><span class="separateur">→</span><span class="etiquette">Nommer / OK</span><span class="separateur">→</span><span class="etiquette">REJOUER</span>
+    </div>
+  </div>
+  <div class="mise-en-page">
+    <aside class="sommaire" aria-label="Sommaire"><strong>Sommaire</strong><nav><a href="#intro">1. Comprendre RECORD / REJOUER</a>
+<a href="#repere">2. Reconnaître les boutons</a>
+<a href="#record">3. Enregistrer une session</a>
+<a href="#nom">4. Nom, validation et annulation</a>
+<a href="#dossiers">5. Où sont les fichiers ?</a>
+<a href="#contenu">6. Ce qui est mémorisé</a>
+<a href="#rejouer">7. Rejouer une session</a>
+<a href="#vitesse">8. Choisir la vitesse</a>
+<a href="#pause">9. Pause, navigation et arrêts</a>
+<a href="#final">10. Fin normale et arrêt anticipé</a>
+<a href="#couleurs">11. Modèles C FOND / C FORMES</a>
+<a href="#modes">12. FORMES, FOND et INCRUSTÉ</a>
+<a href="#molette">13. Molette : phases ou replay ?</a>
+<a href="#gif">14. RECORD et GIF : différence</a>
+<a href="#windows">15. Ouvrir par Windows</a>
+<a href="#exemples">16. Exercices pas à pas</a>
+<a href="#conseils">17. Sauvegardes et bonnes pratiques</a>
+<a href="#depannage">18. Dépannage et questions</a>
+<a href="#memo">19. Aide-mémoire des commandes</a></nav></aside>
+    <main id="corps">
+
+<section id="intro">
+  <h2>1. RECORD et REJOUER : à quoi servent-ils ?</h2>
+  <p><strong>RECORD</strong> mémorise une <em>session de création</em> dans un fichier <code>.vasareli</code>. Une session contient les états successifs des commandes de VasareliMania : modes, couleurs, formes, paramètres, choix de fond et réglages. Ce n'est <strong>ni une vidéo ni une simple image</strong>.</p>
+  <p><strong>REJOUER</strong> relit cette session et reconstitue les états enregistrés. On peut regarder le déroulement ou demander directement l'état final.</p>
+  <div class="grille">
+    <div class="mini"><strong>Enregistrement : RECORD</strong><p>Pour pouvoir revoir, retrouver ou partager une composition et la suite de ses changements.</p></div>
+    <div class="mini"><strong>Lecture : REJOUER</strong><p>Pour retrouver la création, étape par étape, ou atteindre directement le résultat final.</p></div>
+  </div>
+  <div class="note"><strong>Distinction importante :</strong> un fichier <code>.vasareli</code> s'ouvre dans VasareliMania. Pour obtenir un fichier image ou une animation GIF, utiliser les fonctions d'exportation et de GIF prévues à cet effet.</div>
+</section>
+
+<section id="repere">
+  <h2>2. Reconnaître les boutons à l'écran</h2>
+  <p>Sur la partie supérieure droite de VasareliMania se trouvent les boutons principaux.</p>
+  <div class="defilement"><table><thead><tr><th>Commande</th><th>Situation</th><th>Effet</th></tr></thead><tbody>
+    <tr><td><span class="bouton-exemple">RECORD</span></td><td>Au repos</td><td>Commencer l'enregistrement d'une session.</td></tr>
+    <tr><td><span class="bouton-exemple arret">STOP</span></td><td>Enregistrement en cours</td><td>Terminer l'enregistrement, puis demander son nom.</td></tr>
+    <tr><td><span class="bouton-exemple lecture">REJOUER</span></td><td>Au repos</td><td>Choisir le fichier de session à lire.</td></tr>
+    <tr><td><span class="bouton-exemple arret">STOP</span></td><td>Pendant REJOUER</td><td>Interrompre la lecture en cours.</td></tr>
+    <tr><td><strong>Panneau d'état REJOUER</strong></td><td>Pendant la lecture</td><td>Afficher les informations et recevoir les clics PAUSE / REPRISE.</td></tr>
+  </tbody></table></div>
+  <p>Le bouton <strong>RECORD</strong> devient rouge avec le texte <strong>STOP</strong> lorsqu'une session est enregistrée. Pendant le rejeu, le bouton <strong>REJOUER</strong> passe lui aussi en <strong>STOP</strong> ; ce ne sont pas les mêmes opérations.</p>
+  <div class="note attention"><strong>Ne pas confondre</strong> le bouton <strong>RECORD</strong> du haut et le petit <strong>REC</strong> près de <strong>SAUVE</strong> en bas : le second sert à préparer des images pour un GIF animé. Voir <a href="#gif">chapitre 14</a>.</div>
+</section>
+
+<section id="record">
+  <h2>3. Enregistrer une session complète</h2>
+  <ol class="etapes">
+    <li>Ouvrir VasareliMania, choisir votre mode et préparer éventuellement les premières couleurs.</li>
+    <li>Cliquer sur le bouton <strong>RECORD</strong> en haut de la fenêtre. Le bouton devient <strong>STOP</strong>, en rouge : l'enregistrement est actif.</li>
+    <li>Créer la composition : sélectionner des formes, choisir des couleurs, passer de TRICOLORE à QUADRICOLORE, modifier les curseurs, utiliser éventuellement <strong>FOND</strong>, les textures, les dégradés ou les phases des planètes.</li>
+    <li>Lorsque le résultat vous convient, cliquer sur le <strong>STOP de RECORD</strong> (le même bouton qu'au départ).</li>
+    <li>Une fenêtre demande le <strong>nom de la session</strong>. Saisir un nom évocateur et valider avec <strong>OK</strong>.</li>
+    <li>La confirmation « <strong>Session enregistrée</strong> » indique le nom du fichier et son dossier.</li>
+  </ol>
+  <div class="note astuce"><strong>Exemple :</strong> commencer RECORD, choisir « Lune, Mars, Jupiter, Fusée » en quatre formes, sélectionner les couleurs, régler les phases avec <kbd>L</kbd>, <kbd>M</kbd>, <kbd>J</kbd> et la molette, puis STOP et nommer la session <em>Planètes et fusées</em>.</div>
+  <p>Le programme conserve des <strong>états successifs</strong>, et non un cliché à chaque mouvement de souris. Plusieurs commandes sont enregistrées lorsque leur modification est validée ou lorsque le déplacement d'un curseur se termine.</p>
+</section>
+
+<section id="nom">
+  <h2>4. Donner un nom, valider ou annuler</h2>
+  <p>Après avoir cliqué sur <strong>STOP</strong>, la boîte « VasareliMania — Enregistrer — RECORD » propose un champ <strong>Nom de la session</strong>, un bouton <strong>OK</strong> et <strong>Annuler</strong>.</p>
+  <ul>
+    <li><strong>OK :</strong> la session est écrite sur le disque au format <code>.vasareli</code>.</li>
+    <li><strong>Nom laissé vide :</strong> le programme emploie un nom par défaut, <code>Vasareli</code>.</li>
+    <li><strong>Annuler, Échap ou fermeture de la boîte :</strong> aucun fichier de cette session n'est enregistré et RECORD revient au repos.</li>
+    <li><strong>Caractères interdits dans un nom Windows :</strong> ils sont remplacés automatiquement par des caractères de substitution.</li>
+  </ul>
+  <div class="note attention"><strong>Attention aux noms identiques :</strong> le nom du fichier comprend le nom choisi et la <strong>date</strong>, mais pas l'heure. Si l'on enregistre deux sessions portant le même nom le même jour et dans le même dossier, on risque d'écraser le fichier précédent. Prendre un nom distinct pour chaque essai.</div>
+</section>
+
+<section id="dossiers">
+  <h2>5. Où VasareliMania enregistre-t-il les sessions ?</h2>
+  <p>Le dossier principal utilisé par l'application est :</p>
+  <code class="fichier">C:\Sessions VasareliMania</code>
+  <p>Il est créé automatiquement par le programme si nécessaire. Les fichiers ordinaires sont nommés suivant ce modèle :</p>
+  <code class="fichier">Session_NomChoisi_AAAAMMJJ.vasareli</code>
+  <p>Pour l'ouvrir dans Windows 11 : lancer l'<strong>Explorateur de fichiers</strong> et saisir <code>C:\Sessions VasareliMania</code> dans la barre d'adresse.</p>
+  <div class="defilement"><table><thead><tr><th>Enregistrement</th><th>Dossier</th><th>Début du nom de fichier</th></tr></thead><tbody>
+   <tr><td>RECORD ordinaire</td><td><code>C:\Sessions VasareliMania</code></td><td><code>Session_</code></td></tr>
+   <tr><td><kbd>Maj</kbd> + RECORD : modèle FOND</td><td><code>C:\Sessions VasareliMania\C FOND</code></td><td><code>Session_M_</code></td></tr>
+   <tr><td><kbd>Alt</kbd> + RECORD : modèle FORMES</td><td><code>C:\Sessions VasareliMania\C FORMES</code></td><td><code>Session_F_</code></td></tr>
+  </tbody></table></div>
+  <p>Le fichier est écrit au format texte <strong>UTF-8</strong>, avec l'extension <code>.vasareli</code>. Il peut être copié sur une clé USB ou partagé ; le destinataire doit disposer d'une version compatible de VasareliMania pour le rejouer.</p>
+</section>
+
+<section id="contenu">
+  <h2>6. Quelles informations sont mémorisées ?</h2>
+  <p>Le programme écrit des <strong>états complets</strong> à différents moments de la création. Chaque état contient notamment le numéro d'action, la commande concernée, une note descriptive et les valeurs courantes de nombreuses commandes.</p>
+  <div class="defilement"><table><thead><tr><th>Famille</th><th>Exemples de données enregistrées</th></tr></thead><tbody>
+   <tr><td>Modes</td><td>FORMES / FOND, Sans Motif / Avec Motif, KEPLER, POLYGONES, MOTIF TRICOLORE et QUADRICOLORE.</td></tr>
+   <tr><td>Formes</td><td>Choix de la forme, deux à quatre formes ensemble, MODULO, alternance, options particulières des nouvelles formes.</td></tr>
+   <tr><td>Couleurs</td><td>Couleurs de la toile et des tracés, BS1 / BS2 / BSC, CS1 à CS4, inversion et paramètres des dégradés.</td></tr>
+   <tr><td>Curseurs</td><td>Colonnes, épaisseurs, échelle, rotation, déformation, dimensions, proportions et réglages de textures.</td></tr>
+   <tr><td>Planètes</td><td>Valeurs indépendantes des phases de la Lune, de Mars et de Jupiter selon les commandes de la version du 22 octobre.</td></tr>
+   <tr><td>Fonds</td><td>Paramètres de la toile, modes de texture et états des commandes de FOND.</td></tr>
+   <tr><td>Interface</td><td>Valeurs de nombreux boutons, listes et barres de défilement afin de retrouver l'état correspondant.</td></tr>
+  </tbody></table></div>
+  <div class="note"><strong>À savoir :</strong> RECORD n'est pas un enregistreur de vidéo. Les états reconstitués sont recalculés par les moteurs graphiques ; la vitesse réelle et l'apparence peuvent dépendre de la version de VasareliMania utilisée.</div>
+</section>
+
+<section id="rejouer">
+  <h2>7. Rejouer une session existante</h2>
+  <ol class="etapes">
+    <li>Cliquer sur <strong>REJOUER</strong> en haut à droite.</li>
+    <li>Dans la fenêtre « Rejouer une session VasareliMania », choisir un fichier <code>.vasareli</code>. Le dossier proposé par défaut est <code>C:\Sessions VasareliMania</code>.</li>
+    <li>Valider l'ouverture du fichier.</li>
+    <li>La fenêtre « <strong>Vitesse du replay</strong> » propose le temps de pause entre les étapes. Choisir une valeur et cliquer sur <strong>OK</strong>.</li>
+    <li>Observer la reproduction de la session. Un panneau indique les actions, le contrôle et la valeur courants et présente les commandes PAUSE / ARRÊT.</li>
+    <li>À la fin, l'application annonce <strong>« Session terminée »</strong> et restitue l'interface correspondant à l'état final enregistré.</li>
+  </ol>
+  <div class="note astuce">Pour découvrir le fonctionnement : commencez par une session courte avec peu de changements et une vitesse modérée ; passez ensuite à des créations plus élaborées.</div>
+  <p>REJOUER permet également d'essayer des sessions téléchargées depuis la rubrique <a href="exemples.html">Exemples de sessions</a> du site, après les avoir enregistrées sur votre ordinateur.</p>
+</section>
+
+<section id="vitesse">
+  <h2>8. Vitesse du REJOUER : que choisir ?</h2>
+  <p>Au lancement de la lecture, une boîte de dialogue propose une <strong>pause en millisecondes entre les étapes</strong>. Le réglage va de <strong>0 à 2 000 ms</strong>, avec un pas de 20 ms dans la boîte. La valeur courante est réutilisée tant qu'elle n'est pas modifiée ; la valeur initiale prévue par la Form1 est de 100 ms.</p>
+  <div class="defilement"><table><thead><tr><th>Valeur</th><th>Utilisation</th></tr></thead><tbody>
+    <tr><td><strong>0 ms</strong></td><td><strong>REJOUER DIRECT</strong> : traitement accéléré, sans affichage des dessins intermédiaires ; idéal pour retrouver rapidement la composition finale.</td></tr>
+    <tr><td>20 à 100 ms</td><td>Lecture relativement rapide : utile pour une session longue ou déjà connue.</td></tr>
+    <tr><td>200 à 500 ms</td><td>Lecture plus facile à suivre pour observer les modifications successives.</td></tr>
+    <tr><td>1 000 ms et plus</td><td>Lecture très lente, jusqu'à 2 secondes de pause par étape ; pratique pour l'étude d'un réglage.</td></tr>
+  </tbody></table></div>
+  <p>Une pause est surtout utile lorsqu'un <strong>affichage a réellement changé</strong> : le lecteur évite certaines attentes inutiles entre deux états donnant la même image. Les durées restent indicatives, car le calcul des dessins demande aussi du temps.</p>
+  <div class="note attention"><strong>0 ms n'efface aucune étape du fichier :</strong> c'est simplement un mode de lecture directe. Pour étudier les étapes une à une, relancer REJOUER et choisir une valeur supérieure à 0.</div>
+</section>
+
+<section id="pause">
+  <h2>9. PAUSE, reprendre, reculer, avancer et arrêter</h2>
+  <p>En lecture normale, <strong>cliquez sur le panneau d'état REJOUER</strong> : vous passez en PAUSE. Un nouveau clic sur le même panneau reprend la lecture. Ce comportement ne concerne pas le dialogue « Session terminée ».</p>
+  <div class="defilement"><table><thead><tr><th>Geste / touche</th><th>Résultat</th><th>Condition</th></tr></thead><tbody>
+    <tr><td><strong>Clic simple</strong> sur le panneau d'état</td><td>PAUSE ↔ REPRISE</td><td>Pendant REJOUER</td></tr>
+    <tr><td><strong>Double-clic</strong> sur le panneau d'état</td><td>Demande l'arrêt</td><td>Pendant REJOUER</td></tr>
+    <tr><td><kbd>Maj</kbd> + <kbd>A</kbd></td><td>Demande l'arrêt</td><td>Pendant REJOUER</td></tr>
+    <tr><td><kbd>Alt</kbd> + <kbd>P</kbd></td><td>Afficher l'état précédent</td><td><strong>PAUSE uniquement</strong></td></tr>
+    <tr><td><kbd>Alt</kbd> + <kbd>S</kbd></td><td>Afficher l'état suivant</td><td><strong>PAUSE uniquement</strong></td></tr>
+    <tr><td><strong>Molette vers le haut</strong></td><td>État précédent</td><td><strong>PAUSE uniquement</strong>, souris dans VasareliMania</td></tr>
+    <tr><td><strong>Molette vers le bas</strong></td><td>État suivant</td><td><strong>PAUSE uniquement</strong>, souris dans VasareliMania</td></tr>
+    <tr><td><strong>STOP</strong> (ancien bouton REJOUER)</td><td>Interrompre le rejeu</td><td>Pendant REJOUER</td></tr>
+  </tbody></table></div>
+  <div class="note astuce"><strong>Pour revoir plusieurs changements :</strong> laissez la session jouer quelques instants, cliquez sur le panneau pour mettre en pause, puis utilisez la molette. Les états successifs restent accessibles tant que le rejeu est actif.</div>
+  <p>Le panneau peut afficher le <strong>numéro d'action</strong>, la commande en cours et la valeur enregistrée. Si certaines actions ne sont pas numérotées (notamment dans de très anciennes sessions), il peut indiquer que l'action n'est pas numérotée.</p>
+</section>
+
+<section id="final">
+  <h2>10. Fin normale ou arrêt anticipé : quelle différence ?</h2>
+  <div class="grille">
+    <div class="mini"><strong>La lecture va jusqu'au bout</strong><p>VasareliMania restitue l'<strong>état final</strong> enregistré, avec le mode graphique et l'interface adaptés à cet état.</p></div>
+    <div class="mini"><strong>Vous arrêtez avant la fin</strong><p>Le programme tente de conserver l'<strong>état effectivement atteint</strong>, et non d'appliquer artificiellement le résultat final du fichier.</p></div>
+  </div>
+  <p>Un message « Session terminée » ou « Session arrêtée » confirme la fin du rejeu. En cas d'arrêt manuel, un message « ARRÊT DU REJOUER — Patientez… » peut apparaître pendant la restauration de l'interface.</p>
+  <p><strong>La lecture ne modifie pas le fichier source</strong> : vous pouvez rejouer la même session à nouveau, à une autre vitesse.</p>
+  <div class="note">Le comportement d'affichage des panneaux peut varier selon que la session finit en <strong>FORMES</strong>, en <strong>FOND</strong>, en <strong>Avec Motif</strong>, en <strong>Sans Motif</strong> ou avec une incrustation : ce sont des situations prévues par le moteur de restauration.</div>
+</section>
+
+<section id="couleurs">
+  <h2>11. Deux usages spéciaux : modèles C FOND et C FORMES</h2>
+  <p>En plus des sessions ordinaires, le programme sait enregistrer des <strong>modèles de couleurs</strong> réutilisables, avec des dossiers distincts.</p>
+  <div class="defilement"><table><thead><tr><th>Pour enregistrer</th><th>Fichier obtenu</th><th>Pour le réutiliser</th></tr></thead><tbody>
+    <tr><td><kbd>Maj</kbd> + <strong>RECORD</strong></td><td><code>Session_M_…vasareli</code>, dossier <code>C FOND</code></td><td>Commande <strong>C FOND</strong> (anciennement « PLUS » selon l'interface) pour appliquer un modèle de couleurs de fond.</td></tr>
+    <tr><td><kbd>Alt</kbd> + <strong>RECORD</strong></td><td><code>Session_F_…vasareli</code>, dossier <code>C FORMES</code></td><td>Commande <strong>C FORMES</strong> pour appliquer un modèle de couleurs de formes.</td></tr>
+    <tr><td><strong>RECORD</strong> sans modificateur</td><td><code>Session_…vasareli</code>, dossier principal</td><td>Commande <strong>REJOUER</strong> pour revoir la session normale.</td></tr>
+  </tbody></table></div>
+  <p>La procédure est la même : déclencher RECORD avec la combinaison choisie, ajuster les paramètres, cliquer sur STOP et donner un nom.</p>
+  <p>Les modèles FOND sont destinés à être <strong>appliqués via C FOND</strong> : si vous tentez de lire un fichier <code>Session_M_</code> avec le bouton REJOUER, le programme vous redirige vers la commande de modèle appropriée.</p>
+  <div class="note attention"><strong>Maj + Alt + RECORD :</strong> si les deux modificateurs sont enfoncés au départ, <strong>C FOND est prioritaire</strong>. Pour ne pas se tromper, employer une seule touche modificatrice à la fois.</div>
+</section>
+
+<section id="modes">
+  <h2>12. RECORD dans FORMES, FOND et INCRUSTÉ</h2>
+  <h3>FORMES</h3><p>Utiliser RECORD pour conserver le choix des formes, les modes KEPLER / POLYGONES / TRICOLORE / QUADRICOLORE, les palettes, les dégradés, les curseurs et les associations à 2, 3 ou 4 formes.</p>
+  <h3>FOND</h3><p>RECORD peut également mémoriser les états de la toile, les couleurs, les textures, les dégradés et leurs réglages. Pour mémoriser uniquement un modèle de couleurs de fond, employer <kbd>Maj</kbd> + RECORD.</p>
+  <h3>INCRUSTÉ</h3><p>Le programme empêche de <strong>démarrer</strong> une nouvelle session RECORD lorsque l'incrustation est déjà active. En revanche, si RECORD avait été lancé auparavant, <strong>STOP reste autorisé</strong> pendant l'incrustation. Ce comportement évite de perdre l'enregistrement engagé.</p>
+  <div class="note astuce">Pour une composition mêlant FOND et FORMES, commencer l'enregistrement dans un état non incrusté, puis effectuer les changements dans l'ordre souhaité.</div>
+</section>
+
+<section id="molette">
+  <h2>13. Ne pas confondre les deux usages de la molette</h2>
+  <p>Depuis la version du 22 octobre 2026, VasareliMania propose aussi les phases indépendantes de <strong>Lune, Mars et Jupiter</strong>.</p>
+  <div class="defilement"><table><thead><tr><th>Situation</th><th>Molette</th></tr></thead><tbody>
+   <tr><td>Création normale, mode FORMES, après <kbd>L</kbd>, <kbd>M</kbd> ou <kbd>J</kbd></td><td>Règle la phase de la planète sélectionnée. <kbd>Échap</kbd> quitte cette commande.</td></tr>
+   <tr><td>Pendant REJOUER <strong>en PAUSE</strong></td><td>Parcourt les états précédents ou suivants du rejeu.</td></tr>
+   <tr><td>Pendant REJOUER <strong>en cours</strong></td><td>La navigation entre états par molette n'est pas active : mettre en pause d'abord.</td></tr>
+   <tr><td>Fonctionnement normal hors du mode phases</td><td>Conserve ses autres usages habituels selon l'endroit où se trouve le pointeur.</td></tr>
+  </tbody></table></div>
+  <p><strong>REJOUER a priorité</strong> sur le réglage des phases : inutile de presser L, M ou J pour naviguer dans une session en lecture.</p>
+</section>
+
+<section id="gif">
+  <h2>14. RECORD de session ou REC de GIF ?</h2>
+  <p>VasareliMania possède deux systèmes différents :</p>
+  <div class="grille">
+    <div class="mini"><strong>RECORD / REJOUER — en haut</strong><p>Enregistre des commandes et des états dans un fichier <code>.vasareli</code>, relisible par le moteur de session.</p></div>
+    <div class="mini"><strong>REC / SAUVE — en bas</strong><p>Enregistre une <strong>séquence d'images</strong> et la transforme ensuite en fichier GIF animé.</p></div>
+  </div>
+  <p>Pour le GIF, le premier clic sur <strong>REC</strong> fait choisir le délai et le fichier GIF. Pendant l'enregistrement, le bouton <strong>numéroté voisin</strong> ajoute une image à la séquence. Un deuxième clic sur REC termine la collecte ; un troisième clic (lorsque le bouton devient <strong>SAUVE</strong>) fabrique le GIF.</p>
+  <p>Le dossier de départ proposé pour les GIF est <code>C:\GIF VasareliMania</code>, mais un autre emplacement peut être choisi.</p>
+  <div class="note attention"><strong>À retenir :</strong> un GIF ne remplace pas une session <code>.vasareli</code>. Le GIF sert à regarder l'animation ; la session sert à <strong>reconstituer les réglages</strong> dans VasareliMania.</div>
+</section>
+
+<section id="windows">
+  <h2>15. Ouvrir une session depuis l'Explorateur Windows</h2>
+  <p>La version actuelle comporte une association de fichiers <code>.vasareli</code>. Lorsqu'elle est correctement enregistrée sous Windows, un <strong>double-clic sur un fichier de session</strong> peut lancer VasareliMania et ouvrir la session.</p>
+  <ol>
+    <li>Ouvrir <strong>Explorateur de fichiers</strong>.</li>
+    <li>Aller dans <code>C:\Sessions VasareliMania</code> ou le dossier de la session reçue.</li>
+    <li>Double-cliquer sur un fichier <code>.vasareli</code>.</li>
+    <li>Si Windows ne reconnaît pas l'extension, ouvrir VasareliMania puis passer par <strong>REJOUER</strong> et sélectionner le fichier manuellement.</li>
+  </ol>
+  <p>Le programme comporte une protection contre les <strong>doubles lancements très rapprochés du même fichier</strong>. Si vous avez déjà demandé l'ouverture, attendez que la session commence avant de recommencer.</p>
+  <div class="note">Ne double-cliquez pas sur un modèle <code>Session_M_</code> pour remplacer la commande C FOND : les modèles spécialisés s'ouvrent de préférence depuis les commandes de couleurs prévues dans VasareliMania.</div>
+</section>
+
+<section id="exemples">
+  <h2>16. Trois exercices complets</h2>
+  <h3>A. Enregistrer quatre formes puis les rejouer</h3>
+  <ol><li>Choisir <strong>FORMES</strong> et MOTIF QUADRICOLORE.</li><li>Cliquer <strong>RECORD</strong>.</li><li>Cliquer <strong>4 FORMES ENSEMBLE</strong> et choisir Lune, Mars, Jupiter et Fusée.</li><li>Régler les couleurs avec O / D et les curseurs des formes.</li><li>Appuyer sur <kbd>L</kbd>, <kbd>M</kbd>, <kbd>J</kbd> puis tourner la molette au-dessus de la toile ; finir avec <kbd>Échap</kbd>.</li><li>Cliquer sur <strong>STOP</strong>, nommer la session <em>Planètes et fusées 01</em>, puis <strong>OK</strong>.</li><li>Cliquer <strong>REJOUER</strong>, choisir ce fichier, régler la vitesse sur 200 ms et observer.</li></ol>
+  <h3>B. Retrouver directement le dessin final</h3>
+  <ol><li>Cliquer <strong>REJOUER</strong> et ouvrir une session déjà enregistrée.</li><li>À « Vitesse du replay », choisir <strong>0 ms</strong>.</li><li>Cliquer <strong>OK</strong> et attendre le rendu final.</li></ol>
+  <h3>C. Examiner les étapes une par une</h3>
+  <ol><li>Rejouer une session à 300 ms.</li><li>Cliquer une fois sur le <strong>panneau d'état</strong> pour mettre PAUSE.</li><li>Faire tourner la molette vers le haut ou le bas, ou utiliser <kbd>Alt</kbd>+<kbd>P</kbd> / <kbd>Alt</kbd>+<kbd>S</kbd>.</li><li>Cliquer de nouveau pour reprendre, ou utiliser <kbd>Maj</kbd>+<kbd>A</kbd> pour arrêter.</li></ol>
+</section>
+
+<section id="conseils">
+  <h2>17. Conseils de sauvegarde et de partage</h2>
+  <ul>
+    <li><strong>Nommer clairement</strong> : indiquer le sujet et, si nécessaire, un numéro d'essai, par exemple « Jupiter Mars phase 02 ».</li>
+    <li><strong>Faire une copie</strong> des fichiers <code>.vasareli</code> importants avant de déplacer, nettoyer ou réinstaller le programme.</li>
+    <li><strong>Conserver les anciens installateurs</strong> de VasareliMania pour relire des sessions historiques si une version nouvelle change le rendu d'un motif.</li>
+    <li><strong>Partager le fichier .vasareli</strong> pour permettre la reproduction des paramètres ; partager une image ou un GIF en complément lorsque seul le résultat visuel est nécessaire.</li>
+    <li><strong>Pour un modèle de couleurs</strong>, utiliser C FOND ou C FORMES plutôt qu'un RECORD ordinaire si le but est de transférer une palette.</li>
+    <li><strong>Éviter d'éditer à la main</strong> les fichiers de session. Bien que lisibles comme du texte, ils contiennent de très nombreuses valeurs liées les unes aux autres.</li>
+    <li><strong>Tester les sessions clés</strong> après une mise à jour de l'application avant de supprimer une ancienne copie du programme.</li>
+  </ul>
+</section>
+
+<section id="depannage">
+  <h2>18. Problèmes courants et réponses</h2>
+  <details open><summary>J'ai cliqué sur STOP, mais aucun fichier n'a été créé.</summary><p>Vérifier si la fenêtre de nom s'est terminée par <strong>Annuler</strong> ou a été fermée avec Échap / X : dans ce cas, l'enregistrement est abandonné. Sinon, chercher le message de confirmation et regarder le dossier affiché. Les modèles spéciaux vont dans <code>C FOND</code> ou <code>C FORMES</code>.</p></details>
+  <details><summary>Je ne trouve pas la session.</summary><p>Ouvrir <code>C:\Sessions VasareliMania</code>. Chercher un fichier commençant par <code>Session_</code> et portant la date du jour. Pour un modèle, ouvrir les sous-dossiers <code>C FOND</code> ou <code>C FORMES</code>.</p></details>
+  <details><summary>REJOUER affiche directement le dessin final.</summary><p>La vitesse de lecture a probablement été réglée à <strong>0 ms</strong> : c'est le mode REJOUER DIRECT. Relancer la session et choisir par exemple 200 ou 300 ms.</p></details>
+  <details><summary>La molette ne fait pas défiler les étapes du replay.</summary><p>Mettre d'abord REJOUER <strong>en PAUSE</strong> d'un clic sur son panneau d'état, puis tourner la molette dans la fenêtre du programme. Pour reculer et avancer au clavier : <kbd>Alt</kbd>+<kbd>P</kbd> et <kbd>Alt</kbd>+<kbd>S</kbd>.</p></details>
+  <details><summary>La touche L, M ou J ne change pas la phase pendant REJOUER.</summary><p>C'est normal : le réglage des phases par lettres et molette appartient au <strong>mode création FORMES</strong>. Durant REJOUER, le programme restitue les phases mémorisées dans la session.</p></details>
+  <details><summary>Une session ne ressemble pas tout à fait à son dessin d'origine.</summary><p>Vérifier la version de VasareliMania, le mode de motif et les couleurs sauvegardées. Les anciennes sessions peuvent utiliser des réglages historiques différents. Conserver une copie de l'ancienne version de l'application pour comparer. Ne pas écraser le fichier de session original.</p></details>
+  <details><summary>REJOUER refuse un fichier Session_M_.</summary><p>Ce fichier correspond à un <strong>modèle de couleurs FOND</strong>, pas à une session normale. Utiliser le bouton <strong>C FOND</strong> et choisir le modèle dans le dossier approprié.</p></details>
+  <details><summary>Le bouton RECORD ne démarre pas en INCRUSTÉ.</summary><p>Le démarrage d'une nouvelle session est volontairement bloqué lorsque l'incrustation est déjà active. Commencer RECORD dans un mode non incrusté ; le bouton STOP reste disponible si l'enregistrement avait déjà démarré.</p></details>
+  <details><summary>Le fichier .vasareli ne s'ouvre pas au double-clic.</summary><p>L'association Windows peut être absente ou incorrecte. Démarrer VasareliMania et cliquer sur <strong>REJOUER</strong>, puis choisir le fichier avec le sélecteur d'ouverture.</p></details>
+  <details><summary>J'ai cliqué sur REC, mais aucun fichier .vasareli n'apparaît.</summary><p>Le petit <strong>REC</strong> du bas concerne les GIF. Pour enregistrer les actions de VasareliMania, utiliser le grand bouton <strong>RECORD</strong> en haut de l'interface.</p></details>
+</section>
+
+<section id="memo">
+  <h2>19. Aide-mémoire des commandes</h2>
+  <div class="defilement"><table><thead><tr><th>Je veux…</th><th>Faire ceci</th></tr></thead><tbody>
+   <tr><td>Commencer une session</td><td>Cliquer <strong>RECORD</strong>.</td></tr>
+   <tr><td>Terminer et enregistrer</td><td>Cliquer <strong>STOP</strong> (au même endroit), saisir un nom, puis <strong>OK</strong>.</td></tr>
+   <tr><td>Annuler l'enregistrement au moment du nom</td><td>Cliquer <strong>Annuler</strong> ou fermer la boîte.</td></tr>
+   <tr><td>Revoir une session</td><td>Cliquer <strong>REJOUER</strong>, choisir un <code>.vasareli</code>, puis la vitesse.</td></tr>
+   <tr><td>Obtenir directement le résultat final</td><td>Choisir la vitesse <strong>0 ms</strong>.</td></tr>
+   <tr><td>Mettre en pause / reprendre</td><td><strong>Clic simple</strong> sur le panneau d'état REJOUER.</td></tr>
+   <tr><td>Reculer / avancer pendant PAUSE</td><td><kbd>Alt</kbd>+<kbd>P</kbd> / <kbd>Alt</kbd>+<kbd>S</kbd>, ou <strong>molette</strong>.</td></tr>
+   <tr><td>Interrompre REJOUER</td><td><strong>STOP</strong>, double-clic sur le panneau, ou <kbd>Maj</kbd>+<kbd>A</kbd>.</td></tr>
+   <tr><td>Enregistrer un modèle FOND</td><td><kbd>Maj</kbd>+<strong>RECORD</strong>.</td></tr>
+   <tr><td>Enregistrer un modèle FORMES</td><td><kbd>Alt</kbd>+<strong>RECORD</strong>.</td></tr>
+   <tr><td>Reprendre un modèle FOND ou FORMES</td><td>Utiliser le bouton <strong>C FOND</strong> ou <strong>C FORMES</strong>.</td></tr>
+   <tr><td>Créer un GIF animé</td><td>Utiliser <strong>REC / SAUVE</strong> en bas, indépendamment de RECORD.</td></tr>
+   <tr><td>Ouvrir le dossier des sessions</td><td><code>C:\Sessions VasareliMania</code>.</td></tr>
+  </tbody></table></div>
+  <p>Ce guide correspond au fonctionnement de l'application au <strong>22 octobre 2026</strong>. Pour les explications détaillées du dessin, consultez aussi le <a href="utiliser-formes.html">mode d'emploi des FORMES</a>.</p>
+  <a class="retour-haut" href="#haut">↑ Retour au début</a>
+</section>
+    </main>
+  </div>
+</div>
+<footer class="bas">Pierre Tcherukine © 2008–2026 · VasareliMania · <a href="index.html">Retour à l’accueil</a> · <a href="utiliser-formes.html">Guide des FORMES</a></footer>
+</body>
+</html>
 
