@@ -27,8 +27,8 @@ body{
 h1{
     font-size:70px;
     color:#ffe600;
-    padding-top:20px;
-    text-shadow:0 0 25px #ffcc00;
+    padding-top:20px;    text-shadow
+:0 0 25px #ffcc00;
 }
 
 .text{
@@ -53,39 +53,22 @@ h1{
     border:2px solid #ffe600;
 }
 
-.button-space{
-    margin-right:25px;
-}
-
-/* Boutons de mode d’emploi. */
-.guide-column{
-    display:inline-flex;
+/* Trois rangées de boutons : alignement précis, sans décalage manuel. */
+.button-group{
+    display:flex;
     flex-direction:column;
     align-items:flex-start;
-    vertical-align:top;
-    margin-right:25px;
-}
-.guide-column .button{
-    margin-right:0;
-}
-.guide-column .button + .button{
-    margin-top:12px;
-}
-.guide-header{
-    display:flex;
     gap:12px;
-    align-items:flex-start;
+    margin-top:30px;
 }
-.guide-header .button{
-    white-space:nowrap;
-}
-.guide-links{
+.button-row{
     display:flex;
+    flex-wrap:wrap;
+    align-items:center;
     gap:12px;
-    align-items:flex-start;
 }
-.guide-links .button{
-    margin-top:12px;
+.button-group .button{
+    margin-top:0;
     white-space:nowrap;
 }
 
@@ -131,24 +114,21 @@ Développé par Pierre Tcherukine
 avec l'aide didactique de ChatGPT  et les iées créatives et pratiques de Dimitri Tcherukine.
 </p>
 
-<div class="guide-column">
-    <div class="guide-header">
+<div class="button-group">
+    <div class="button-row">
         <a class="button" href="demarre.html">Guide de démarrage</a>
         <a class="button" href="utiliser-sans-motif.html">Utiliser Sans Motif</a>
+        <a class="button" href="utiliser-avec-motif.html">Utiliser Avec Motif</a>
     </div>
-    <div class="guide-links">
+    <div class="button-row">
         <a class="button" href="utiliser-formes.html">Utiliser Formes</a>
         <a class="button" href="utiliser-record-rejouer.html">Utiliser RECORD et REJOUER</a>
     </div>
+    <div class="button-row">
+        <a class="button" href="gif.html">Créer des GIF animés</a>
+        <a class="button" href="sessions.html">Sessions à rejouer</a>
+    </div>
 </div>
-
-<a class="button button-space" href="gif.html">
-Créer des GIF animés
-</a>
-
-<a class="button" href="sessions.html">
-Sessions à rejouer
-</a>
 
 <br><br>
 
