@@ -57,7 +57,7 @@ h1{
     margin-right:25px;
 }
 
-/* Guide de démarrage, puis deux boutons de mode d’emploi côte à côte. */
+/* Boutons de mode d’emploi. */
 .guide-column{
     display:inline-flex;
     flex-direction:column;
@@ -70,6 +70,14 @@ h1{
 }
 .guide-column .button + .button{
     margin-top:12px;
+}
+.guide-header{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+}
+.guide-header .button{
+    white-space:nowrap;
 }
 .guide-links{
     display:flex;
@@ -96,7 +104,7 @@ h1{
 
 <div class="container">
 
-<h1>Mode d'emploi</h1>
+<h1>Présentation</h1>
 
 <div class="text">
 
@@ -124,7 +132,10 @@ avec l'aide didactique de ChatGPT  et les iées créatives et pratiques de Dimit
 </p>
 
 <div class="guide-column">
-    <a class="button" href="demarre.html">Guide de démarrage</a>
+    <div class="guide-header">
+        <a class="button" href="demarre.html">Guide de démarrage</a>
+        <a class="button" href="utiliser-sans-motif.html">Utiliser Sans Motif</a>
+    </div>
     <div class="guide-links">
         <a class="button" href="utiliser-formes.html">Utiliser Formes</a>
         <a class="button" href="utiliser-record-rejouer.html">Utiliser RECORD et REJOUER</a>
