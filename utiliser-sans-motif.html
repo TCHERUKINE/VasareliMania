@@ -1,1 +1,368 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mode d'emploi exhaustif de Sans Motif dans VasareliMania : structure géométrique, couleurs, peinture Turbo, inversion, dégradés, textures, incrustation, RECORD et REJOUER.">
+<title>Utiliser Sans Motif — VasareliMania</title>
+<style>
+    :root { color-scheme: dark; --fond:#120000; --panneau:#210706; --cartouche:#2a0a07; --liseret:#775744;
+      --bleu:#07065a; --bleu-clair:#17237b; --jaune:#ffe269; --texte:#f6ecdd; --secondaire:#d0bcac; --vert:#b4e5b3; --lien:#ffdc63; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+    body { margin:0; background:var(--fond); color:var(--texte); font: 16px/1.62 Arial, Helvetica, sans-serif; }
+    a { color:var(--lien); text-underline-offset: 3px; }
+    a:hover, a:focus-visible { color:white; }
+    :focus-visible { outline:2px solid var(--jaune); outline-offset:3px; }
+    .saut {position:absolute; left:-9999px; top:0;}
+    .saut:focus {position:fixed; z-index:99; left:12px; top:12px; background:var(--jaune); color:#000; padding:9px 14px;}
+    .conteneur { width:95%; max-width:1400px; margin:0 auto; }
+    .haut { padding:20px 0 17px; border-bottom:1px solid var(--liseret); }
+    .haut-ligne { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+    .marque { font-size:1.38rem; color:var(--jaune); font-weight:700; letter-spacing:.2px; }
+    .sousmarque {font-size:.88rem; color:var(--secondaire);}
+    .navigation {display:flex; flex-wrap:wrap; gap:7px;}
+    .navigation a,.retour-haut,.appel { display:inline-block; border:1px solid #a58963; background:#080857;
+      color:var(--jaune); border-radius:5px; padding:6px 13px; font-size:.9rem; font-weight:bold; text-decoration:none; }
+    .navigation a:hover,.retour-haut:hover,.appel:hover {background:#222399;color:#fff;}
+    .bandeau {margin:21px 0 19px; padding:16px 20px; border:1px solid var(--liseret); background:#200704; border-radius:8px;}
+    .bandeau h1 {color:var(--jaune); font-size:1.32rem; margin:0 0 5px;}
+    .bandeau p {margin:5px 0;}
+    .version {color:var(--secondaire); font-size:.88rem;}
+    .mise-en-page {display:grid; grid-template-columns:242px minmax(0,1fr); gap:23px; align-items:start; padding-bottom:48px;}
+    .sommaire { position:sticky; top:16px; border:1px solid var(--liseret); background:#1b0505; border-radius:7px; padding:12px 12px 13px; max-height:calc(100vh - 32px); overflow:auto; }
+    .sommaire strong {display:block; font-size:1rem; color:var(--jaune); margin:0 0 6px;}
+    .sommaire a {display:block; text-decoration:none; padding:4px 7px; color:#f3e2b4; border-radius:3px; font-size:.88rem; line-height:1.35;}
+    .sommaire a:hover,.sommaire a:focus-visible {background:#191966; color:#fff;}
+    main {min-width:0;}
+    section {margin:0 0 18px; padding:18px 21px 19px; border:1px solid #674635; border-radius:8px; background:var(--panneau);}
+    section h2 {color:var(--jaune); font-size:1.15rem; line-height:1.3; margin:0 0 10px; padding-bottom:7px; border-bottom:1px solid #6b4632;}
+    section h3 {color:#ffe3aa; font-size:1.02rem; line-height:1.35; margin:16px 0 6px;}
+    section p {margin:8px 0 10px;}
+    section ul, section ol {margin:7px 0 12px; padding-left:22px;}
+    li {margin:4px 0;}
+    .note {border-left:3px solid #e6b957; background:#2c170b; padding:9px 12px; margin:13px 0;}
+    .astuce {border-left-color:#86d6a9; background:#0b241b;}
+    .attention {border-left-color:#ff917c; background:#381414;}
+    .grille {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; margin:12px 0;}
+    .mini {background:#080e44; border:1px solid #494a93; border-radius:6px; padding:10px 12px;}
+    .mini strong {color:#fff099;}
+    .mini p {font-size:.93rem; margin:5px 0 0;}
+    .defilement {overflow-x:auto; max-width:100%; margin:10px 0 14px;}
+    table {border-collapse:collapse; width:100%; font-size:.93rem;}
+    th,td {border:1px solid #71503c; padding:7px 10px; vertical-align:top; text-align:left;}
+    th {background:#17135a; color:#fff19b; font-weight:bold;}
+    tbody tr:nth-child(even) {background:#2b100b;}
+    kbd {white-space:nowrap; border:1px solid #ab967b; border-bottom-width:2px; border-radius:4px;
+       background:#1a204f; color:#fff; padding:1px 5px; font:700 .9em Arial, sans-serif;}
+    code {font-family:Consolas,"Courier New",monospace; color:#f8dda8; word-break:break-word;}
+    .nom-forme {color:#ffe296; font-weight:bold;}
+    .etapes li {padding-left:3px; margin-bottom:7px;}
+    .formes {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:13px 0;}
+    .forme {border:1px solid #644b39; border-radius:5px; padding:10px 12px; background:#190a11;}
+    .forme h3 {margin:0 0 3px; font-size:1rem; color:#ffe28c;}
+    .forme p {margin:3px 0; font-size:.91rem; line-height:1.48;}
+    .famille {font-size:.88rem; text-transform:uppercase; letter-spacing:.4px; color:#d3b4a4; margin:15px 0 4px; font-weight:bold;}
+    .raccourcis {display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
+    .raccourcis span {display:inline-block; padding:6px 9px; border:1px solid #79764a; background:#181646; border-radius:5px;}
+    .legende {font-size:.86rem; color:var(--secondaire);}
+    .bas {border-top:1px solid var(--liseret); text-align:center; padding:18px 15px 24px; color:#d6b7a9; font-size:.86rem;}
+    .retour-haut {display:inline-block; margin-top:4px;}
+    @media(max-width:960px) {.mise-en-page {grid-template-columns:1fr;gap:12px;} .sommaire{position:static;max-height:none;} .sommaire nav{columns:2;} }
+    @media(max-width:650px) {body{font-size:15px;}.conteneur{width:96%;} .bandeau{padding:13px;}
+      section{padding:13px 13px 15px;} .grille,.formes{grid-template-columns:1fr;} .sommaire nav{columns:1;} th,td{padding:6px;} }
+    @media print { :root{color-scheme:light;} body{background:white;color:#111;font-size:10pt;} .navigation,.sommaire,.retour-haut{display:none!important;}
+      .mise-en-page{display:block;} .conteneur{width:100%;max-width:none;} .haut,.bandeau,section{background:#fff;color:#111;border-color:#aaa;}
+      h1,h2,h3,.marque,.forme h3,.nom-forme,.bandeau h1,section h2,section h3{color:#111;} table th{color:#111;background:#eee;}
+      .mini,.forme,.note{background:#fff;color:#111;border-color:#aaa;} a{color:#111;} section {break-inside:avoid-page;} }
+  
+    .bouton-vm {display:inline-block; padding:3px 9px; border:1px solid #e2c451; background:#09085b; color:#ffe76d; border-radius:4px; font-weight:bold; font-size:.88em;}
+    .parcours{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0 2px;}
+    .parcours span {display:inline-block; padding:4px 9px; background:#0b1049; border:1px solid #665b44; border-radius:4px; font-size:.87rem;}
+    .parcours em {color:#ffe269; font-size:.95rem; font-style:normal;}
+    .question {margin-top:13px;}
+    details {border:1px solid #755344; background:#2b0c0a; border-radius:5px; margin:9px 0; padding:7px 12px;}
+    summary {cursor:pointer; color:#ffe5a4; font-weight:700;}
+    details p {margin:6px 0 2px;}
+    .mark {color:#ffe296; font-weight:700;}
+    .code-copie {background:#0e1247; border:1px solid #655b6c; padding:11px; overflow-x:auto; border-radius:5px;}
+    @media print { details {break-inside:avoid;} details>p {display:block;} .bouton-vm,.parcours span{background:white;color:black;border:1px solid #999;} }
+</style>
+</head>
+<body id="haut">
+<a class="saut" href="#corps">Aller directement au mode d'emploi</a>
+<header class="haut"><div class="conteneur haut-ligne">
+ <div><div class="marque">VasareliMania</div><div class="sousmarque">Créer des géométries colorées sans motifs internes</div></div>
+ <nav class="navigation" aria-label="Navigation du site">
+  <a href="index.html">Accueil</a>
+  <a href="presentation.html">Mode d'emploi</a>
+  <a href="utiliser-formes.html">Utiliser les FORMES</a>
+  <a href="utiliser-record-rejouer.html">RECORD / REJOUER</a>
+  <a href="nouveautes.html">Nouveautés</a>
+ </nav>
+</div></header>
+<div class="conteneur">
+ <div class="bandeau">
+  <h1>Utiliser SANS MOTIF — mode d'emploi complet</h1>
+  <p>De la première composition en aplats aux dégradés à deux zones : comprendre les commandes, travailler les couleurs et les formes géométriques, combiner avec un fond, enregistrer et retrouver son dessin.</p>
+  <p class="version">Édition du 22 octobre 2026 · VasareliMania pour Windows · Framework 4.8 · Guide établi à partir de la Form1 validée à 23 formes</p>
+  <div class="parcours" aria-label="Parcours rapide"><span>FORMES</span><em>→</em><span>Sans Motif</span><em>→</em><span>Couleurs</span><em>→</em><span>PEINDRE / Dégradé</span><em>→</em><span>RECORD si souhaité</span></div>
+ </div>
+ <div class="mise-en-page">
+  <aside class="sommaire" aria-label="Sommaire"><strong>Sommaire</strong><nav><a href="#intro">1. Comprendre « Sans Motif »</a>
+<a href="#demarrage">2. Démarrer en 6 étapes</a>
+<a href="#basculer">3. Passer de Sans Motif à Avec Motif</a>
+<a href="#repere">4. Les commandes à repérer</a>
+<a href="#geometrie">5. Colonnes, diviseur et figures</a>
+<a href="#forme">6. Échelle, rotation, déformations</a>
+<a href="#couleurs">7. Choisir les couleurs</a>
+<a href="#peindre">8. Peindre sans dégradé</a>
+<a href="#inversion">9. Inversion des couleurs</a>
+<a href="#degrade">10. Créer un dégradé</a>
+<a href="#reglages-degrade">11. Affiner le dégradé</a>
+<a href="#textures">12. Textures : ce qui change</a>
+<a href="#incrustation">13. Incruster sur un fond</a>
+<a href="#fond">14. FOND et FORMES : deux espaces</a>
+<a href="#sessions">15. Enregistrer avec RECORD / REJOUER</a>
+<a href="#ateliers">16. Cinq ateliers à reproduire</a>
+<a href="#pannes">17. Dépannage détaillé</a>
+<a href="#memo">18. Aide-mémoire et conseils</a></nav></aside>
+  <main id="corps"><section id="intro">
+<h2>1. Comprendre « Sans Motif »</h2>
+<p><strong>Sans Motif</strong> est un mode de dessin et de peinture de VasareliMania. Il conserve les tracés géométriques, les figures, les couleurs, les répétitions et les dégradés, mais ne superpose pas les motifs graphiques <strong>KEPLER / POLYGONES</strong> du moteur « Avec Motif ».</p>
+<div class="grille">
+<div class="mini"><strong>Sans Motif</strong><p>On privilégie les contours, les grandes plages colorées et la structure géométrique. Le remplissage classique en aplats bénéficie d'un moteur rapide, dit <em>Turbo</em>.</p></div>
+<div class="mini"><strong>Avec Motif</strong><p>On retrouve les motifs internes et les traitements associés, avec un ensemble de commandes et un moteur de peinture différents.</p></div>
+</div>
+<div class="note"><strong>À retenir :</strong> « Sans Motif » ne signifie pas « sans forme », « sans couleur » ou « sans texture ». Les éléments visibles dépendent aussi des autres choix de l'interface.</div>
+<p>Ce guide concerne la <strong>version du 22 octobre 2026</strong>, avec 23 formes. Les libellés peuvent légèrement changer lorsque le programme bascule entre FORMES, FOND et INCRUSTÉ.</p>
+</section>
+
+<section id="demarrage">
+<h2>2. Démarrer en six étapes</h2>
+<ol class="etapes">
+<li>Ouvrez VasareliMania et sélectionnez <strong>FORMES</strong> pour travailler sur l'image des formes.</li>
+<li>Assurez-vous que le bouton de mode affiche <span class="bouton-vm">Sans Motif</span>. Si le bouton indique <em>Avec Motif</em>, cliquez dessus pour revenir à <em>Sans Motif</em>.</li>
+<li>Laissez <span class="bouton-vm">SIMPLE</span> et une disposition simple au départ ; évitez de multiplier les réglages dès le premier essai.</li>
+<li>Choisissez les couleurs des contours et du remplissage avec <span class="bouton-vm">Tracé 1</span>, <span class="bouton-vm">Couleur 1</span> et <span class="bouton-vm">Couleur 2</span>.</li>
+<li>Utilisez <span class="bouton-vm">PEINDRE</span> pour obtenir des aplats ou <span class="bouton-vm">Peindre Dégradé</span> pour des transitions colorées.</li>
+<li>Ajustez progressivement <strong>Colonnes</strong>, <strong>Diviseur</strong>, <strong>Échelle</strong>, <strong>Rotation</strong> et les paramètres de dégradé, puis enregistrez votre résultat si vous souhaitez le retrouver.</li>
+</ol>
+<div class="parcours" aria-label="Schéma de démarrage"><span>FORMES</span><em>→</em><span>Sans Motif</span><em>→</em><span>Couleurs</span><em>→</em><span>PEINDRE</span><em>→</em><span>Affiner</span></div>
+<div class="note astuce">Premier essai conseillé : commencez avec un nombre modéré de colonnes et sans texture ; faites une peinture simple, puis seulement un dégradé. Vous pourrez comparer les deux rendus sans changer de motif.</div>
+</section>
+
+<section id="basculer">
+<h2>3. Basculer entre Sans Motif et Avec Motif</h2>
+<p>Le bouton du mode change son texte de <strong>Sans Motif</strong> à <strong>Avec Motif</strong> lorsque vous cliquez dessus. <strong>Le texte affiché indique le mode en cours</strong> dans cette version.</p>
+<div class="defilement"><table><thead><tr><th>Texte du bouton</th><th>État du programme</th><th>Conséquence principale</th></tr></thead><tbody>
+<tr><td><span class="bouton-vm">Sans Motif</span></td><td>Mode de tracé sans motifs internes</td><td>Commandes de couleur, PEINDRE et dégradé propres à ce mode ; remplissage Turbo pour les aplats non texturés.</td></tr>
+<tr><td><span class="bouton-vm">Avec Motif</span></td><td>Mode des motifs internes</td><td>Choix KEPLER/POLYGONES et commandes associées ; autre circuit de peinture.</td></tr>
+</tbody></table></div>
+<p>Au changement de mode, certains boutons, listes et curseurs <strong>apparaissent ou disparaissent</strong>. C'est normal. Les réglages qui ne sont pas pertinents dans le nouveau mode sont masqués.</p>
+<div class="note attention"><strong>Important :</strong> ne confondez pas ce bouton avec <strong>Sans Motif / Avec Motif</strong> dans un menu du site, ni avec la commande <strong>Non Incrusté</strong> : cette dernière gère la superposition sur un fond, pas le choix du moteur graphique.</div>
+</section>
+
+<section id="repere">
+<h2>4. Repérer les commandes essentielles</h2>
+<div class="defilement"><table><thead><tr><th>À l'écran</th><th>Fonction</th><th>Utilisation recommandée</th></tr></thead><tbody>
+<tr><td><strong>SIMPLE / COMPLEXE</strong></td><td>Change la structure de la figure et la relation entre colonnes et diviseur.</td><td>Commencer en SIMPLE, puis comparer en COMPLEXE.</td></tr>
+<tr><td><strong>Colonnes</strong></td><td>Nombre de colonnes de la composition.</td><td>Augmenter graduellement pour densifier la structure.</td></tr>
+<tr><td><strong>Diviseur</strong></td><td>Agit sur la subdivision de la grille et le motif géométrique de base.</td><td>Le régler en lien avec Colonnes, surtout en COMPLEXE.</td></tr>
+<tr><td><strong>FIGURES</strong></td><td>Passe successivement par FIGURE 1, FIGURE 2, FIGURE 3, puis retour à FIGURES.</td><td>Comparer les variantes de la construction.</td></tr>
+<tr><td><strong>Tracé 1</strong></td><td>Couleur des contours en Sans Motif.</td><td>Choisir une couleur qui reste distincte des remplissages.</td></tr>
+<tr><td><strong>Couleur 1 / Couleur 2</strong></td><td>Deux couleurs principales des surfaces.</td><td>Choisir un couple contrasté.</td></tr>
+<tr><td><strong>PEINDRE</strong></td><td>Peinture classique, rapide, sans conserver le dégradé précédent (clic normal).</td><td>Créer des aplats nets.</td></tr>
+<tr><td><strong>Inversion</strong></td><td>Inverse la répartition des deux couleurs.</td><td>Comparer deux variantes d'un même dessin.</td></tr>
+<tr><td><strong>Couleur 1 Dégradé / Couleur 2 Dégradé</strong></td><td>Couleurs d'arrivée du dégradé de chaque zone.</td><td>Construire deux transitions de couleur.</td></tr>
+<tr><td><strong>Peindre Dégradé</strong></td><td>Lance le remplissage par dégradés.</td><td>À utiliser après avoir choisi les couleurs.</td></tr>
+<tr><td><strong>Non Incrusté / Incrusté</strong></td><td>Choix d'affichage de la couche des formes sur le fond.</td><td>Superposer la création à un arrière-plan existant.</td></tr>
+</tbody></table></div>
+<p>Les boutons colorés indiquent aussi les couleurs associées aux commandes. La zone d'état peut afficher le temps de calcul et d'autres indications pendant une opération.</p>
+</section>
+
+<section id="geometrie">
+<h2>5. Colonnes, diviseur, SIMPLE et COMPLEXE</h2>
+<h3>Colonnes : la répétition</h3>
+<p>Le réglage <strong>Colonnes</strong> agit sur le nombre de répétitions horizontales de la construction. De faibles valeurs donnent une figure facilement lisible ; des valeurs plus élevées produisent des trames plus riches.</p>
+<h3>Diviseur : la subdivision</h3>
+<p>Le <strong>Diviseur</strong> intervient dans l'organisation des zones et dans la manière dont les couleurs se répartissent. Le résultat dépend également du mode SIMPLE/COMPLEXE. En COMPLEXE, le programme adapte la limite du diviseur au nombre de colonnes.</p>
+<h3>SIMPLE et COMPLEXE</h3>
+<p><strong>SIMPLE</strong> convient pour comprendre le rendu et vérifier l'effet des couleurs. <strong>COMPLEXE</strong> ajoute des variantes de construction : gardez les mêmes couleurs pour comparer honnêtement les deux modes.</p>
+<h3>FIGURES : quatre états</h3>
+<p>Le bouton passe de <strong>FIGURES</strong> à <strong>FIGURE 1</strong>, puis <strong>FIGURE 2</strong>, <strong>FIGURE 3</strong> et revient au premier état. Chaque clic permet d'explorer un autre tracé sans passer en Avec Motif.</p>
+<div class="note astuce">Pour comparer : fixez vos couleurs et faites varier uniquement un paramètre à la fois. Il est alors plus facile de comprendre les effets de Colonnes, Diviseur et FIGURES.</div>
+</section>
+
+<section id="forme">
+<h2>6. Échelle, rotation, convexe et déformations</h2>
+<div class="defilement"><table><thead><tr><th>Réglage</th><th>Effet visuel</th><th>Conseil</th></tr></thead><tbody>
+<tr><td><strong>Échelle</strong></td><td>Agrandit ou réduit le motif géométrique visible.</td><td>Éviter les extrêmes lors de l'apprentissage.</td></tr>
+<tr><td><strong>Rotation</strong></td><td>Fait pivoter la structure.</td><td>Comparer 0°, 10° et des valeurs plus élevées.</td></tr>
+<tr><td><strong>Convexe / Concave / Damier</strong></td><td>Modifie l'allure des courbes et leurs transitions.</td><td>Regarder comment l'effet varie d'un réglage à l'autre.</td></tr>
+<tr><td><strong>NORMAL / DÉFORMATION 1…4</strong></td><td>Active successivement différents types de déformation.</td><td>Revenir à NORMAL pour comparer.</td></tr>
+<tr><td><strong>Déformation</strong></td><td>Règle la force de la déformation lorsqu'elle est disponible.</td><td>Commencer proche de la position neutre.</td></tr>
+</tbody></table></div>
+<p>Certains réglages sont visibles seulement selon le mode et le type de figure. Si un curseur est masqué, revenez d'abord au mode correspondant au réglage que vous souhaitez modifier.</p>
+</section>
+
+<section id="couleurs">
+<h2>7. Choisir les couleurs sans perdre ses réglages</h2>
+<h3>Les trois choix fondamentaux</h3>
+<ul><li><strong>Tracé 1</strong> : couleur des lignes et des contours du dessin Sans Motif.</li>
+<li><strong>Couleur 1</strong> : premier remplissage.</li>
+<li><strong>Couleur 2</strong> : second remplissage.</li>
+<li><strong>Couleur Toile</strong> : arrière-plan de l'image des formes, distinct de la couleur du contour.</li></ul>
+<h3>Utiliser le sélecteur</h3>
+<ol class="etapes"><li>Cliquez sur le bouton de la couleur à modifier.</li>
+<li>Dans le sélecteur, choisissez la teinte, la saturation et la luminosité, ou utilisez la roue colorée.</li>
+<li>Utilisez <strong>VOIR</strong> lorsqu'il est proposé pour prévisualiser le résultat.</li>
+<li>Cliquez sur <strong>OK</strong> pour valider la couleur. Le bouton doit refléter la nouvelle couleur.</li>
+<li>Si vous souhaitez annuler, utilisez la commande d'annulation plutôt que de valider.</li></ol>
+<div class="note attention">Les couleurs de <strong>Sans Motif</strong> sont distinctes de plusieurs palettes utilisées par les <strong>23 formes</strong> en TRICOLORE / QUADRICOLORE. Pour régler les aplats de Sans Motif, utilisez <em>Tracé 1</em>, <em>Couleur 1</em> et <em>Couleur 2</em>, pas automatiquement BS1/BS2/BSC.</div>
+<p>Évitez de choisir un contour identique aux couleurs de remplissage : la séparation des zones peut devenir difficile à discerner.</p>
+</section>
+
+<section id="peindre">
+<h2>8. Peindre des aplats avec PEINDRE</h2>
+<p>Le bouton <span class="bouton-vm">PEINDRE</span> est la commande principale de peinture du mode Sans Motif. Dans une peinture non texturée, le logiciel trace la géométrie, repère les zones à remplir, puis utilise le remplissage <strong>Turbo</strong> pour colorier rapidement les régions.</p>
+<ol class="etapes"><li>Choisissez une structure géométrique.</li><li>Définissez Tracé 1, Couleur 1 et Couleur 2.</li><li>Assurez-vous d'être en <strong>Sans Motif</strong>.</li><li>Cliquez sur <strong>PEINDRE</strong>, puis regardez les changements sur la toile.</li></ol>
+<h3>Différence entre PEINDRE et les petits boutons Peindre</h3>
+<p>La zone des couleurs comporte également des commandes <strong>Peindre</strong> associées aux deux lignes Couleur 1 et Couleur 2. Leur rôle est différent du bouton principal PEINDRE ; pour un premier essai complet en Sans Motif, utilisez prioritairement <strong>PEINDRE</strong>.</p>
+<h3>Après un dégradé</h3>
+<p>Un <strong>clic normal</strong> sur PEINDRE revient volontairement à la peinture classique et oublie l'état « dernier rendu dégradé ». En revanche, <kbd>Maj</kbd> + clic sur PEINDRE conserve l'intention de travailler avec le dégradé.</p>
+<div class="note astuce">Si l'image conserve un dégradé alors que vous souhaitez des couleurs franches, essayez un <strong>clic normal sur PEINDRE</strong>, sans maintenir Maj.</div>
+</section>
+
+<section id="inversion">
+<h2>9. Inversion des couleurs</h2>
+<p>La commande <span class="bouton-vm">INVERSION</span> inverse la distribution des couleurs affectées aux surfaces du dessin. Le bouton peut ensuite afficher <strong>INVERSÉ</strong>, pour signaler l'état choisi.</p>
+<ol class="etapes"><li>Peignez une première version avec deux couleurs bien distinctes.</li><li>Cliquez sur INVERSION et observez les surfaces qui changent de couleur.</li><li>Cliquez une nouvelle fois pour comparer avec le rendu précédent.</li></ol>
+<p>Selon SIMPLE/COMPLEXE et les couleurs utilisées, les zones concernées peuvent différer. Il ne s'agit ni de retourner géométriquement l'image ni d'inverser automatiquement tout le fond.</p>
+<div class="note">La commande <strong>Inverser Dégradé</strong> est <em>distincte</em> d'INVERSION : la première concerne le sens des transitions de couleurs, la seconde les couleurs des zones.</div>
+</section>
+
+<section id="degrade">
+<h2>10. Créer un dégradé en Sans Motif</h2>
+<p>La peinture en dégradé crée des transitions progressives au lieu d'aplats uniformes. Chaque couleur principale possède une couleur d'arrivée réglable séparément.</p>
+<ol class="etapes"><li>Choisissez <strong>Couleur 1</strong> et <strong>Couleur 2</strong>.</li>
+<li>Ouvrez <strong>Couleur 1 Dégradé</strong> pour choisir la couleur vers laquelle doit évoluer la zone 1.</li>
+<li>Ouvrez <strong>Couleur 2 Dégradé</strong> pour choisir la couleur d'arrivée de la zone 2.</li>
+<li>Validez vos choix dans le sélecteur avec <strong>OK</strong>.</li>
+<li>Cliquez sur <span class="bouton-vm">Peindre Dégradé</span>.</li>
+<li>Affinez la forme de la transition, ses courbes et son orientation si les commandes correspondantes sont affichées.</li></ol>
+<div class="grille"><div class="mini"><strong>Couleur 1 → Couleur 1 Dégradé</strong><p>Transition dans la première famille de surfaces.</p></div><div class="mini"><strong>Couleur 2 → Couleur 2 Dégradé</strong><p>Transition dans la seconde famille de surfaces.</p></div></div>
+<p>Deux couleurs d'arrivée proches donneront un rendu doux. Des couleurs très éloignées donneront un contraste plus spectaculaire.</p>
+<div class="note attention"><strong>Pour revenir aux aplats :</strong> cliquez normalement sur <strong>PEINDRE</strong>, sans Maj. Cette commande est prévue pour quitter le mode dégradé mémorisé.</div>
+</section>
+
+<section id="reglages-degrade">
+<h2>11. Maîtriser les paramètres du dégradé</h2>
+<p>Le programme dispose de réglages propres à chaque zone. Ils peuvent porter des libellés légèrement différents selon la disposition de l'interface.</p>
+<div class="defilement"><table><thead><tr><th>Commande / paramètre</th><th>Rôle</th><th>Conseil</th></tr></thead><tbody>
+<tr><td><strong>Dégradé Concentrique / Dégradé Carré</strong></td><td>Choisit une progression fondée sur une distance circulaire ou carrée.</td><td>Comparer avec les mêmes couleurs.</td></tr>
+<tr><td><strong>Dégradé / intensité</strong></td><td>Fait varier la force ou la répartition du dégradé lorsque le curseur correspondant est disponible.</td><td>Commencer avec un réglage modéré.</td></tr>
+<tr><td><strong>Zone 1 — courbe</strong></td><td>Modifie la courbure de la transition de Couleur 1.</td><td>Plus faible pour une transition douce, plus fort pour des bords prononcés.</td></tr>
+<tr><td><strong>Zone 1 — zone neutre</strong></td><td>Garde une région intérieure plus uniforme avant le début de la transition.</td><td>Une grande zone neutre laisse moins de place au dégradé.</td></tr>
+<tr><td><strong>Zone 2 — courbe</strong></td><td>Équivalent pour Couleur 2.</td><td>Peut différer librement de la zone 1.</td></tr>
+<tr><td><strong>Zone 2 — zone neutre</strong></td><td>Centre non dégradé de la seconde zone.</td><td>Éviter une valeur excessive.</td></tr>
+<tr><td><strong>Inverser Dégradé</strong></td><td>Inverse le sens de la transition.</td><td>Comparer avant et après sans changer la géométrie.</td></tr>
+</tbody></table></div>
+<p>Les curseurs de courbe et de zone neutre sont indépendants pour les deux couleurs. Le rendu est recalculé après leur modification ; sur de grandes images ou avec des textures, le temps peut être plus long.</p>
+</section>
+
+<section id="textures">
+<h2>12. Ajouter des textures — et comprendre la différence avec FOND</h2>
+<p>« Sans Motif » et « sans texture » ne sont pas synonymes. Les textures peuvent modifier l'aspect des tracés ou des surfaces, selon la sélection effectuée dans les panneaux de l'application.</p>
+<h3>Texture sur les formes</h3>
+<p>En Sans Motif, l'épaisseur de texture est commandée par un réglage distinct de l'épaisseur de tracé. Vous pouvez conserver un contour assez fin tout en donnant du caractère à la texture.</p>
+<h3>Peinture et textures</h3>
+<p>Le moteur de peinture ne suit <strong>pas le même chemin</strong> lorsqu'une texture est active : pour ce cas, le logiciel repasse par le moteur graphique classique plutôt que par le remplissage Turbo destiné aux aplats. Un temps de calcul différent est donc normal.</p>
+<h3>TEXTURES du mode FOND</h3>
+<p>Les effets <strong>GRAIN, GRAIN PHOTO, NUAGES, PAPIER, TOILE, MARBRE, FIBRES</strong> concernent la construction des fonds lorsque le mode FOND est sélectionné. Ils ne doivent pas être confondus avec la sélection de motifs internes KEPLER/POLYGONES.</p>
+<div class="note astuce">Pour apprendre Sans Motif, commencez sans texture, puis ajoutez-en une. Vous saurez ainsi si la différence vient du remplissage, du trait ou du fond.</div>
+</section>
+
+<section id="incrustation">
+<h2>13. Afficher une composition en Incrusté</h2>
+<p>VasareliMania distingue une image des <strong>FORMES</strong> et une image de <strong>FOND</strong>. L'option <strong>Incrusté</strong> sert à les associer visuellement.</p>
+<ol class="etapes"><li>Créez ou préparez le fond dans le mode <strong>FOND</strong>.</li>
+<li>Revenez aux <strong>FORMES</strong> et créez votre composition en Sans Motif.</li>
+<li>Utilisez la commande <strong>Non Incrusté / Incrusté</strong> prévue à cet effet.</li>
+<li>Observez la superposition. Si le résultat ne correspond pas à ce que vous vouliez, revenez à Non Incrusté, puis contrôlez les couleurs de la toile et du fond.</li></ol>
+<p>Lorsque l'image est incrustée, plusieurs réglages peuvent être <strong>désactivés temporairement</strong> pour préserver la superposition ou la lecture d'une session. Ce comportement ne signifie pas que les curseurs sont défectueux.</p>
+<div class="note attention"><strong>Avant de chercher une commande masquée :</strong> vérifiez si vous êtes en FORMES ou FOND, Sans Motif ou Avec Motif, et Incrusté ou Non Incrusté.</div>
+</section>
+
+<section id="fond">
+<h2>14. Mode FORMES et mode FOND : ne pas confondre</h2>
+<div class="grille">
+<div class="mini"><strong>FORMES / Sans Motif</strong><p>Structure géométrique, contour, deux couleurs principales, remplissage simple ou dégradé, figures et déformations.</p></div>
+<div class="mini"><strong>FOND</strong><p>Couleur ou texture de la toile d'arrière-plan ; réglages spécifiques aux effets de fond comme GRAIN.</p></div>
+</div>
+<p>Le fait d'avoir choisi Sans Motif ne vous place pas automatiquement en FOND. Vous pouvez préparer chaque couche séparément et utiliser ensuite <strong>Incrusté</strong> pour les réunir.</p>
+<p>Pour revoir toutes les commandes de dessin avec motifs et les 23 formes particulières, consultez le guide <a href="utiliser-formes.html">Utiliser les FORMES</a>.</p>
+</section>
+
+<section id="sessions">
+<h2>15. Enregistrer et retrouver une création Sans Motif</h2>
+<p>Vous pouvez mémoriser une création sous forme de <strong>session VasareliMania</strong> : le programme enregistre l'évolution des commandes afin de pouvoir la rejouer.</p>
+<ol class="etapes"><li>Vérifiez votre mode et vos couleurs, puis cliquez sur <strong>RECORD</strong> en haut de la fenêtre.</li>
+<li>Effectuez les réglages et peintures que vous souhaitez conserver.</li>
+<li>Cliquez sur <strong>STOP</strong> pour terminer ; donnez un nom à votre session lorsque cela est demandé.</li>
+<li>Pour retrouver l'expérience, choisissez <strong>REJOUER</strong> et ouvrez le fichier <code>.vasareli</code> sauvegardé.</li></ol>
+<div class="note"><strong>Important :</strong> une session <code>.vasareli</code> n'est ni un PNG ni un GIF. Le petit bouton <strong>REC / SAUVE</strong> en bas sert à un autre usage : la préparation de séquences GIF. Les commandes de PAUSE, les vitesses de rejeu et les modèles de couleurs sont détaillés dans <a href="utiliser-record-rejouer.html">Utiliser RECORD et REJOUER</a>.</div>
+<p>Pour préparer une image fixe destinée à être partagée, utilisez la fonction de sauvegarde ou d'exportation d'image disponible dans l'application ; vérifiez le fichier exporté avant de fermer.</p>
+</section>
+
+<section id="ateliers">
+<h2>16. Cinq ateliers pour apprendre Sans Motif</h2>
+<div class="formes">
+<div class="forme"><h3>Atelier A — Le damier coloré</h3><p>En SIMPLE, augmentez progressivement Colonnes, choisissez deux couleurs contrastées et cliquez sur <strong>PEINDRE</strong>. Testez INVERSION pour obtenir une variante.</p></div>
+<div class="forme"><h3>Atelier B — Géométrie tournante</h3><p>Conservez les mêmes couleurs, changez la disposition des figures, puis modifiez Rotation et Échelle. Observez la manière dont la répétition change.</p></div>
+<div class="forme"><h3>Atelier C — Deux zones, deux dégradés</h3><p>Choisissez quatre couleurs au total : deux couleurs principales et deux couleurs d'arrivée. Utilisez <strong>Peindre Dégradé</strong>, puis comparez Dégradé Concentrique et Dégradé Carré.</p></div>
+<div class="forme"><h3>Atelier D — Figure déformée</h3><p>Partant d'un dessin simple, essayez <strong>FIGURE 1…3</strong>, puis <strong>DÉFORMATION 1</strong> et ses variantes. Revenez à NORMAL pour constater la différence.</p></div>
+<div class="forme"><h3>Atelier E — Formes sur fond texturé</h3><p>Créez d'abord un fond en FOND, puis une composition Sans Motif aux contours lisibles. Utilisez l'incrustation pour réunir les deux couches et enregistrez une session.</p></div>
+</div>
+<div class="note astuce">Dans chaque atelier, gardez une étape simple enregistrée avant de tester les combinaisons plus complexes. Cela facilite le retour à une composition plaisante.</div>
+</section>
+
+<section id="pannes">
+<h2>17. Dépannage : les problèmes les plus courants</h2>
+<details><summary>Je ne retrouve plus le bouton PEINDRE ni mes couleurs.</summary><p>Vérifiez le mode affiché par le bouton <strong>Sans Motif / Avec Motif</strong>, puis assurez-vous d'être en FORMES. Le changement de mode masque certaines commandes.</p></details>
+<details><summary>Le sélecteur s'ouvre, mais je ne sais pas comment valider.</summary><p>Choisissez votre couleur, utilisez éventuellement VOIR pour la prévisualisation, puis cliquez sur <strong>OK</strong>. Vérifiez que le bouton coloré affiche la nouvelle couleur. Attention à ne pas modifier « Couleur Toile » si votre but est de changer « Couleur 1 ».</p></details>
+<details><summary>Les surfaces restent en dégradé après un essai.</summary><p>Utilisez un <strong>clic normal sur PEINDRE</strong> (sans Maj) pour quitter le rendu dégradé mémorisé, puis relancez le dessin.</p></details>
+<details><summary>Je vois très peu la séparation des surfaces.</summary><p>Choisissez une couleur de Tracé 1 différente des remplissages ; vérifiez que Couleur 1 et Couleur 2 ne sont pas trop voisines.</p></details>
+<details><summary>L'inversion semble ne pas donner le résultat attendu.</summary><p>Vérifiez si vous êtes en SIMPLE ou COMPLEXE et ne confondez pas INVERSION avec Inverser Dégradé. Comparez avec la même géométrie avant de toucher aux autres commandes.</p></details>
+<details><summary>Le résultat est plus lent avec une texture.</summary><p>Le chemin du rendu texturé n'est pas le même que celui de la peinture Turbo des aplats. Essayez sans texture et à une résolution modérée pour comparer.</p></details>
+<details><summary>Les HScrollBars sont inopérantes ou grisées.</summary><p>Contrôlez d'abord FORMES/FOND, Sans Motif/Avec Motif, l'état Incrusté et la présence éventuelle d'un REJOUER en cours. Certaines commandes sont volontairement désactivées dans ces états.</p></details>
+<details><summary>Je veux revoir le résultat après fermeture.</summary><p>Pour rejouer la composition et ses réglages, utilisez RECORD/REJOUER et conservez le fichier de session <code>.vasareli</code>. Pour une simple image, exportez une image fixe. Les deux fichiers ne sont pas interchangeables.</p></details>
+<details><summary>Je confonds Sans Motif et les 23 formes.</summary><p>Les 23 formes (Jupiter, Mars, Lune, Fusée, etc.) sont choisies dans le système de FORMES. <strong>Sans Motif</strong> désigne ici un mode de tracé/remplissage sans motifs KEPLER/POLYGONES ; il peut néanmoins dessiner des structures géométriques complexes.</p></details>
+</section>
+
+<section id="memo">
+<h2>18. Aide-mémoire — Sans Motif</h2>
+<div class="defilement"><table><thead><tr><th>Je veux…</th><th>Je fais…</th></tr></thead><tbody>
+<tr><td>Revenir au dessin sans motifs internes</td><td>Mode <strong>Sans Motif</strong> (texte affiché sur le bouton).</td></tr>
+<tr><td>Changer la structure</td><td><strong>Colonnes</strong>, <strong>Diviseur</strong>, <strong>SIMPLE/COMPLEXE</strong>, <strong>FIGURES</strong>.</td></tr>
+<tr><td>Changer le contour</td><td><strong>Tracé 1</strong> → sélecteur → <strong>OK</strong>.</td></tr>
+<tr><td>Changer les surfaces</td><td><strong>Couleur 1 / Couleur 2</strong> → sélecteur → <strong>OK</strong>.</td></tr>
+<tr><td>Colorier sans dégradé</td><td><strong>PEINDRE</strong> (clic normal).</td></tr>
+<tr><td>Créer un dégradé</td><td>Couleurs de départ et d'arrivée → <strong>Peindre Dégradé</strong>.</td></tr>
+<tr><td>Revenir aux aplats</td><td><strong>PEINDRE</strong> sans Maj.</td></tr>
+<tr><td>Échanger le rôle des couleurs</td><td><strong>INVERSION</strong>.</td></tr>
+<tr><td>Changer le sens d'un dégradé</td><td><strong>Inverser Dégradé</strong>.</td></tr>
+<tr><td>Superposer sur un fond</td><td>Préparer le FOND, revenir aux FORMES, puis <strong>Incrusté</strong>.</td></tr>
+<tr><td>Conserver tous les réglages</td><td><strong>RECORD</strong> → créer → <strong>STOP</strong> → nommer.</td></tr>
+<tr><td>Revoir une session enregistrée</td><td><strong>REJOUER</strong> → ouvrir un <code>.vasareli</code>.</td></tr>
+</tbody></table></div>
+<p>Pour compléter ce guide : <a href="utiliser-formes.html">Utiliser les FORMES</a>, <a href="utiliser-record-rejouer.html">Utiliser RECORD et REJOUER</a> et <a href="nouveautes.html">Nouveautés</a>.</p>
+<div class="note astuce">Le meilleur réflexe : <strong>un seul réglage à la fois</strong>, comparer le résultat, et conserver les versions intéressantes. C'est ainsi qu'on exploite la variété de VasareliMania.</div>
+</section>
+  <p><a class="retour-haut" href="#haut">↑ Revenir au début du guide</a></p></main>
+ </div>
+</div>
+<footer class="bas">VasareliMania · Pierre Tcherukine © 2008–2026 · Guide d'utilisation SANS MOTIF<br><a href="presentation.html">Retour au mode d'emploi</a> · <a href="index.html">Accueil</a></footer>
+</body>
+</html>
