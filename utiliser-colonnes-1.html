@@ -1,1 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mode d'emploi exhaustif de l'atelier Colonnes=1 de VasareliMania : AJOUTER, calques, déplacements, dimensions, Ctrl+Z, galaxies Andromède et Spirale, transparence et sessions.">
+<title>Utiliser Colonnes = 1 — VasareliMania</title>
+<style>
+    :root { color-scheme: dark; --fond:#120000; --panneau:#210706; --cartouche:#2a0a07; --liseret:#775744;
+      --bleu:#07065a; --bleu-clair:#17237b; --jaune:#ffe269; --texte:#f6ecdd; --secondaire:#d0bcac; --vert:#b4e5b3; --lien:#ffdc63; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+    body { margin:0; background:var(--fond); color:var(--texte); font: 16px/1.62 Arial, Helvetica, sans-serif; }
+    a { color:var(--lien); text-underline-offset: 3px; }
+    a:hover, a:focus-visible { color:white; }
+    :focus-visible { outline:2px solid var(--jaune); outline-offset:3px; }
+    .saut {position:absolute; left:-9999px; top:0;}
+    .saut:focus {position:fixed; z-index:99; left:12px; top:12px; background:var(--jaune); color:#000; padding:9px 14px;}
+    .conteneur { width:95%; max-width:1400px; margin:0 auto; }
+    .haut { padding:20px 0 17px; border-bottom:1px solid var(--liseret); }
+    .haut-ligne { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+    .marque { font-size:1.38rem; color:var(--jaune); font-weight:700; letter-spacing:.2px; }
+    .sousmarque {font-size:.88rem; color:var(--secondaire);}
+    .navigation {display:flex; flex-wrap:wrap; gap:7px;}
+    .navigation a,.retour-haut,.appel { display:inline-block; border:1px solid #a58963; background:#080857;
+      color:var(--jaune); border-radius:5px; padding:6px 13px; font-size:.9rem; font-weight:bold; text-decoration:none; }
+    .navigation a:hover,.retour-haut:hover,.appel:hover {background:#222399;color:#fff;}
+    .bandeau {margin:21px 0 19px; padding:16px 20px; border:1px solid var(--liseret); background:#200704; border-radius:8px;}
+    .bandeau h1 {color:var(--jaune); font-size:1.32rem; margin:0 0 5px;}
+    .bandeau p {margin:5px 0;}
+    .version {color:var(--secondaire); font-size:.88rem;}
+    .mise-en-page {display:grid; grid-template-columns:242px minmax(0,1fr); gap:23px; align-items:start; padding-bottom:48px;}
+    .sommaire { position:sticky; top:16px; border:1px solid var(--liseret); background:#1b0505; border-radius:7px; padding:12px 12px 13px; max-height:calc(100vh - 32px); overflow:auto; }
+    .sommaire strong {display:block; font-size:1rem; color:var(--jaune); margin:0 0 6px;}
+    .sommaire a {display:block; text-decoration:none; padding:4px 7px; color:#f3e2b4; border-radius:3px; font-size:.88rem; line-height:1.35;}
+    .sommaire a:hover,.sommaire a:focus-visible {background:#191966; color:#fff;}
+    main {min-width:0;}
+    section {margin:0 0 18px; padding:18px 21px 19px; border:1px solid #674635; border-radius:8px; background:var(--panneau);}
+    section h2 {color:var(--jaune); font-size:1.15rem; line-height:1.3; margin:0 0 10px; padding-bottom:7px; border-bottom:1px solid #6b4632;}
+    section h3 {color:#ffe3aa; font-size:1.02rem; line-height:1.35; margin:16px 0 6px;}
+    section p {margin:8px 0 10px;}
+    section ul, section ol {margin:7px 0 12px; padding-left:22px;}
+    li {margin:4px 0;}
+    .note {border-left:3px solid #e6b957; background:#2c170b; padding:9px 12px; margin:13px 0;}
+    .astuce {border-left-color:#86d6a9; background:#0b241b;}
+    .attention {border-left-color:#ff917c; background:#381414;}
+    .grille {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; margin:12px 0;}
+    .mini {background:#080e44; border:1px solid #494a93; border-radius:6px; padding:10px 12px;}
+    .mini strong {color:#fff099;}
+    .mini p {font-size:.93rem; margin:5px 0 0;}
+    .defilement {overflow-x:auto; max-width:100%; margin:10px 0 14px;}
+    table {border-collapse:collapse; width:100%; font-size:.93rem;}
+    th,td {border:1px solid #71503c; padding:7px 10px; vertical-align:top; text-align:left;}
+    th {background:#17135a; color:#fff19b; font-weight:bold;}
+    tbody tr:nth-child(even) {background:#2b100b;}
+    kbd {white-space:nowrap; border:1px solid #ab967b; border-bottom-width:2px; border-radius:4px;
+       background:#1a204f; color:#fff; padding:1px 5px; font:700 .9em Arial, sans-serif;}
+    code {font-family:Consolas,"Courier New",monospace; color:#f8dda8; word-break:break-word;}
+    .nom-forme {color:#ffe296; font-weight:bold;}
+    .etapes li {padding-left:3px; margin-bottom:7px;}
+    .formes {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:13px 0;}
+    .forme {border:1px solid #644b39; border-radius:5px; padding:10px 12px; background:#190a11;}
+    .forme h3 {margin:0 0 3px; font-size:1rem; color:#ffe28c;}
+    .forme p {margin:3px 0; font-size:.91rem; line-height:1.48;}
+    .famille {font-size:.88rem; text-transform:uppercase; letter-spacing:.4px; color:#d3b4a4; margin:15px 0 4px; font-weight:bold;}
+    .raccourcis {display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
+    .raccourcis span {display:inline-block; padding:6px 9px; border:1px solid #79764a; background:#181646; border-radius:5px;}
+    .legende {font-size:.86rem; color:var(--secondaire);}
+    .bas {border-top:1px solid var(--liseret); text-align:center; padding:18px 15px 24px; color:#d6b7a9; font-size:.86rem;}
+    .retour-haut {display:inline-block; margin-top:4px;}
+    @media(max-width:960px) {.mise-en-page {grid-template-columns:1fr;gap:12px;} .sommaire{position:static;max-height:none;} .sommaire nav{columns:2;} }
+    @media(max-width:650px) {body{font-size:15px;}.conteneur{width:96%;} .bandeau{padding:13px;}
+      section{padding:13px 13px 15px;} .grille,.formes{grid-template-columns:1fr;} .sommaire nav{columns:1;} th,td{padding:6px;} }
+    @media print { :root{color-scheme:light;} body{background:white;color:#111;font-size:10pt;} .navigation,.sommaire,.retour-haut{display:none!important;}
+      .mise-en-page{display:block;} .conteneur{width:100%;max-width:none;} .haut,.bandeau,section{background:#fff;color:#111;border-color:#aaa;}
+      h1,h2,h3,.marque,.forme h3,.nom-forme,.bandeau h1,section h2,section h3{color:#111;} table th{color:#111;background:#eee;}
+      .mini,.forme,.note{background:#fff;color:#111;border-color:#aaa;} a{color:#111;} section {break-inside:avoid-page;} }
+  
+    .pastille {display:inline-block; padding:2px 8px; margin:1px 3px; border:1px solid #a08d61; border-radius:4px; background:#0c1459; color:#ffe6a0; font-size:.9rem;}
+    .succession {display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin:12px 0;}
+    .succession b {padding:9px 12px; background:#090b48; border:1px solid #756f9f; border-radius:5px; color:#fff1b3; font-size:.92rem;}
+    .succession em{font-style:normal;color:#d6b4a7;}
+    .exemple{background:#190a0b;border:1px solid #6a4e3e;border-radius:7px;padding:12px 15px;margin:12px 0;}
+    .exemple p{margin:5px 0;} .exemple strong{color:#ffe18d;}
+    .petit{font-size:.89rem;color:var(--secondaire);}
+    figure{margin:15px 0;} figcaption{color:var(--secondaire);font-size:.88rem;margin:6px 0;}
+    .schema{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+    .schema div{border:1px solid #8a7248;border-radius:5px;background:#090e3e;text-align:center;padding:14px 8px;}
+    .schema strong{display:block;color:#ffe8a8;}
+    @media(max-width:690px){.schema{grid-template-columns:1fr;}}
+</style>
+</head>
 
+<body id="haut">
+<a class="saut" href="#contenu">Aller directement au guide</a>
+<header class="haut"><div class="conteneur haut-ligne">
+  <div><div class="marque">VasareliMania</div><div class="sousmarque">Atelier de composition libre — guide pratique</div></div>
+  <nav class="navigation" aria-label="Navigation du site">
+    <a href="index.html">Accueil</a><a href="presentation.html">Présentation</a>
+    <a href="utiliser-formes.html">Utiliser Formes</a><a href="sessions.html">Sessions</a><a href="nouveautes.html">Nouveautés</a>
+  </nav>
+</div></header>
+<div class="conteneur">
+  <div class="bandeau">
+    <h1>Utiliser Colonnes = 1 — guide complet</h1>
+    <p><strong>Un atelier de composition libre</strong> : créer une forme unique, la déplacer, la redimensionner, la superposer à d'autres formes, la fixer par <kbd>Entrée</kbd> et corriger une erreur avec <kbd>Ctrl</kbd> + <kbd>Z</kbd>.</p>
+    <p class="version">VasareliMania · Édition du 28 octobre 2026 · Mode FORMES / TRICOLORE / QUADRICOLORE · Inclut les formes célestes et les deux galaxies.</p>
+  </div>
+  <div class="mise-en-page">
+    <aside class="sommaire" aria-label="Sommaire du guide"><strong>Sommaire</strong><nav>
+      <a href="#principe">1. Principe et possibilités</a>
+      <a href="#preparer">2. Préparer l'atelier</a>
+      <a href="#une-forme">3. Dessiner une forme</a>
+      <a href="#deplacer">4. Déplacer à la molette</a>
+      <a href="#glisser">5. Clic-glisser</a>
+      <a href="#ajouter">6. Activer AJOUTER</a>
+      <a href="#calques">7. Calques et aperçu</a>
+      <a href="#valider">8. Valider avec Entrée</a>
+      <a href="#annuler">9. Annuler avec Ctrl+Z</a>
+      <a href="#dimensions">10. Dimensions avec D</a>
+      <a href="#couleurs">11. Couleurs / réglages</a>
+      <a href="#celestes">12. Formes célestes</a>
+      <a href="#galaxies">13. Les deux galaxies</a>
+      <a href="#transparence">14. Transparence avec T</a>
+      <a href="#composition">15. Exemple : ciel étoilé</a>
+      <a href="#sans-motif">16. Cas SANS MOTIF</a>
+      <a href="#fond">17. FOND et incrustation</a>
+      <a href="#sessions">18. REC / REJOUER</a>
+      <a href="#problemes">19. Questions et dépannages</a>
+      <a href="#recapitulatif">20. Tous les raccourcis</a>
+    </nav></aside>
+    <main id="contenu">
+      <section id="principe"><h2>1. À quoi sert « Colonnes = 1 » ?</h2>
+        <p>Le réglage <strong>Colonnes = 1</strong> transforme la grille habituelle en un espace de travail avec <strong>une seule figure à la fois</strong>. Cette figure est d'abord placée au centre de la toile. Tu peux ensuite modifier sa position et ses dimensions, puis construire une composition de plusieurs objets.</p>
+        <div class="grille">
+          <div class="mini"><strong>Sans AJOUTER</strong><p>Une forme unique, modifiable et repositionnable. Changer de forme remplace l'objet courant.</p></div>
+          <div class="mini"><strong>Avec AJOUTER</strong><p>Une composition de plusieurs formes : chacune est validée et les précédentes restent visibles.</p></div>
+        </div>
+        <p>Le travail se fait dans la zone <strong>FORMES (PictureBox2)</strong>. Les modes usuels avec plusieurs colonnes sont préservés : ces nouvelles fonctions ne sont activées que dans les conditions prévues pour une colonne.</p>
+      </section>
+      <section id="preparer"><h2>2. Préparer correctement l'atelier</h2>
+        <ol class="etapes">
+          <li>Ouvrir VasareliMania et choisir <strong>FORMES</strong>, et non FOND.</li>
+          <li>Placer le curseur <strong>Colonnes</strong> sur <strong>1</strong>. Il est également possible de cliquer sur la valeur numérique affichée de Colonnes pour forcer 1.</li>
+          <li>Choisir <strong>MOTIF TRICOLORE</strong> ou <strong>MOTIF QUADRICOLORE</strong> dans la liste des motifs.</li>
+          <li>Parcourir les formes par le bouton <strong>Button8</strong>, qui affiche le nom de la forme choisie.</li>
+          <li>Régler au besoin les couleurs, la dimension et la toile avant de commencer la composition.</li>
+        </ol>
+        <div class="note attention"><strong>Important :</strong> l'atelier AJOUTER décrit dans ce guide fonctionne en <strong>FORMES + Colonnes = 1 + TRICOLORE/QUADRICOLORE</strong>. KEPLER et POLYGONES ne sont pas concernés par cette composition libre.</div>
+      </section>
+      <section id="une-forme"><h2>3. Choisir et dessiner une forme</h2>
+        <p>Le bouton qui affiche le nom de la figure — <strong>Button8</strong> — sert à parcourir les formes. Sa largeur a été agrandie pour accueillir notamment les noms « Galaxie Andromède » et « Galaxie Spirale ».</p>
+        <p>Hors AJOUTER, le résultat est une figure unique centrée par défaut. Quand AJOUTER est actif, Button8 change uniquement la <strong>candidate</strong> : il ne la fixe pas automatiquement dans la composition.</p>
+        <div class="note astuce"><strong>Règle essentielle :</strong> <strong>Button8 = choisir</strong> ; <kbd>Entrée</kbd> = <strong>fixer</strong>. Ces deux opérations sont indépendantes.</div>
+      </section>
+      <section id="deplacer"><h2>4. Déplacer une figure à la molette</h2>
+        <p>Place le pointeur <strong>sur le dessin, dans PictureBox2</strong>. En mode une colonne, tu peux déplacer la forme avec la molette :</p>
+        <div class="defilement"><table><thead><tr><th>Action</th><th>Déplacement</th><th>Précision</th></tr></thead><tbody>
+          <tr><td>Molette seule, sans autre mode actif</td><td>Horizontal</td><td>Vers le haut : déplacement vers la droite ; vers le bas : vers la gauche.</td></tr>
+          <tr><td><kbd>Maj</kbd> + molette</td><td>Vertical</td><td>Vers le haut : la figure monte ; vers le bas : elle descend.</td></tr>
+          <tr><td><kbd>H</kbd> puis molette, dans AJOUTER</td><td>Horizontal</td><td>Donne la priorité au déplacement de la candidate.</td></tr>
+          <tr><td><kbd>V</kbd> puis molette, dans AJOUTER</td><td>Vertical</td><td>Donne la priorité au déplacement de la candidate.</td></tr>
+        </tbody></table></div>
+        <p>Le pas du déplacement à la molette est d'environ <strong>15 pixels du bitmap par cran</strong>. Les déplacements sont limités pour éviter de perdre complètement le centre de la forme hors de la toile.</p>
+        <div class="note">Si <kbd>I</kbd>, <kbd>C</kbd>, <kbd>P</kbd> ou <kbd>T</kbd> a activé un mode spécial de molette, celui-ci peut prendre la priorité. Utiliser <kbd>Échap</kbd> pour quitter ce mode avant de déplacer normalement.</div>
+      </section>
+      <section id="glisser"><h2>5. Déplacer avec la souris : clic-glisser</h2>
+        <p>Dans <strong>AJOUTER</strong>, la figure candidate peut être repositionnée directement dans la zone de dessin : place le pointeur sur la toile, maintiens le bouton de la souris, fais glisser la candidate, puis relâche.</p>
+        <p>Les positions sont calculées dans les coordonnées du bitmap : le déplacement concerne la <strong>forme en cours</strong> et ne déplace pas les objets déjà fixés dans les calques. Une figure déjà validée avec Entrée ne se déplace pas directement ; il faut au besoin utiliser Ctrl+Z pour annuler sa dernière validation.</p>
+      </section>
+      <section id="ajouter"><h2>6. Activer et quitter AJOUTER avec A</h2>
+        <p>Une fois FORMES, Colonnes = 1 et TRICOLORE ou QUADRICOLORE sélectionnés, appuyer sur <kbd>A</kbd> pour entrer dans <strong>AJOUTER</strong>. Le bouton Button8 change de couleur pour signaler que le mode composition est actif.</p>
+        <p>Un second <kbd>A</kbd> quitte AJOUTER. Les formes déjà fixées restent dans la composition en cours, tandis qu'une candidate non validée n'est pas conservée.</p>
+        <div class="note attention"><strong>À ne pas confondre :</strong> <kbd>A</kbd> gère le mode composition ; <kbd>Entrée</kbd> y valide une forme. Appuyer sur A ne remplace pas une validation par Entrée.</div>
+      </section>
+      <section id="calques"><h2>7. Comprendre les calques</h2>
+        <p>AJOUTER utilise deux couches graphiques distinctes : une image transparente pour les <strong>formes validées</strong> et un <strong>aperçu indépendant</strong> pour la forme actuelle. La composition est assemblée uniquement pour l'affichage.</p>
+        <div class="schema" aria-label="Composition des calques">
+          <div><strong>Calque de base</strong>Formes validées par Entrée</div>
+          <div><strong>Calque candidat</strong>Forme mobile, non validée</div>
+          <div><strong>Résultat visible</strong>Fusion des deux sur la toile</div>
+        </div>
+        <p>Quand tu changes les dimensions, la couleur ou la position de la candidate, les formes validées restent figées. Une nouvelle validation ajoute la candidate à la base, puis prépare la sélection suivante.</p>
+      </section>
+      <section id="valider"><h2>8. Fixer une forme avec Entrée</h2>
+        <div class="succession"><b>Choisir</b><em>→</em><b>Placer</b><em>→</em><b>Régler</b><em>→</em><b>Entrée</b><em>→</em><b>Choisir la suivante</b></div>
+        <p>Quand la candidate est correctement placée, appuie sur <kbd>Entrée</kbd>. Ses pixels transparents et opaques sont fusionnés dans le calque de base. Son emplacement et sa taille deviennent indépendants des réglages ultérieurs.</p>
+        <p>Un nouveau clic sur Button8 permet ensuite de sélectionner l'objet suivant. La validation n'est pas répétée inutilement tant qu'une nouvelle candidate n'est pas préparée.</p>
+      </section>
+      <section id="annuler"><h2>9. Une validation trop rapide ? Ctrl+Z</h2>
+        <p>Dans <strong>AJOUTER</strong>, si tu as appuyé trop tôt sur Entrée, appuie sur <kbd>Ctrl</kbd> + <kbd>Z</kbd>. Le programme rétablit l'état de la composition <strong>avant la dernière validation</strong>.</p>
+        <ol><li>La dernière forme fixée est retirée de la base.</li><li>Les formes antérieures sont conservées.</li><li>La candidate redevient modifiable avec la souris et la molette.</li><li>Corrige sa place, sa dimension ou ses réglages, puis valide à nouveau par <kbd>Entrée</kbd>.</li></ol>
+        <div class="note attention"><strong>Portée exacte :</strong> Ctrl+Z agit ici sur l'<strong>historique des validations d'AJOUTER</strong>, pas sur toutes les opérations de VasareliMania. Il ne faut pas le considérer comme une annulation générale de tous les dessins ou modes. Sa disponibilité nécessite AJOUTER actif et une validation à annuler.</div>
+      </section>
+      <section id="dimensions"><h2>10. Modifier la taille d'une seule figure avec D</h2>
+        <p>En mode AJOUTER, appuie sur <kbd>D</kbd> puis tourne la molette au-dessus de PictureBox2. La commande agit sur le curseur <strong>DIMENSIONS</strong> de la figure candidate, à raison de <strong>5 unités par cran</strong>.</p>
+        <p>Les formes antérieurement validées gardent leurs dimensions, car elles appartiennent au calque figé. Tu peux aussi régler manuellement DIMENSIONS avant de valider. Après un changement de forme, une taille initiale de référence est restaurée par l'atelier.</p>
+        <div class="note astuce"><strong>Exemple :</strong> dessine un grand Soleil, valide avec Entrée ; choisis la Terre, réduis sa taille avec D et molette, déplace-la puis valide. Le Soleil reste à sa taille d'origine.</div>
+      </section>
+      <section id="couleurs"><h2>11. Couleurs, dégradés et autres réglages</h2>
+        <p>La candidate peut utiliser les réglages du mode choisi : palettes TRICOLORE/QUADRICOLORE, dégradés, rotation, inclinaison et options propres à chaque forme. Tant que tu n'as pas appuyé sur Entrée, les modifications recalculent la figure en cours.</p>
+        <p>Le calque déjà validé n'est pas recoloré en même temps. Selon la forme, certains réglages ne sont disponibles que dans FORMES ou avec des raccourcis particuliers.</p>
+        <div class="note">Les anciennes commandes de motif, les raccourcis de phase et les modes FOND/SANS MOTIF conservent leurs rôles propres. La documentation des formes se trouve également dans <a href="utiliser-formes.html">Utiliser Formes</a>.</div>
+      </section>
+      <section id="celestes"><h2>12. Les formes célestes dans l'atelier</h2>
+        <p>Pour réaliser des scènes astronomiques, sélectionner dans Button8 les figures célestes disponibles : <strong>Soleil, Mars, Jupiter, Saturne, Comète, Nébuleuse spirale, Fusée, Soucoupe volante, La Lune, Terre</strong>, ainsi que les deux galaxies.</p>
+        <p>Ces objets peuvent se combiner librement : par exemple un Soleil central, Saturne en bas à gauche, la Terre en bas à droite, la Lune près de la Terre et deux galaxies en haut. Tous les éléments restent indépendants jusqu'à leur validation.</p>
+        <h3>Raccourcis de formes célestes</h3>
+        <p>Dans les modes compatibles, <kbd>I</kbd> active l'inclinaison, <kbd>C</kbd> choisit une teinte ciblée, <kbd>P</kbd> intervient sur les phases de certaines planètes et de La Lune, et <kbd>T</kbd> pilote la transparence des objets prévus. Les touches secondaires identifient la forme ciblée.</p>
+      </section>
+      <section id="galaxies"><h2>13. Galaxie Andromède et Galaxie Spirale</h2>
+        <div class="grille">
+          <div class="mini"><strong>Galaxie Andromède — G</strong><p>Galaxie allongée, noyau central lumineux, détails stellaires et poussières. Photographie intégrée au programme.</p></div>
+          <div class="mini"><strong>Galaxie Spirale — X</strong><p>Galaxie vue plus de face, bras spiraux et étoiles contrastés ; visuel intégré en <strong>512 × 512</strong>.</p></div>
+        </div>
+        <div class="defilement"><table><thead><tr><th>Fonction</th><th>Andromède</th><th>Spirale</th></tr></thead><tbody>
+          <tr><td>Choisir la forme</td><td><kbd>G</kbd></td><td><kbd>X</kbd></td></tr>
+          <tr><td>Inclinaison indépendante</td><td><kbd>I</kbd> puis <kbd>G</kbd> + molette</td><td><kbd>I</kbd> puis <kbd>X</kbd> + molette</td></tr>
+          <tr><td>Teinte indépendante</td><td><kbd>C</kbd> puis <kbd>G</kbd> + molette</td><td><kbd>C</kbd> puis <kbd>X</kbd> + molette</td></tr>
+          <tr><td>Transparence</td><td><kbd>T</kbd> puis <kbd>G</kbd> + molette</td><td><kbd>T</kbd> puis <kbd>X</kbd> + molette</td></tr>
+          <tr><td>Position / dimension en AJOUTER</td><td>Glisser / H / V / D</td><td>Glisser / H / V / D</td></tr>
+        </tbody></table></div>
+        <p>Les deux galaxies utilisent leurs propres paramètres ; régler une galaxie ne doit pas modifier la valeur mémorisée de l'autre. Leurs PNG sont directement inclus dans <code>Form1.vb</code> : il n'y a donc pas de fichier image à installer séparément pour leur affichage.</p>
+      </section>
+      <section id="transparence"><h2>14. La touche T et la vraie transparence</h2>
+        <p>La transparence agit sur <strong>l'opacité alpha</strong> de la photographie : le fond de la toile doit être visible derrière les zones transparentes, sans rectangle ni voile bleu-gris opaque.</p>
+        <div class="defilement"><table><thead><tr><th>Valeur T</th><th>Aspect attendu</th></tr></thead><tbody>
+          <tr><td><strong>0 %</strong></td><td>Galaxie pleinement visible dans les pixels de son dessin, avec des zones naturellement transparentes.</td></tr>
+          <tr><td><strong>50 %</strong></td><td>Galaxie semi-transparente ; le fond apparaît davantage à travers l'objet.</td></tr>
+          <tr><td><strong>100 %</strong></td><td>Galaxie invisible ; aucune silhouette ni fond coloré résiduel ne doit subsister.</td></tr>
+        </tbody></table></div>
+        <p>Pour un bon résultat, conserver le contraste du noyau, des bras et des petites étoiles tout en éliminant le voile diffus indésirable. Le masque alpha fait partie des images intégrées ; T fait varier ensuite leur opacité globale.</p>
+        <div class="note attention">Une ancienne version de l'image ou du code peut encore montrer des halos bleu-gris. Pour vérifier une correction, utiliser le dernier <code>Form1.vb</code>, reconstruire le projet, puis tester sur un fond bleu vif avec T = 0, 50 et 100 %.</div>
+      </section>
+      <section id="composition"><h2>15. Exemple complet : un ciel étoilé avec deux galaxies</h2>
+        <ol class="etapes">
+          <li>Préparer un fond bleu et un semis d'étoiles, puis passer sur la toile des FORMES.</li>
+          <li>Mettre <strong>Colonnes = 1</strong>, choisir <strong>MOTIF QUADRICOLORE</strong> et activer <kbd>A</kbd>.</li>
+          <li>Choisir <strong>Soleil</strong>, régler sa dimension, le déplacer, puis appuyer sur <kbd>Entrée</kbd>.</li>
+          <li>Choisir <strong>Saturne</strong>, ajuster ses anneaux et sa position avec le clic-glisser, puis valider.</li>
+          <li>Choisir <strong>Terre</strong>, éventuellement régler son inclinaison et sa phase, puis valider.</li>
+          <li>Choisir <strong>Galaxie Andromède</strong> avec <kbd>G</kbd>, ajuster <kbd>I</kbd> puis <kbd>G</kbd> et éventuellement <kbd>T</kbd> puis <kbd>G</kbd>, puis valider.</li>
+          <li>Choisir <strong>Galaxie Spirale</strong> avec <kbd>X</kbd>, régler sa taille par <kbd>D</kbd> + molette, la placer, vérifier sa transparence et valider.</li>
+          <li>Si une position est incorrecte juste après Entrée, utiliser <kbd>Ctrl</kbd> + <kbd>Z</kbd>, corriger et valider à nouveau.</li>
+          <li>Quitter <strong>AJOUTER</strong> avec <kbd>A</kbd> lorsque la composition est satisfaisante.</li>
+        </ol>
+        <div class="exemple"><strong>Conseil artistique :</strong><p>Équilibrer la composition par des tailles différentes ; réserver les galaxies les plus lumineuses aux zones libres du ciel ; préférer une transparence modérée plutôt qu'une disparition excessive des bras spiraux.</p></div>
+      </section>
+      <section id="sans-motif"><h2>16. Colonnes = 1 en SANS MOTIF : un comportement distinct</h2>
+        <p>En SANS MOTIF, Colonnes = 1 ne dessine pas une photographie : il utilise le moteur Turbo avec <strong>un seul carré</strong> et une seule graine de remplissage au centre. Le carré peut être centré puis déplacé à la molette grâce au mode une colonne.</p>
+        <p>On peut alors appliquer les couleurs, les remplissages, les dégradés et les textures du moteur SANS MOTIF. En revanche, <strong>AJOUTER avec Entrée et ses calques</strong> est réservé au rendu des formes en TRICOLORE ou QUADRICOLORE.</p>
+        <p>Pour approfondir le moteur de remplissage, consulter <a href="utiliser-sans-motif.html">Utiliser Sans Motif</a>.</p>
+      </section>
+      <section id="fond"><h2>17. Articuler FORMES, FOND et incrustation</h2>
+        <p>Les objets ajoutés appartiennent à <strong>la toile FORMES (PictureBox2)</strong>. Le décor et les textures de fond appartiennent à <strong>la toile FOND (PictureBox1)</strong>. Utiliser le mode d'incrustation pour réunir les éléments selon le rendu voulu.</p>
+        <p>Quand une galaxie est dessinée avec un vrai alpha, le fond doit être visible dans ses zones transparentes. Le résultat final dépend aussi de la couleur de fond de PictureBox2 et des réglages d'incrustation. Pour diagnostiquer un halo, tester d'abord la forme seule sur un fond bleu uniforme.</p>
+        <div class="note attention">Ne pas confondre les couches de l'atelier AJOUTER avec les deux grandes toiles FOND et FORMES de VasareliMania : ce sont deux organisations différentes.</div>
+      </section>
+      <section id="sessions"><h2>18. Enregistrer et REJOUER une session</h2>
+        <p>Le programme propose <strong>REC/STOP</strong> pour enregistrer les états et <strong>REJOUER</strong> pour charger les sessions <code>.vasareli</code>, normalement rangées dans <code>C:\Sessions VasareliMania</code>.</p>
+        <p>Les valeurs des curseurs, certains paramètres de position, les teintes, les inclinaisons et les transparences des galaxies figurent dans les états de session. Les validations et annulations d'AJOUTER possèdent également des entrées de journal dans le code actuel.</p>
+        <div class="note attention"><strong>Limite à tester avant de compter dessus :</strong> l'enregistrement de l'état ne garantit pas, à lui seul, la reconstruction parfaite de tous les <strong>calques aplatis</strong> d'AJOUTER. Pour une grande composition, effectuer une session d'essai courte, la rejouer et vérifier l'image à chaque étape ; enregistrer également un rendu final séparé.</div>
+      </section>
+      <section id="problemes"><h2>19. Dépannage — les situations les plus courantes</h2>
+        <h3>Le mode A ne s'active pas</h3><p>Vérifier FORMES, Colonnes = 1 et le choix MOTIF TRICOLORE ou QUADRICOLORE. Ne pas être en REJOUER ni dans une zone de texte.</p>
+        <h3>La molette ne déplace plus la forme</h3><p>Placer le pointeur au-dessus de PictureBox2 ; quitter les modes I, P, C ou T avec Échap ; si Entrée a déjà fixé la figure, choisir une nouvelle candidate ou utiliser Ctrl+Z pour revenir sur la dernière.</p>
+        <h3>Une forme déjà placée bouge lorsque je règle une autre</h3><p>Normalement, Entrée fige sa taille et sa position dans le calque de base. Vérifier que la première figure a bien été validée avant de passer à la suivante.</p>
+        <h3>Ctrl+Z semble ne rien faire</h3><p>Le raccourci nécessite le mode AJOUTER actif et au moins une forme validée. Il ne s'applique pas aux images des autres modes.</p>
+        <h3>Les galaxies ont une bordure bleu-gris</h3><p>Utiliser la version du code intégrant les images à canal alpha corrigé. Le réglage T ne remplace pas un bon détourage ; refaire le test de transparence sur un fond uni et coloré.</p>
+        <h3>Je veux conserver le résultat obtenu</h3><p>Enregistrer une image finale avant de changer de mode ou de toile, puis contrôler séparément la capacité de REJOUER à restaurer la composition.</p>
+      </section>
+      <section id="recapitulatif"><h2>20. Tableau récapitulatif des commandes</h2>
+        <div class="defilement"><table><thead><tr><th>Commande</th><th>Action principale</th><th>Conditions / limites</th></tr></thead><tbody>
+          <tr><td>Clic sur le nombre de colonnes</td><td>Force Colonnes = 1</td><td>Dans l'interface des réglages</td></tr>
+          <tr><td><kbd>A</kbd></td><td>Entrer/sortir d'AJOUTER</td><td>FORMES + 1 colonne + TRI/QUAD</td></tr>
+          <tr><td>Clic sur Button8</td><td>Parcourir les figures</td><td>Ne valide pas la candidate</td></tr>
+          <tr><td>Molette</td><td>Déplacer horizontalement</td><td>Pointeur sur la toile, aucun mode spécial actif</td></tr>
+          <tr><td><kbd>Maj</kbd> + molette</td><td>Déplacer verticalement</td><td>Colonnes = 1</td></tr>
+          <tr><td><kbd>H</kbd> + molette</td><td>Déplacer horizontalement</td><td>AJOUTER, candidate active</td></tr>
+          <tr><td><kbd>V</kbd> + molette</td><td>Déplacer verticalement</td><td>AJOUTER, candidate active</td></tr>
+          <tr><td><kbd>D</kbd> + molette</td><td>Modifier DIMENSIONS</td><td>AJOUTER, candidate active</td></tr>
+          <tr><td>Clic-glisser</td><td>Repositionner la figure</td><td>AJOUTER, avant validation</td></tr>
+          <tr><td><kbd>Entrée</kbd></td><td>Fixer la candidate</td><td>AJOUTER</td></tr>
+          <tr><td><kbd>Ctrl</kbd> + <kbd>Z</kbd></td><td>Annuler la dernière validation</td><td>AJOUTER, historique non vide</td></tr>
+          <tr><td><kbd>G</kbd> / <kbd>X</kbd></td><td>Choisir Andromède / Spirale</td><td>FORMES</td></tr>
+          <tr><td><kbd>I</kbd> puis <kbd>G</kbd> / <kbd>X</kbd></td><td>Inclinaison</td><td>Tourner la molette ensuite</td></tr>
+          <tr><td><kbd>C</kbd> puis <kbd>G</kbd> / <kbd>X</kbd></td><td>Teinte</td><td>Tourner la molette ensuite</td></tr>
+          <tr><td><kbd>T</kbd> puis <kbd>G</kbd> / <kbd>X</kbd></td><td>Transparence</td><td>Tourner la molette ensuite</td></tr>
+          <tr><td><kbd>Échap</kbd></td><td>Quitter le mode de molette spécial</td><td>Si I/C/P/T actif</td></tr>
+        </tbody></table></div>
+        <p class="petit">Ce tableau décrit les commandes présentes dans la version de travail du 28 octobre 2026. Certains raccourcis sont contextuels ; en particulier, l'atelier AJOUTER ne modifie pas les modes historiques à plusieurs colonnes.</p>
+      </section>
+      <div style="text-align:center;margin:22px 0 44px;">
+        <a class="retour-haut" href="#haut">Retour en haut</a>
+        <a class="retour-haut" href="presentation.html">Retour à Présentation</a>
+        <a class="retour-haut" href="index.html">Accueil</a>
+      </div>
+    </main>
+  </div>
+</div>
+<footer class="bas">VasareliMania — Pierre Tcherukine © 2008–2026 · Guide Colonnes = 1 · Mise à jour le 28 octobre 2026</footer>
+</body>
+</html>
