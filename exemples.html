@@ -6,7 +6,7 @@
 <title>Exemples de sessions - VasareliMania</title>
 
 <style>
-
+/* Mise en page compacte : seuls les styles changent, les boutons et liens restent intacts. */
 body{
     background:#120000;
     color:white;
@@ -18,46 +18,61 @@ body{
 
 .container{
     width:95%;
-    max-width:1400px;
+    max-width:1220px;
     margin:auto;
     background:linear-gradient(to bottom,#5a0000,#2b0000);
-    box-shadow:0 0 60px black;
-    padding-bottom:40px;
+    box-shadow:0 0 45px black;
+    padding-bottom:18px;
 }
 
 h1{
-    font-size:70px;
+    font-size:36px;
+    line-height:1.25;
     color:#ffe600;
-    padding-top:20px;
-    text-shadow:0 0 25px #ffcc00;
+    padding:16px 18px 0;
+    margin:0 0 8px;
+    text-shadow:0 0 12px #ffcc00;
 }
 
 .text{
-    width:85%;
+    box-sizing:border-box;
+    width:90%;
     margin:auto;
-    font-size:24px;
-    line-height:1.6;
+    font-size:17px;
+    line-height:1.4;
     text-align:left;
-    padding:35px;
+    padding:8px 14px 4px;
 }
 
 h2{
     color:#ffe600;
-    margin-top:40px;
-    text-shadow:0 0 10px #ffcc00;
+    font-size:21px;
+    line-height:1.3;
+    margin:15px 0 4px;
+    text-shadow:0 0 7px #ffcc00;
+}
+
+.text h2:first-child{margin-top:4px;}
+
+p{
+    margin:4px 0 6px;
 }
 
 .button{
     display:inline-block;
-    margin-top:15px;
-    padding:10px 28px;
+    max-width:100%;
+    box-sizing:border-box;
+    margin-top:7px;
+    padding:7px 17px;
     background:#000080;
     color:#ffe600;
     text-decoration:none;
-    font-size:22px;
-    border-radius:10px;
+    font-size:17px;
+    line-height:1.25;
+    border-radius:8px;
     font-weight:bold;
     border:2px solid #ffe600;
+    text-align:center;
 }
 
 .button:hover{
@@ -65,27 +80,34 @@ h2{
 }
 
 .separator{
-    margin-top:30px;
-    border-top:1px solid #666;
+    margin-top:15px;
+    border-top:1px solid #775858;
 }
 
-/* Deux boutons alignés pour les téléchargements Atelier Formes */
+/* Les deux téléchargements Atelier Formes restent côte à côte si la place le permet. */
 .atelier-downloads{
     display:flex;
     align-items:center;
     flex-wrap:wrap;
-    gap:12px;
-    margin-top:15px;
+    gap:10px;
+    margin-top:8px;
 }
 .atelier-downloads .button{margin-top:0;}
 
 .footer{
-    margin-top:40px;
-    padding-bottom:30px;
-    font-size:22px;
+    margin-top:15px;
+    padding-bottom:14px;
+    font-size:14px;
     color:#dddddd;
 }
 
+@media(max-width:700px){
+    .container{width:100%;}
+    h1{font-size:27px;}
+    .text{width:94%;padding:8px 10px 4px;font-size:16px;}
+    h2{font-size:19px;}
+    .button{font-size:15px;padding:7px 12px;}
+}
 </style>
 </head>
 
