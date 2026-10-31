@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Création GIF - VasareliMania</title>
 <style>
 /* Présentation compacte, assortie au Guide de démarrage. */
@@ -62,6 +63,16 @@ ul {
 }
 li { margin:1px 0; break-inside:avoid; }
 .yellow { color:#ffe600; font-weight:bold; }
+.utiliser { margin-top:12px; }
+.guide-intro { margin-bottom:12px; }
+.guide-etapes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 14px; }
+.guide-etape { min-width:0; padding:10px 12px; border:1px solid #70443b; border-radius:7px; background:rgba(28,0,8,.45); }
+.guide-etape h3 { color:#ffe600; font-size:16px; line-height:1.35; margin:0 0 6px; }
+.guide-etape p { margin:0; }
+.guide-num { color:#fff; background:#000080; border:1px solid #ffe600; display:inline-block; font-size:13px; font-weight:bold; line-height:20px; text-align:center; width:23px; height:23px; border-radius:50%; margin-right:7px; }
+.guide-conseil { margin-top:12px; padding:10px 12px; background:rgba(0,0,65,.33); border-left:3px solid #ffe600; }
+.guide-conseil strong { color:#ffe600; }
+
 .actions { margin-top:14px; text-align:center; }
 .button {
     display:inline-block;
@@ -82,6 +93,7 @@ li { margin:1px 0; break-inside:avoid; }
     h1 { font-size:28px; }
     .text { grid-template-columns:1fr; gap:9px; }
     .rubrique { padding:11px 12px; }
+    .guide-etapes { grid-template-columns:1fr; gap:9px; }
 }
 @media(max-width:440px) { ul { columns:1; } }
 </style>
@@ -90,52 +102,73 @@ li { margin:1px 0; break-inside:avoid; }
 <div class="container">
 <h1>Création de GIF</h1>
 <main class="text">
-    <section class="rubrique">
-        <h2>Présentation</h2>
-        <div class="rubrique-contenu">
-            <p>VasareliMania permet de créer facilement des animations GIF
+<section class="rubrique">
+<h2>Présentation</h2>
+<div class="rubrique-contenu">
+<p>VasareliMania permet de créer facilement des animations GIF
             à partir d’images générées par le moteur graphique.</p>
-            <p>Le système d’animation a été conçu pour produire des
+<p>Le système d’animation a été conçu pour produire des
             transformations progressives de formes, couleurs,
             textures et effets optiques dans l’esprit de
             <span class="yellow">l’art génératif et cinétique</span>.</p>
-        </div>
-    </section>
-    <section class="rubrique">
-        <h2>Principe de l’animation</h2>
-        <div class="rubrique-contenu">
-            <p>Le principe consiste à enregistrer automatiquement
+</div>
+</section>
+<section class="rubrique">
+<h2>Principe de l’animation</h2>
+<div class="rubrique-contenu">
+<p>Le principe consiste à enregistrer automatiquement
             une série d’images successives pendant l’évolution
             des paramètres graphiques.</p>
-            <p>Chaque image devient ensuite une frame de l’animation GIF.</p>
-        </div>
-    </section>
-    <section class="rubrique">
-        <h2>Effets animables</h2>
-        <div class="rubrique-contenu">
-            <p>Les animations peuvent être créées à partir :</p>
-            <ul>
-                <li>des rotations</li>
-                <li>des déformations</li>
-                <li>des dégradés</li>
-                <li>des textures</li>
-                <li>des incréments d’angle</li>
-                <li>des variations de couleurs</li>
-                <li>des transformations géométriques</li>
-            </ul>
-        </div>
-    </section>
-    <section class="rubrique">
-        <h2>Résultat et perspectives</h2>
-        <div class="rubrique-contenu">
-            <p>Le mode GIF de VasareliMania permet d’obtenir
+<p>Chaque image devient ensuite une frame de l’animation GIF.</p>
+</div>
+</section>
+<section class="rubrique">
+<h2>Effets animables</h2>
+<div class="rubrique-contenu">
+<p>Les animations peuvent être créées à partir :</p>
+<ul>
+<li>des rotations</li>
+<li>des déformations</li>
+<li>des dégradés</li>
+<li>des textures</li>
+<li>des incréments d’angle</li>
+<li>des variations de couleurs</li>
+<li>des transformations géométriques</li>
+</ul>
+</div>
+</section>
+<section class="rubrique">
+<h2>Résultat et perspectives</h2>
+<div class="rubrique-contenu">
+<p>Le mode GIF de VasareliMania permet d’obtenir
             des animations fluides et hypnotiques inspirées
             de l’univers de Victor Vasarely et de l’Op Art.</p>
-            <p>Le projet continue encore aujourd’hui avec de nouvelles
+<p>Le projet continue encore aujourd’hui avec de nouvelles
             recherches sur l’animation générative haute résolution.</p>
-        </div>
-    </section>
+</div>
+</section>
 </main>
+<section aria-labelledby="titre-utiliser" class="rubrique utiliser">
+<h2 id="titre-utiliser">Utiliser — mode d’emploi</h2>
+<div class="rubrique-contenu">
+<p class="guide-intro">Pour créer un GIF animé, il faut mémoriser <strong>plusieurs images successives</strong> dans VasareliMania, puis les réunir en une animation. Voici la marche à suivre.</p>
+<div class="guide-etapes">
+<div class="guide-etape"><h3><span class="guide-num">1</span> Préparer une première image</h3>
+<p>Choisissez un mode de création et réalisez une composition. Définissez les formes, couleurs, textures et dégradés qui serviront de point de départ.</p></div>
+<div class="guide-etape"><h3><span class="guide-num">2</span> Mémoriser cette image</h3>
+<p>Utilisez la fonction de mémorisation des images du programme pour conserver le premier état de la composition : il constituera une image de l’animation.</p></div>
+<div class="guide-etape"><h3><span class="guide-num">3</span> Faire évoluer la composition</h3>
+<p>Modifiez progressivement un ou plusieurs paramètres : orientation, dimensions, couleurs, textures ou dégradés. Conservez chaque nouvel état dans la suite d’images.</p></div>
+<div class="guide-etape"><h3><span class="guide-num">4</span> Construire la séquence</h3>
+<p>Répétez l’opération pour obtenir une succession d’images. Des changements réguliers et modérés d’une image à l’autre donnent généralement un mouvement plus fluide.</p></div>
+<div class="guide-etape"><h3><span class="guide-num">5</span> Créer le GIF animé</h3>
+<p>Lorsque la série d’images est prête, lancez la fonction de création du GIF. Choisissez la <strong>vitesse d’animation</strong> et le <strong>nom du fichier</strong> avant l’enregistrement.</p></div>
+<div class="guide-etape"><h3><span class="guide-num">6</span> Enregistrer et vérifier</h3>
+<p>Enregistrez le GIF, puis ouvrez le fichier obtenu pour vérifier l’ordre des images, le rythme et la fluidité. Ajustez la séquence ou la vitesse si nécessaire.</p></div>
+</div>
+<p class="guide-conseil"><strong>Conseil :</strong> pour un premier essai, animez un seul paramètre à la fois, par exemple une rotation progressive ou une variation de couleur. Vous pourrez ensuite combiner plusieurs effets. La génération du GIF s’appuie sur ImageMagick.</p>
+</div>
+</section>
 <div class="actions"><a class="button" href="presentation.html">Retour Présentation</a></div>
 <div class="footer">Pierre Tcherukine © 2008-2026</div>
 </div>
