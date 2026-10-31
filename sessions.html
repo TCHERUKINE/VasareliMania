@@ -1,158 +1,201 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
-<title>Sessions à rejouer - VasareliMania</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mode d'emploi des sessions RECORD et REJOUER de VasareliMania : sauvegarde, replay normal ou direct, navigation pendant la pause et modèles de couleurs.">
+<title>Sessions à rejouer — VasareliMania</title>
 <style>
-
-body{
-    background:#120000;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
-    text-align:center;
-    margin:0;
-    padding:0;
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+    background: #120000;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0;
 }
-
-.container{
-    width:95%;
-    max-width:1400px;
-    margin:auto;
-    background:linear-gradient(to bottom,#5a0000,#2b0000);
-    box-shadow:0 0 60px black;
-    padding-bottom:40px;
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: auto;
+    background: linear-gradient(to bottom, #5a0000, #2b0000);
+    box-shadow: 0 0 60px black;
+    padding: 18px 22px 36px;
 }
-
-h1{
-    font-size:70px;
-    color:#ffe600;
-    padding-top:15px;
-    text-shadow:0 0 25px #ffcc00;
+h1 {
+    font-size: clamp(29px, 4vw, 42px);
+    margin: 6px 0 15px;
+    color: #ffe600;
+    text-shadow: 0 0 15px #ffcc00;
 }
-
-.text{
-    width:85%;
-    margin:auto;
-    font-size:26px;
-    line-height:1.6;
-    text-align:left;
-    padding:35px;
+.text {
+    width: 92%;
+    max-width: 1090px;
+    margin: auto;
+    text-align: left;
+    font-size: 17px;
+    line-height: 1.5;
 }
-
-h2{
-    color:#ffe600;
-    font-size:40px;
-    text-shadow:0 0 15px #ffcc00;
+h2 {
+    font-size: 23px;
+    color: #ffe600;
+    margin: 25px 0 9px;
+    text-shadow: 0 0 7px #ffcc00;
 }
-
-.button{
-    display:inline-block;
-    margin-top:30px;
-    padding:10px 28px;
-    background:#000080;
-    color:#ffe600;
-    text-decoration:none;
-    font-size:22px;
-    border-radius:10px;
-    font-weight:bold;
-    border:2px solid #ffe600;
+h3 {
+    font-size: 18px;
+    margin: 17px 0 6px;
+    color: #ffed91;
 }
-
-.footer{
-    margin-top:40px;
-    padding-bottom:30px;
-    font-size:22px;
-    color:#dddddd;
+p { margin: 8px 0 13px; }
+ul, ol { margin: 7px 0 15px; padding-left: 27px; }
+li { margin: 5px 0; }
+strong { color: #fff1a0; }
+a { color: #ffe600; }
+a:hover, a:focus-visible { color: white; }
+.intro {
+    padding: 13px 18px;
+    background: #390b0b;
+    border-left: 4px solid #ffe600;
+    border-radius: 5px;
 }
-
+.directory, kbd {
+    background: #1a173f;
+    color: #fff1a0;
+    border: 1px solid #b7a45b;
+    border-radius: 5px;
+}
+.directory {
+    display: inline-block;
+    padding: 7px 12px;
+    font-family: Consolas, 'Courier New', monospace;
+    overflow-wrap: anywhere;
+}
+kbd { font-family: inherit; font-size: .92em; padding: 2px 6px; white-space: nowrap; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 10px 0 16px; font-size: 16px; }
+th, td { border: 1px solid #98684c; padding: 9px 12px; text-align: left; vertical-align: top; }
+th { background: #000080; color: #ffe600; }
+tr:nth-child(even) { background: #3a1010; }
+.note {
+    background: #2b1612;
+    border-left: 3px solid #d7a946;
+    padding: 11px 15px;
+    margin: 15px 0;
+}
+.button-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 22px auto 5px; }
+.button {
+    display: inline-block;
+    padding: 10px 21px;
+    background: #000080;
+    color: #ffe600;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 9px;
+    font-weight: bold;
+    border: 2px solid #ffe600;
+}
+.button:hover, .button:focus-visible { background: #22239c; color: white; }
+.footer { margin-top: 25px; padding-top: 18px; border-top: 1px solid #75413a; font-size: 15px; color: #dddddd; }
+.small { font-size: 14px; color: #e2d2cc; }
+@media (max-width: 680px) {
+    .container { width: 100%; padding: 12px 12px 26px; }
+    .text { width: 100%; font-size: 16px; }
+    h2 { font-size: 20px; }
+    th, td { padding: 7px; font-size: 14px; }
+    .button { font-size: 15px; }
+}
 </style>
 </head>
-
 <body>
-
 <div class="container">
-
 <h1>Sessions à rejouer</h1>
+<main class="text">
+    <p class="intro"><strong>RECORD et REJOUER sont opérationnels.</strong> VasareliMania permet d'enregistrer les étapes et les paramètres d'une création, puis de les retrouver en <strong>relecture normale</strong> ou en <strong>REJOUER DIRECT</strong>. Il est également possible de reprendre la création après la restitution de la session.</p>
 
-<div class="text">
+    <h2>Qu'est-ce qu'une session ?</h2>
+    <p>Une session conserve les opérations et les réglages utilisés pour construire une image dans VasareliMania. Elle sert à <strong>reproduire une création</strong>, à revoir son évolution et à reprendre un travail à partir de l'état restitué.</p>
+    <p>Les sessions sont enregistrées dans le dossier habituel :</p>
+    <p><span class="directory">C:\Sessions VasareliMania</span></p>
+    <p>Selon la création, une session peut comprendre notamment :</p>
+    <ul>
+        <li>les modes <strong>Sans Motif</strong>, <strong>Avec Motif</strong>, <strong>FORMES</strong>, <strong>KEPLER</strong> ou <strong>POLYGONES</strong> ;</li>
+        <li>les couleurs personnalisées, les inversions, les dégradés et leurs réglages ;</li>
+        <li>les fonds, les textures et les incrustations ;</li>
+        <li>les formes choisies, les assemblages de deux, trois ou quatre formes, leurs dimensions et autres paramètres ;</li>
+        <li>les formes célestes et leurs réglages de phase, de couleur, d'inclinaison ou de transparence lorsque ces options sont utilisées ;</li>
+        <li>les étapes et paramètres enregistrés pendant la composition, y compris dans l'<strong>Atelier Formes (Colonnes = 1)</strong>.</li>
+    </ul>
 
-<h2>Qu'est-ce qu'une session ?</h2>
+    <h2>Comment enregistrer une session ?</h2>
+    <ol>
+        <li>Ouvrir VasareliMania et préparer son dessin (mode, couleurs, formes, fond…).</li>
+        <li>Utiliser la commande <strong>RECORD</strong> pour enregistrer la session au cours de la création.</li>
+        <li>Effectuer les changements souhaités : formes, couleurs, dimensions, dégradés, textures et incrustations.</li>
+        <li>Conserver le fichier de session enregistré dans <strong>C:\Sessions VasareliMania</strong> pour le rejouer ou le partager.</li>
+    </ol>
+    <div class="note">Une session n'est pas simplement une image exportée : elle permet à VasareliMania de retrouver les opérations et les réglages mémorisés. Pour diffuser une image fixe, utilisez aussi la fonction de sauvegarde d'image.</div>
 
-<p>
-Une session VasareliMania permet d'enregistrer les paramètres
-ayant servi à créer une image.
-</p>
+    <h2>Comment rejouer une session ?</h2>
+    <ol>
+        <li>Dans VasareliMania, utiliser <strong>REJOUER</strong> et sélectionner une session enregistrée.</li>
+        <li>Choisir le type de relecture souhaité : <strong>normal</strong> ou <strong>direct</strong>.</li>
+        <li>Observer la reconstruction ou retrouver directement le résultat final.</li>
+        <li>À la fin de la session, poursuivre les expérimentations avec les paramètres et l'interface restaurés.</li>
+    </ol>
+    <h3>Deux façons de rejouer</h3>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Mode</th><th>Fonctionnement</th><th>Quand l'utiliser ?</th></tr></thead>
+            <tbody>
+                <tr><td><strong>REJOUER normal</strong></td><td>Restitue la progression de la création, avec ses étapes successives.</td><td>Pour revoir comment une composition a été construite.</td></tr>
+                <tr><td><strong>REJOUER DIRECT (0 ms)</strong></td><td>Évite les attentes intermédiaires inutiles afin de reconstituer rapidement l'état final.</td><td>Pour retrouver immédiatement une création et continuer à travailler.</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="small">La durée d'une relecture dépend de la complexité de la session et du matériel utilisé.</p>
 
-<p>
-Cette fonctionnalité est actuellement en développement
-et sera progressivement enrichie.
-</p>
+    <h2>Pause et navigation dans les étapes</h2>
+    <p>En relecture normale, il est possible de mettre la session en <strong>PAUSE</strong> pour examiner une étape. Pendant cette pause, la <strong>molette de la souris</strong> permet d'avancer ou de revenir entre les états enregistrés, sans quitter la pause.</p>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Commande</th><th>Action</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Molette</strong> pendant PAUSE</td><td>Passer à l'état suivant ou précédent selon le sens de rotation.</td></tr>
+                <tr><td><kbd>Alt</kbd> + <kbd>P</kbd></td><td>Revenir à l'état précédent.</td></tr>
+                <tr><td><kbd>Alt</kbd> + <kbd>S</kbd></td><td>Avancer à l'état suivant.</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-<p>
-Les sessions sont enregistrées automatiquement dans le dossier :
-</p>
+    <h2>Sessions FORMES et formes célestes</h2>
+    <p>Les sessions récentes peuvent restituer les assemblages de plusieurs formes ainsi que les paramètres propres aux nouvelles formes célestes : <strong>Terre, La Lune, Mars, Jupiter, Saturne, Soleil, Comète, Nébuleuse, galaxies</strong> et autres formes spatiales.</p>
+    <p>Les commandes à la molette utilisées pendant la création — notamment les réglages de <strong>phase (P)</strong>, d'<strong>inclinaison (I)</strong>, de <strong>couleur (C)</strong> et, pour les formes compatibles, de transparence — font partie des réglages que le système de sessions peut restituer.</p>
+    <p>Le mode <strong>Atelier Formes — Colonnes = 1</strong> permet de composer des scènes par placement et validation successive des formes. Les compositions enregistrées peuvent ensuite être rejouées.</p>
 
-<p>
-<b>C:\Sessions VasareliMania</b>
-</p>
+    <h2>Réutiliser des modèles de couleurs</h2>
+    <p>Deux fonctions complémentaires permettent de conserver des jeux de couleurs indépendants :</p>
+    <ul>
+        <li><kbd>Maj</kbd> + <strong>RECORD</strong> : enregistrer un modèle <strong>COULEURS FOND</strong>, réutilisable avec le bouton <strong>C FOND</strong>.</li>
+        <li><kbd>Alt</kbd> + <strong>RECORD</strong> : enregistrer un modèle <strong>COULEURS FORMES</strong>, réutilisable avec le bouton <strong>C FORMES</strong>.</li>
+    </ul>
+    <p>Ces deux modèles peuvent être combinés pour essayer de nouvelles associations de couleurs sans repartir de zéro.</p>
 
-<p>
-Chaque session pourra être sauvegardée, retrouvée et rejouée
-ultérieurement afin de reproduire exactement la même création.
-</p>
+    <h2>Ouvrir et partager une session</h2>
+    <p>Lorsque l'association des fichiers de session avec VasareliMania est installée, un <strong>double-clic</strong> sur un fichier de session permet de lancer le logiciel et sa relecture. Sinon, ouvrez la session depuis la commande <strong>REJOUER</strong> de VasareliMania.</p>
+    <p>Vous pouvez partager vos fichiers de session avec d'autres utilisateurs. Pour les découvrir, consultez la page des exemples téléchargeables.</p>
+    <div class="note">Pour obtenir une restitution aussi fidèle que possible, utilisez une version récente de VasareliMania. Les sessions plus anciennes restent prises en charge dans les cas prévus par le logiciel, avec des réglages par défaut pour certaines options ajoutées ultérieurement.</div>
 
-<p>
-Les sessions enregistrent notamment :
-</p>
-
-<ul>
-<li>le mode utilisé</li>
-<li>les couleurs</li>
-<li>les formes</li>
-<li>les textures</li>
-<li>les dégradés</li>
-<li>les paramètres des curseurs</li>
-<li>les options de rendu</li>
-</ul>
-
-<p>
-Un simple double-clic sur un fichier de session permet de lancer VasareliMania et de retrouver automatiquement la création enregistrée.
-</p>
-
-<h2>Objectifs futurs</h2>
-
-<p>
-Le système de sessions permettra à terme :
-</p>
-
-<ul>
-<li>de sauvegarder une création complète</li>
-<li>de rejouer automatiquement toutes les étapes et reprendre les expérimentations/li>
-<li>de rejouer automatiquement directement en évitant toutes les étapes et reprendre les expérimentations </li>    
-<li>de partager des créations avec d'autres utilisateurs</li>
-<li>de constituer une bibliothèque de sessions</li>
-<li>de servir de base à la création de GIF animés</li>
-</ul>
-
+    <div class="button-group">
+        <a class="button" href="exemples.html">Exemples de sessions téléchargeables</a>
+        <a class="button" href="utiliser-record-rejouer.html">Utiliser RECORD et REJOUER</a>
+        <a class="button" href="presentation.html">Retour à la présentation</a>
+        <a class="button" href="index.html">Retour accueil</a>
+    </div>
+    <p class="small" style="text-align:center; margin-top:17px;">Mode d'emploi actualisé le 31 octobre 2026.</p>
+</main>
+<div class="footer">Pierre Tcherukine © 2008-2026</div>
 </div>
-
-<a class="button" href="presentation.html">
-Retour à la présentation
-</a>
-
-<br><br>
-
-<a class="button" href="index.html">
-Retour accueil
-</a>
-
-<div class="footer">
-Pierre Tcherukine © 2008-2026
-</div>
-
-</div>
-
 </body>
 </html>
