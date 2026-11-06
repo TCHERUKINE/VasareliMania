@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Guide complet du mode FORMES de VasareliMania : 23 formes, couleurs, réglages, alternance, phases de Lune, Mars et Jupiter, enregistrement et rejeu.">
-  <title>Utiliser les formes — VasareliMania</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Guide complet VasareliMania — 31 formes, Atelier A, sélection Z, D/I/C, phases planétaires, Tricolore et Quadricolore, sessions, colonnes et résolutions jusqu’à 6000 × 6000." name="description"/>
+<title>Utiliser les FORMES — Guide complet — VasareliMania (6 novembre 2026)</title>
+<style>
     :root { color-scheme: dark; --fond:#120000; --panneau:#210706; --cartouche:#2a0a07; --liseret:#775744;
       --bleu:#07065a; --bleu-clair:#17237b; --jaune:#ffe269; --texte:#f6ecdd; --secondaire:#d0bcac; --vert:#b4e5b3; --lien:#ffdc63; }
     * { box-sizing: border-box; }
@@ -80,305 +82,245 @@
 <body id="haut">
 <a class="saut" href="#contenu">Aller directement au mode d'emploi</a>
 <header class="haut">
-  <div class="conteneur haut-ligne">
-    <div><div class="marque">VasareliMania</div><div class="sousmarque">Créer, combiner et colorer des formes géométriques</div></div>
-    <nav class="navigation" aria-label="Navigation du site">
-      <a href="index.html">Accueil</a>
-      <a href="presentation.html">Présentation</a>
-      <a href="galerie.html">Galerie</a>
-      <a href="sessions.html">Sessions</a>
-      <a href="nouveautes.html">Nouveautés</a>
-    </nav>
-  </div>
+<div class="conteneur haut-ligne">
+<div><div class="marque">VasareliMania</div><div class="sousmarque">Créer, combiner et colorer des formes géométriques</div></div>
+<nav aria-label="Navigation du site" class="navigation">
+<a href="index.html">Accueil</a>
+<a href="presentation.html">Présentation</a>
+<a href="galerie.html">Galerie</a>
+<a href="sessions.html">Sessions</a>
+<a href="nouveautes.html">Nouveautés</a>
+</nav>
+</div>
 </header>
 <div class="conteneur">
-  <div class="bandeau">
-    <h1>Utiliser les FORMES — présentation et mode d'emploi complet</h1>
-    <p>Un guide pour découvrir les <strong>23 formes</strong> de VasareliMania, les dessiner seules ou à plusieurs, personnaliser leurs couleurs et créer des compositions originales.</p>
-    <p class="version">Édition du 22 octobre 2026 · Application Windows · Version des 23 formes avec Mars, Jupiter réaliste et phases L/M/J à la molette</p>
-  </div>
-  <div class="mise-en-page">
-    <aside class="sommaire" aria-label="Sommaire du guide">
-      <strong>Sommaire</strong>
-      <nav>
-        <a href="#demarrer">1. Démarrer en 5 étapes</a>
-        <a href="#interface">2. Repérer les commandes</a>
-        <a href="#catalogue">3. Catalogue des 23 formes</a>
-        <a href="#curseurs">4. Curseurs des formes</a>
-        <a href="#specifiques">5. Réglages particuliers</a>
-        <a href="#couleurs">6. Couleurs TRI / QUADRI</a>
-        <a href="#alternance">7. Combiner 2, 3 ou 4 formes</a>
-        <a href="#od">8. Button90 : O et D</a>
-        <a href="#phases">9. Lune, Mars, Jupiter : phases</a>
-        <a href="#fond">10. Fond et incrustation</a>
-        <a href="#sessions">11. RECORD et REJOUER</a>
-        <a href="#exemples">12. Idées de compositions</a>
-        <a href="#depannage">13. Questions fréquentes</a>
-        <a href="#raccourcis">14. Récapitulatif des commandes</a>
-      </nav>
-    </aside>
-    <main id="contenu">
-      <section id="demarrer">
-        <h2>1. Commencer en cinq étapes</h2>
-        <ol class="etapes">
-          <li><strong>Ouvrir VasareliMania</strong> et se placer dans le mode <strong>FORMES</strong> (par opposition à FOND).</li>
-          <li><strong>Choisir une forme</strong> avec le bouton qui affiche son nom (Button8) : un clic avance à la suivante ; la molette au-dessus de ce bouton permet également de parcourir les formes.</li>
-          <li><strong>Choisir un rendu</strong> parmi les modes de motifs proposés, notamment <strong>MOTIF TRICOLORE</strong> ou <strong>MOTIF QUADRICOLORE</strong>.</li>
-          <li><strong>Modifier les couleurs et les curseurs</strong> : dimensions, proportion, rotation, dégradé ou options particulières selon la forme.</li>
-          <li><strong>Créer une composition</strong> avec <strong>Alterné</strong> et, si besoin, <strong>2 / 3 / 4 FORMES ENSEMBLE</strong>.</li>
-        </ol>
-        <div class="note astuce"><strong>Premier essai conseillé :</strong> sélectionner <strong>Jupiter</strong>, passer en QUADRICOLORE, puis modifier « Options formes ». Revenir ensuite à <strong>Lune</strong> pour découvrir les phases.</div>
-      </section>
-
-      <section id="interface">
-        <h2>2. Repérer les principales commandes</h2>
-        <div class="defilement"><table>
-          <thead><tr><th>Commande affichée</th><th>À quoi elle sert</th></tr></thead>
-          <tbody>
-            <tr><td><strong>FORMES / FOND</strong></td><td>Basculer entre le dessin des formes et le travail sur la toile de fond.</td></tr>
-            <tr><td><strong>Bouton de la forme</strong> (ex. « Jupiter »)</td><td>Choisir la forme courante parmi les 23 noms. Clic ou molette sur ce bouton.</td></tr>
-            <tr><td><strong>VASARELI / KEPLER / POLYGONES / MOTIF TRICOLORE / MOTIF QUADRICOLORE</strong></td><td>Déterminer le type de composition ou le moteur graphique proposé par le programme. Les commandes visibles varient avec le mode.</td></tr>
-            <tr><td><strong>BS1, BS2, BSC</strong></td><td>Choisir les couleurs utilisées notamment dans les rendus TRICOLORE.</td></tr>
-            <tr><td><strong>CS1, CS2, CS3, CS4</strong></td><td>Choisir les couleurs supplémentaires du mode QUADRICOLORE.</td></tr>
-            <tr><td><strong>Inversion Couleurs</strong></td><td>Basculer l'inversion des couleurs dans les formes, suivant le mode en cours.</td></tr>
-            <tr><td><strong>Inversion Dégradé</strong></td><td>Changer le sens du dégradé, indépendamment du choix des couleurs.</td></tr>
-            <tr><td><strong>Normal / Alterné</strong></td><td>Activer ou désactiver la répartition de formes différentes sur la toile.</td></tr>
-            <tr><td><strong>2 / 3 / 4 FORMES ENSEMBLE</strong> (Button89)</td><td>Choisir le nombre de formes distinctes à associer.</td></tr>
-            <tr><td><strong>O / D</strong> (Button90)</td><td>Conserver les couleurs d'origine (O) ou différencier automatiquement les teintes (D).</td></tr>
-            <tr><td><strong>LISTE FORMES / CHOISIR FORME</strong></td><td>Ouvrir le menu des 23 formes pour composer une alternance.</td></tr>
-            <tr><td><strong>RECORD / REJOUER</strong></td><td>Enregistrer puis restituer une séance de création.</td></tr>
-          </tbody>
-        </table></div>
-        <p>L'emplacement exact de certaines commandes peut varier selon que l'on est en <strong>Avec Motif</strong>, <strong>Sans Motif</strong>, <strong>Incrusté</strong> ou en train de rejouer une session.</p>
-      </section>
-
-      <section id="catalogue">
-        <h2>3. Les 23 formes disponibles</h2>
-        <p>La liste s'ouvre depuis <strong>LISTE FORMES</strong>. Elle utilise une police lisible et affiche les formes dans cet ordre ; <strong>Mars</strong> suit <strong>Jupiter</strong>.</p>
-        <p class="famille">Géométrie classique — 1 à 6</p>
-        <div class="formes">
-          <article class="forme"><h3>01 · Carré</h3><p>La forme géométrique de base. Utile pour les mosaïques, les carrés concentriques, les trames et les effets de rotation.</p></article>
-          <article class="forme"><h3>02 · Losange</h3><p>Un carré orienté sur ses pointes. Idéal pour les compositions diagonales et les motifs symétriques.</p></article>
-          <article class="forme"><h3>03 · Cercle</h3><p>Forme ronde classique, adaptée aux cercles répétés, aux gradients circulaires et aux associations avec d'autres figures.</p></article>
-          <article class="forme"><h3>04 · Couronne</h3><p>Anneau circulaire permettant de travailler l'épaisseur et le rapport entre centre et périphérie.</p></article>
-          <article class="forme"><h3>05 · Ellipse</h3><p>Forme ovale dont les proportions et l'orientation influencent fortement le résultat.</p></article>
-          <article class="forme"><h3>06 · Triangle</h3><p>Figure anguleuse qui se prête aux déformations, aux contrastes et aux rotations successives.</p></article>
-        </div>
-        <p class="famille">Courbes et symboles — 7 à 10</p>
-        <div class="formes">
-          <article class="forme"><h3>07 · Infini</h3><p>Courbe évoquant le symbole ∞ ; intéressante en alternance et avec des couleurs opposées.</p></article>
-          <article class="forme"><h3>08 · Double Infini</h3><p>Variante à courbes imbriquées, pour produire des entrelacs visuels.</p></article>
-          <article class="forme"><h3>09 · Cœur</h3><p>Une silhouette familière, transformable par les curseurs habituels des formes.</p></article>
-          <article class="forme"><h3>10 · Trèfle</h3><p>Figure à lobes arrondis, appréciable dans les répétitions et les assemblages symétriques.</p></article>
-        </div>
-        <p class="famille">Courbes mathématiques et rubans — 11 à 15</p>
-        <div class="formes">
-          <article class="forme"><h3>11 · Lissajous</h3><p>Courbes harmoniques dont l'aspect dépend des proportions. Des réglages spécifiques sont remis à des valeurs de départ lors du choix.</p></article>
-          <article class="forme"><h3>12 · Rosace</h3><p>Figure florale ou rayonnante, avec réglages de proportions permettant des pétales plus ou moins marqués.</p></article>
-          <article class="forme"><h3>13 · Spirographe</h3><p>Courbes à boucles régulières. Le curseur <strong>Options formes</strong> règle le nombre de boucles : de 4 à 24, environ 8 par défaut.</p></article>
-          <article class="forme"><h3>14 · Lamé</h3><p>Courbe mathématique apparentée aux superellipses, allant de tracés arrondis à des silhouettes plus carrées selon les proportions.</p></article>
-          <article class="forme"><h3>15 · Möbius</h3><p>Ruban torsadé inspiré du ruban de Möbius, à associer aux réglages de largeur, de forme et de couleur.</p></article>
-        </div>
-        <p class="famille">Étoiles et espace — 16 à 23</p>
-        <div class="formes">
-          <article class="forme"><h3>16 · Étoile polaire douce</h3><p>Étoile aux contours plus doux, créant des formes rayonnantes moins anguleuses.</p></article>
-          <article class="forme"><h3>17 · Lune</h3><p>Disque ou croissant dont la <strong>phase</strong> est modifiable. Avec la nouvelle commande <kbd>L</kbd>, la molette sur la toile agit sur la Lune sans changer Mars ou Jupiter.</p></article>
-          <article class="forme"><h3>18 · Étoile</h3><p>Étoile à branches : <strong>Options formes</strong> permet de varier leur nombre (4 à 24) ; <kbd>Maj</kbd> + <strong>Coins arrondis</strong> adoucit les pointes.</p></article>
-          <article class="forme"><h3>19 · Soucoupe volante</h3><p>Soucoupe à coupole. <strong>Options formes</strong> règle la hauteur du dôme ; <kbd>Alt</kbd> + <strong>Options formes</strong> permet de l'incliner.</p></article>
-          <article class="forme"><h3>20 · Saturne</h3><p>Planète avec anneau visible devant et derrière le disque. Le réglage <kbd>Alt</kbd> + <strong>Options formes</strong> fait varier son inclinaison.</p></article>
-          <article class="forme"><h3>21 · Fusée</h3><p>Corps, hublot, ailerons et flammes rouges. <strong>Options formes</strong> agit sur la finesse ; <kbd>Alt</kbd> sur l'inclinaison ; <kbd>Maj</kbd> sur la longueur des flammes.</p></article>
-          <article class="forme"><h3>22 · Jupiter</h3><p>Disque à bandes atmosphériques beige, ocre et brun avec <strong>Grande Tache rouge</strong>. <strong>Options formes</strong> agit sur les bandes ; <kbd>J</kbd> + molette sur la toile règle la phase.</p></article>
-          <article class="forme"><h3>23 · Mars</h3><p>La planète rouge, avec reliefs et cratères orangés. <strong>Options formes</strong> fait varier ses nuances ; <kbd>M</kbd> + molette sur la toile règle sa phase.</p></article>
-        </div>
-        <div class="note">Chaque forme peut être dessinée seule. Les combinaisons à plusieurs formes utilisent la même liste ; les réglages appliqués au dessin et leurs résultats dépendent du mode de rendu actif.</div>
-      </section>
-
-      <section id="curseurs">
-        <h2>4. Comprendre les curseurs FORMES</h2>
-        <p>Les curseurs sont un des principaux moyens de création. Leur influence exacte dépend de la forme choisie et du moteur TRICOLORE ou QUADRICOLORE. Après une modification, observer le résultat et conserver les valeurs qui conviennent.</p>
-        <div class="defilement"><table>
-          <thead><tr><th>Libellé à l'écran</th><th>Utilisation générale</th></tr></thead><tbody>
-            <tr><td>Options formes</td><td>Réglage propre à la forme : courbes du spirographe, dôme de la soucoupe, finesse de la fusée, bandes de Jupiter, nuances de Mars, etc.</td></tr>
-            <tr><td>Proportion Forme</td><td>Modifie les proportions de la figure ; l'effet est très visible pour les courbes et les formes allongées.</td></tr>
-            <tr><td>Épais. Textures</td><td>Intervient dans l'épaisseur ou le rendu des textures lorsque le mode correspondant est activé.</td></tr>
-            <tr><td>Rotation Formes</td><td>Fait tourner les formes et modifie l'orientation d'une composition.</td></tr>
-            <tr><td>Coins arrondis</td><td>Atténue les angles de certaines figures. Pour l'Étoile, un réglage particulier est accessible avec <kbd>Maj</kbd>.</td></tr>
-            <tr><td>Dimensions</td><td>Augmente ou réduit l'importance visuelle des figures.</td></tr>
-            <tr><td>Dégradé</td><td>Fait varier la transition des couleurs à l'intérieur du rendu.</td></tr>
-            <tr><td>Écart CS1 CS2 / Écart CS2 CS3</td><td>Agit sur les écarts et l'équilibre entre les couleurs du mode QUADRICOLORE.</td></tr>
-            <tr><td>incrément Rotat.</td><td>Définit une progression de rotation entre éléments répétés.</td></tr>
-            <tr><td>Zone neutre</td><td>Influence une portion plus neutre dans certains dégradés.</td></tr>
-            <tr><td>Rotation Dégradé</td><td>Oriente la direction du dégradé indépendamment de la rotation générale des formes.</td></tr>
-          </tbody></table></div>
-        <div class="note astuce"><strong>Méthode recommandée :</strong> modifier un seul curseur à la fois pour comprendre son effet. Certains réglages ne sont pertinents que pour une forme ou un mode particulier.</div>
-      </section>
-
-      <section id="specifiques">
-        <h2>5. Commandes particulières des nouvelles formes</h2>
-        <div class="defilement"><table><thead><tr><th>Forme</th><th>Action</th><th>Résultat</th></tr></thead><tbody>
-          <tr><td>Spirographe</td><td>Options formes</td><td>Nombre de boucles, environ 4 à 24.</td></tr>
-          <tr><td>Lune</td><td>Phase via <kbd>L</kbd> + molette sur la toile</td><td>Croissant, disque plus éclairé ou phase différente.</td></tr>
-          <tr><td>Étoile</td><td>Options formes</td><td>Nombre de branches.</td></tr>
-          <tr><td>Étoile</td><td><kbd>Maj</kbd> + Coins arrondis</td><td>Arrondi indépendant des pointes.</td></tr>
-          <tr><td>Soucoupe volante</td><td>Options formes</td><td>Hauteur de la coupole.</td></tr>
-          <tr><td>Soucoupe volante</td><td><kbd>Alt</kbd> + Options formes</td><td>Inclinaison de −45° à +45°.</td></tr>
-          <tr><td>Saturne</td><td><kbd>Alt</kbd> + Options formes</td><td>Inclinaison des anneaux.</td></tr>
-          <tr><td>Fusée</td><td>Options formes</td><td>Silhouette plus fine ou plus large.</td></tr>
-          <tr><td>Fusée</td><td><kbd>Alt</kbd> + Options formes</td><td>Inclinaison de la fusée.</td></tr>
-          <tr><td>Fusée</td><td><kbd>Maj</kbd> + Options formes</td><td>Longueur des flammes.</td></tr>
-          <tr><td>Jupiter</td><td>Options formes</td><td>Aspect des bandes nuageuses.</td></tr>
-          <tr><td>Jupiter</td><td><kbd>J</kbd> + molette sur la toile</td><td>Phase de Jupiter, indépendante des autres planètes.</td></tr>
-          <tr><td>Mars</td><td>Options formes</td><td>Nuances et détails de la planète rouge.</td></tr>
-          <tr><td>Mars</td><td><kbd>M</kbd> + molette sur la toile</td><td>Phase de Mars, indépendante des autres planètes.</td></tr>
-        </tbody></table></div>
-        <p>Les anciens raccourcis avec <kbd>Maj</kbd> ou <kbd>Alt</kbd> restent disponibles là où ils existent. Pour les trois phases planétaires, la méthode <kbd>L</kbd>, <kbd>M</kbd>, <kbd>J</kbd> est plus simple dans les compositions mixtes.</p>
-      </section>
-
-      <section id="couleurs">
-        <h2>6. Choisir les couleurs et les dégradés</h2>
-        <h3>TRICOLORE et QUADRICOLORE</h3>
-        <p><strong>MOTIF TRICOLORE</strong> utilise les commandes de couleurs <strong>BS1, BS2 et BSC</strong>. <strong>MOTIF QUADRICOLORE</strong> ajoute les commandes <strong>CS1 à CS4</strong> et les choix de couleurs de toile correspondants. Leurs effets peuvent différer selon les formes et les dégradés choisis.</p>
-        <ol><li>Choisir le moteur souhaité.</li><li>Cliquer sur le bouton de couleur correspondant.</li><li>Choisir une teinte dans la fenêtre du sélecteur.</li><li>Cliquer sur <strong>OK</strong> pour confirmer, puis observer le dessin.</li><li>Affiner le résultat avec le dégradé, l'inversion ou les écarts de couleurs.</li></ol>
-        <div class="note astuce"><strong>Version du 22 octobre :</strong> la validation par <strong>OK</strong> du sélecteur de couleurs a été corrigée. La palette réaliste de Jupiter conserve toutefois ses tons naturels beige, ocre et brun : sa présentation ne réagit pas de la même façon aux couleurs de base que les figures géométriques classiques.</div>
-        <h3>Inversion des couleurs et du dégradé</h3>
-        <p><strong>Inversion Couleurs</strong> modifie l'organisation des couleurs. <strong>Inversion Dégradé</strong> agit sur le sens de la transition. Ces deux commandes ne sont pas équivalentes : essayez chacune séparément pour comparer leur effet.</p>
-        <h3>Conseil artistique</h3>
-        <p>Commencer par deux couleurs nettement différentes, puis ajouter des nuances intermédiaires. Dans le mode QUADRICOLORE, jouer sur <strong>CS2 / CS3</strong> permet souvent d'obtenir des transitions moins abruptes.</p>
-      </section>
-
-      <section id="alternance">
-        <h2>7. Dessiner avec deux, trois ou quatre formes</h2>
-        <p><strong>Button89</strong> fait passer successivement de <strong>2 FORMES ENSEMBLE</strong> à <strong>3 FORMES ENSEMBLE</strong>, puis <strong>4 FORMES ENSEMBLE</strong>, et revient à 2.</p>
-        <div class="grille"><div class="mini"><strong>Deux formes et MODULO</strong><p>Le fonctionnement historique est conservé. Après avoir choisi les deux formes, sélectionner <strong>MODULO 2, 3 ou 4</strong>. Cela fait varier la fréquence de leur alternance.</p></div>
-          <div class="mini"><strong>Trois ou quatre formes</strong><p>Le programme demande successivement <strong>CHOISIR FORME 1/3</strong> ou <strong>1/4</strong>, jusqu'à ce que toutes les formes soient choisies. Il n'y a pas de menu MODULO supplémentaire dans ces modes.</p></div></div>
-        <h3>Procédure pour quatre formes</h3>
-        <ol class="etapes"><li>Cliquer sur Button89 jusqu'à lire <strong>4 FORMES ENSEMBLE</strong>.</li>
-          <li>Cliquer sur <strong>LISTE FORMES</strong> : choisir la première figure.</li>
-          <li>Choisir successivement les deuxième, troisième et quatrième figures dans la liste.</li>
-          <li>Activer <strong>Alterné</strong> si le bouton indique encore <strong>Normal</strong>.</li>
-          <li>Adapter les couleurs, les dimensions et les autres réglages ; observer la répartition sur la toile.</li>
-        </ol>
-        <p>Le principe est identique pour <strong>3 FORMES ENSEMBLE</strong>. Pour revenir à une forme seule, repasser en <strong>Normal</strong> avec le bouton Normal / Alterné.</p>
-        <div class="note"><strong>Exemple :</strong> Lune + Jupiter + Mars, puis sélectionner leurs phases séparément avec <kbd>L</kbd>, <kbd>J</kbd> et <kbd>M</kbd>. Avec quatre formes, ajouter Saturne ou Fusée.</div>
-        <p>La liste des noms s'affiche avec la police <strong>Segoe UI 10 points en gras</strong> ; le menu peut se positionner légèrement plus haut afin de faire tenir les 23 formes. Si nécessaire, utiliser la barre de défilement.</p>
-      </section>
-
-      <section id="od">
-        <h2>8. Le petit bouton O / D (Button90)</h2>
-        <div class="grille"><div class="mini"><strong>O — Original</strong><p>Mode initial : conserve le rendu et le choix des couleurs habituels. Bouton bleu foncé et texte jaune.</p></div>
-          <div class="mini"><strong>D — Différent</strong><p>Décale automatiquement la teinte selon le rang de la forme dans une composition alternée, sans modifier les boutons de couleurs. Bouton jaune et texte bleu foncé.</p></div></div>
-        <p>Un clic sur <strong>O / D</strong> inverse le choix. L'option est particulièrement intéressante pour les compositions de trois ou quatre formes, lorsqu'on veut éviter d'attribuer manuellement une palette à chacune.</p>
-        <p>Les effets sont les plus visibles en <strong>Alterné</strong> avec plusieurs formes. Certaines figures possèdent des couleurs internes spécifiques : la Fusée conserve notamment ses flammes rouges, et Jupiter réaliste sa palette atmosphérique.</p>
-      </section>
-
-      <section id="phases">
-        <h2>9. Phases indépendantes : Lune, Mars et Jupiter</h2>
-        <p>C'est l'une des grandes nouveautés du 22 octobre 2026. On peut régler les trois phases <strong>sans toucher au curseur Options formes</strong>, même lorsque les trois planètes figurent dans la même composition.</p>
-        <div class="raccourcis" aria-label="Commandes des phases">
-          <span><kbd>L</kbd> Lune</span><span><kbd>M</kbd> Mars</span><span><kbd>J</kbd> Jupiter</span><span><kbd>Échap</kbd> Quitter</span>
-        </div>
-        <ol class="etapes">
-          <li>Être dans le mode <strong>FORMES</strong>, avec la planète concernée présente dans le dessin.</li>
-          <li>Appuyer une fois sur <kbd>L</kbd>, <kbd>M</kbd> ou <kbd>J</kbd>.</li>
-          <li>Placer le pointeur <strong>au-dessus de la toile des formes</strong>.</li>
-          <li>Tourner la <strong>molette de la souris</strong> : chaque cran modifie la phase d'un point.</li>
-          <li>Appuyer directement sur une autre lettre pour changer de planète, ou sur <kbd>Échap</kbd> pour quitter le mode phases.</li>
-        </ol>
-        <p>Un petit indicateur près d'<strong>Options formes</strong> affiche la sélection et sa valeur : par exemple <code>L35</code>, <code>M50</code> ou <code>J50</code>.</p>
-        <div class="defilement"><table><thead><tr><th>Touche</th><th>Réglage</th><th>Exemple</th></tr></thead><tbody>
-          <tr><td><kbd>L</kbd></td><td>Phase de la Lune</td><td>Créer un croissant plus ou moins fin.</td></tr>
-          <tr><td><kbd>M</kbd></td><td>Phase de Mars</td><td>Modifier la portion éclairée du disque rouge.</td></tr>
-          <tr><td><kbd>J</kbd></td><td>Phase de Jupiter</td><td>Faire apparaître une partie dans l'ombre, tout en conservant ses bandes et sa Grande Tache rouge sur la partie visible.</td></tr>
-          <tr><td><kbd>Échap</kbd></td><td>Fin du réglage</td><td>La phase actuelle est conservée ; la molette retrouve son usage normal.</td></tr>
-        </tbody></table></div>
-        <div class="note astuce"><strong>Important :</strong> inutile d'appuyer sur Échap entre L, M et J. On peut enchaîner directement <kbd>L</kbd> → molette → <kbd>M</kbd> → molette → <kbd>J</kbd> → molette → <kbd>Échap</kbd>.</div>
-        <p>Pour Mars et Jupiter, l'échelle va de <strong>0 à 100</strong>, avec une planète entièrement éclairée autour de <strong>50</strong>. Chaque planète mémorise son réglage indépendamment.</p>
-        <p>Le réglage au clavier ne s'active que si la forme demandée est présente dans la composition, et ne détourne pas la molette pendant <strong>REJOUER</strong>.</p>
-      </section>
-
-      <section id="fond">
-        <h2>10. Associer les formes à un FOND</h2>
-        <p>Les FORMES et le FOND sont deux parties complémentaires de VasareliMania. On peut préparer une toile colorée ou texturée, puis lui associer des figures géométriques ou planétaires.</p>
-        <ol><li>Choisir le mode <strong>FOND</strong> pour préparer la toile, ses couleurs ou sa texture.</li>
-          <li>Choisir, si souhaité, un effet tel que <strong>GRAIN</strong> et ses réglages de taille, contraste, densité, orientation et dégradé.</li>
-          <li>Revenir dans <strong>FORMES</strong> pour choisir les figures et leurs couleurs.</li>
-          <li>Utiliser les commandes <strong>Incrusté / Non Incrusté</strong> selon le type de composition voulu.</li></ol>
-        <p>Le réglage de la <strong>DENSITÉ du GRAIN</strong> a été rendu plus progressif dans cette version. Les effets de FOND ne sont pas pilotés par le bouton O / D, qui concerne les FORMES.</p>
-        <div class="note attention"><strong>À distinguer :</strong> les curseurs situés dans TEXTURES ou FOND ne sont pas les mêmes que ceux du mode FORMES. Leurs effets et leur disponibilité changent selon le mode sélectionné.</div>
-      </section>
-
-      <section id="sessions">
-        <h2>11. RECORD, REJOUER et conserver une création</h2>
-        <h3>Enregistrer les opérations d'une séance</h3>
-        <ol><li>Cliquer sur <strong>RECORD</strong> avant de commencer ou de poursuivre la création.</li>
-          <li>Régler les formes, les couleurs, l'alternance et, si nécessaire, les phases des planètes.</li>
-          <li>Cliquer sur <strong>STOP</strong> pour terminer l'enregistrement.</li>
-          <li>Donner un nom à la session lorsque le programme le demande et confirmer.</li></ol>
-        <p>Les sessions sont conservées au format <code>.vasareli</code>, habituellement dans le dossier <code>C:\Sessions VasareliMania</code>.</p>
-        <h3>Rejouer une session</h3>
-        <ol><li>Choisir <strong>REJOUER</strong>.</li><li>Sélectionner un fichier <code>.vasareli</code>.</li><li>Laisser se dérouler la restitution ou utiliser les contrôles de pause et de navigation proposés par l'application.</li></ol>
-        <p>Les nouveaux réglages de phases <strong>L/M/J</strong> sont pris en compte par l'enregistrement de l'état des planètes. Pendant REJOUER, les touches et la molette sont prioritairement réservées à la lecture.</p>
-        <h3>Raccourcis de REJOUER</h3>
-        <div class="defilement"><table><thead><tr><th>Commande</th><th>Effet</th></tr></thead><tbody>
-          <tr><td><kbd>Alt</kbd> + <kbd>P</kbd></td><td>État précédent, pendant la pause.</td></tr>
-          <tr><td><kbd>Alt</kbd> + <kbd>S</kbd></td><td>État suivant, pendant la pause.</td></tr>
-          <tr><td><kbd>Maj</kbd> + <kbd>A</kbd></td><td>Demander l'arrêt de la lecture.</td></tr>
-          <tr><td>Molette pendant PAUSE</td><td>Naviguer entre les états lorsque cette fonction est active.</td></tr>
-        </tbody></table></div>
-        <div class="note"><strong>À ne pas confondre :</strong> <strong>RECORD / REJOUER</strong> enregistre une session de travail. Les commandes <strong>REC / SAUVE</strong> utilisées pour les séquences d'images correspondent à la création de GIF animés : c'est une autre fonction.</div>
-      </section>
-
-      <section id="exemples">
-        <h2>12. Quatre exercices pour découvrir les FORMES</h2>
-        <div class="grille">
-          <div class="mini"><strong>Exercice A — Géométrie et couleur</strong><p>Choisir <strong>Carré</strong>, puis <strong>Losange</strong>. Comparer les rendus TRICOLORE et QUADRICOLORE, avec et sans inversion du dégradé.</p></div>
-          <div class="mini"><strong>Exercice B — Alternance et couleurs</strong><p>Passer à <strong>4 FORMES ENSEMBLE</strong>, choisir Cercle, Rosace, Étoile et Spirographe ; activer <strong>Alterné</strong> puis comparer <strong>O</strong> et <strong>D</strong>.</p></div>
-          <div class="mini"><strong>Exercice C — Système planétaire</strong><p>Associer <strong>Lune, Mars et Jupiter</strong>. Régler successivement les phases avec <kbd>L</kbd>, <kbd>M</kbd>, <kbd>J</kbd> et la molette ; terminer par <kbd>Échap</kbd>.</p></div>
-          <div class="mini"><strong>Exercice D — Composition spatiale</strong><p>Ajouter <strong>Saturne</strong> ou <strong>Fusée</strong> à une scène planétaire, préparer un <strong>FOND GRAIN</strong>, puis conserver l'ensemble avec <strong>RECORD</strong>.</p></div>
-        </div>
-      </section>
-
-      <section id="depannage">
-        <h2>13. Questions fréquentes et solutions</h2>
-        <h3>La touche L, M ou J ne change rien</h3><p>Vérifier que le programme est en mode <strong>FORMES</strong> et que la planète sélectionnée se trouve bien dans la composition. Appuyer une fois sur la lettre, puis tourner la molette <strong>au-dessus de la toile</strong>, pas au-dessus du bouton de sélection des formes.</p>
-        <h3>La molette continue à régler une planète</h3><p>Appuyer une fois sur <kbd>Échap</kbd>. Cela quitte le mode des phases, <strong>sans remettre les valeurs à zéro</strong>.</p>
-        <h3>Le bouton O / D ne semble rien changer</h3><p>Vérifier que <strong>Alterné</strong> est actif et que plusieurs formes sont sélectionnées. Les changements de teinte ne sont pas identiques sur toutes les figures ; Jupiter et les flammes de Fusée utilisent des couleurs spécifiques.</p>
-        <h3>Je ne vois pas MODULO</h3><p>Le menu <strong>MODULO 2 / 3 / 4</strong> appartient au mode historique <strong>2 FORMES ENSEMBLE</strong>. En mode 3 ou 4 formes, le choix des noms se fait successivement, sans menu MODULO.</p>
-        <h3>Une forme n'apparaît pas dans la liste</h3><p>Vérifier le défilement du menu. Dans la version du 22 octobre, les deux dernières entrées sont <strong>Jupiter</strong>, puis <strong>Mars</strong>.</p>
-        <h3>Une couleur ne s'applique pas</h3><p>Confirmer avec le bouton <strong>OK</strong> du sélecteur. Vérifier aussi le mode de motifs choisi. La Jupiter réaliste conserve sa palette atmosphérique naturelle.</p>
-        <h3>Une commande devient inaccessible</h3><p>Certains boutons ou curseurs dépendent du mode graphique ou de l'état d'incrustation et d'enregistrement. Revenir à <strong>FORMES</strong>, vérifier le mode actif et attendre la fin du rendu avant de recommencer.</p>
-        <h3>Je souhaite revenir à un dessin précédent</h3><p>Si la création a été enregistrée, utiliser le fichier de session <code>.vasareli</code> correspondant dans <strong>REJOUER</strong>. Pour comparer plusieurs réglages, mieux vaut enregistrer des sessions distinctes.</p>
-      </section>
-
-      <section id="raccourcis">
-        <h2>14. Aide-mémoire : toutes les commandes essentielles</h2>
-        <div class="defilement"><table><thead><tr><th>Geste</th><th>Action</th></tr></thead><tbody>
-          <tr><td>Clic sur le bouton de nom de forme</td><td>Passer à la forme suivante.</td></tr>
-          <tr><td>Molette au-dessus du bouton de nom de forme</td><td>Parcourir les 23 formes dans les deux sens.</td></tr>
-          <tr><td>Button89</td><td>Choisir 2, 3 ou 4 formes ensemble.</td></tr>
-          <tr><td>Button90 : O / D</td><td>Conserver les couleurs originales ou différencier les teintes.</td></tr>
-          <tr><td>Normal / Alterné</td><td>Activer l'alternance des formes sélectionnées.</td></tr>
-          <tr><td><kbd>L</kbd> puis molette sur la toile</td><td>Régler la Lune.</td></tr>
-          <tr><td><kbd>M</kbd> puis molette sur la toile</td><td>Régler Mars.</td></tr>
-          <tr><td><kbd>J</kbd> puis molette sur la toile</td><td>Régler Jupiter.</td></tr>
-          <tr><td><kbd>Échap</kbd></td><td>Quitter le mode phases sans effacer les réglages.</td></tr>
-          <tr><td><kbd>Alt</kbd> + Options formes</td><td>Incliner Soucoupe, Saturne ou Fusée selon la forme active.</td></tr>
-          <tr><td><kbd>Maj</kbd> + Options formes</td><td>Commande particulière : notamment flammes de la Fusée ; anciens réglages de phases selon la planète.</td></tr>
-          <tr><td><kbd>Maj</kbd> + Coins arrondis</td><td>Arrondir les branches de l'Étoile.</td></tr>
-          <tr><td>RECORD → STOP</td><td>Enregistrer une session.</td></tr>
-          <tr><td>REJOUER</td><td>Restituer un fichier <code>.vasareli</code>.</td></tr>
-        </tbody></table></div>
-        <div class="note astuce"><strong>Le principe le plus utile à retenir :</strong> choisissez vos formes, activez <strong>Alterné</strong> pour les associer, utilisez <strong>O/D</strong> pour varier les couleurs et réglez les phases des planètes directement avec <strong>L / M / J + molette</strong>.</div>
-        <a href="#haut" class="retour-haut">↑ Retour en haut de la page</a>
-      </section>
-    </main>
-  </div>
+<div class="bandeau"><h1>Utiliser les FORMES — présentation et mode d’emploi complet</h1>
+<p>Un guide pour découvrir les <strong>31 formes</strong> de VasareliMania, créer des compositions libres avec l’<strong>Atelier A</strong> et modifier une forme parmi plusieurs grâce à <strong>Z = SÉLECTION</strong>.</p>
+<p class="version"><strong>Édition du 6 novembre 2026</strong> · Windows · Référence officielle : <code>Form1(20261106-214340).vb</code> · Modes Tricolore et Quadricolore.</p></div>
+<div class="mise-en-page">
+<aside aria-label="Sommaire du guide" class="sommaire">
+<strong>Sommaire</strong>
+<nav><a href="#demarrer">1. Démarrer en 5 étapes</a><a href="#interface">2. Repérer les commandes</a><a href="#catalogue">3. Les 31 formes</a><a href="#curseurs">4. Curseurs des formes</a><a href="#specifiques">5. Réglages particuliers</a><a href="#couleurs">6. Couleurs TRI / QUADRI</a><a href="#alternance">7. Combiner 2, 3 ou 4 formes</a><a href="#od">8. Bouton O / D</a><a href="#phases">9. Phases, teintes et inclinaisons</a><a href="#atelier">10. Atelier A — composition libre</a><a href="#selection-z">11. Z — sélection individuelle</a><a href="#dispositions">12. Colonnes, 1/4/9/16 et résolutions</a><a href="#fond">13. Fond et incrustation</a><a href="#sessions">14. RECORD et REJOUER</a><a href="#exemples">15. Exercices</a><a href="#depannage">16. Questions fréquentes</a><a href="#evolution">17. Nouveautés du 6 novembre</a><a href="#raccourcis">18. Récapitulatif des commandes</a></nav>
+</aside>
+<main id="contenu">
+<section id="demarrer"><h2>1. Commencer en cinq étapes</h2>
+<ol class="etapes">
+<li><strong>Passer en FORMES</strong> dans l’interface principale.</li>
+<li><strong>Choisir une forme</strong> avec le bouton affichant son nom (Button8) : clic pour passer à la suivante ou molette au-dessus du bouton.</li>
+<li><strong>Choisir le rendu</strong> : notamment <strong>MOTIF TRICOLORE</strong> ou <strong>MOTIF QUADRICOLORE</strong>, avec ou sans texture.</li>
+<li><strong>Choisir le type de création</strong> : plusieurs colonnes pour un motif répété, ou <strong>Colonnes = 1</strong> pour l’<strong>Atelier Formes</strong> et le placement libre.</li>
+<li><strong>Personnaliser</strong> les couleurs, dimensions, inclinaisons, dégradés et fond. En dehors de l’Atelier, <kbd>Z</kbd> permet de modifier une occurrence à la fois.</li>
+</ol>
+<div class="note astuce"><strong>Pour commencer :</strong> dessiner des Carrés en Quadricolore, activer <kbd>Z</kbd>, cliquer sur l’un d’eux, puis utiliser <kbd>C</kbd>, <kbd>D</kbd> ou <kbd>I</kbd> avec la molette. Refermer Z avant de modifier les paramètres globaux.</div></section>
+<section id="interface"><h2>2. Repérer les principales commandes</h2>
+<div class="defilement"><table><thead><tr><th>Commande</th><th>Fonction</th></tr></thead><tbody>
+<tr><td><strong>FORMES / FOND</strong></td><td>Passer de la création des figures à la préparation du fond.</td></tr>
+<tr><td><strong>Nom de forme — Button8</strong></td><td>Parcourir les 31 formes ; le bouton peut devenir vert lorsque l’on manipule la forme courante.</td></tr>
+<tr><td><strong>MOTIF TRICOLORE / QUADRICOLORE</strong></td><td>Choisir le moteur de rendu de la composition et des dégradés.</td></tr>
+<tr><td><strong>Colonnes</strong></td><td>Organiser les répétitions du motif ; la valeur 1 ouvre l’Atelier Formes dans les modes compatibles.</td></tr>
+<tr><td><strong>SIMPLE 1 / 4 / 9 / 16</strong></td><td>Définir le nombre de motifs dans les dispositions proposées ; distinct d’« Échelle » et de « Colonnes ».</td></tr>
+<tr><td><strong>Échelle</strong></td><td>Choisir le rapport d’affichage ou de composition (ex. 1/1, 1/4), sans confondre avec SIMPLE 4.</td></tr>
+<tr><td><strong>A — AJOUTER</strong></td><td>Dans l’Atelier : placer une nouvelle forme, la déplacer, puis la valider avec Entrée.</td></tr>
+<tr><td><strong>Z — SÉLECTION</strong></td><td>Hors Atelier : désigner une occurrence avec la souris pour D, C et I individuels.</td></tr>
+<tr><td><strong>BS1, BS2, BSC / CS1 à CS4</strong></td><td>Palettes des modes Tricolore et Quadricolore.</td></tr>
+<tr><td><strong>Inversion couleurs / Inversion dégradé</strong></td><td>Varier séparément les teintes et le sens de leur progression.</td></tr>
+<tr><td><strong>Normal / Alterné</strong></td><td>Afficher une seule forme ou alterner plusieurs formes.</td></tr>
+<tr><td><strong>2 / 3 / 4 FORMES ENSEMBLE — Button89</strong></td><td>Choisir combien de formes sont associées dans une alternance.</td></tr>
+<tr><td><strong>O / D — Button90</strong></td><td>Couleurs originales ou automatiquement différenciées ; à ne pas confondre avec <kbd>D</kbd> = dimensions.</td></tr>
+<tr><td><strong>RECORD / REJOUER</strong></td><td>Enregistrer ou restituer une session <code>.vasareli</code>.</td></tr>
+<tr><td><strong>REC / SAUVE</strong></td><td>Contrôles d’une séquence d’images/GIF ; distincts de l’enregistrement d’une session.</td></tr>
+</tbody></table></div>
+<div class="note">Les boutons et curseurs visibles changent selon le mode choisi. Pour les gestes à la molette, placer le pointeur sur <strong>la toile des formes</strong>, sauf indication contraire.</div></section>
+<section id="catalogue"><h2>3. Catalogue des 31 formes</h2><p>La liste de Button8 rassemble <strong>16 formes géométriques</strong> et <strong>15 autres formes</strong> (astronomiques et illustrées), dans l’ordre affiché par l’application. « Lune » et « La Lune » sont deux entrées différentes.</p><p class="famille">Géométrie classique — 1 à 16</p><div class="formes"><article class="forme"><h3>01 · Carré</h3><p>Mosaïques, carrés concentriques et rotations.</p></article><article class="forme"><h3>02 · Losange</h3><p>Compositions diagonales et motifs symétriques.</p></article><article class="forme"><h3>03 · Cercle</h3><p>Gradients circulaires et répétitions.</p></article><article class="forme"><h3>04 · Couronne</h3><p>Anneaux, courbes concentriques et centre évidé.</p></article><article class="forme"><h3>05 · Ellipse</h3><p>Ovales orientables et jeux de proportions.</p></article><article class="forme"><h3>06 · Triangle</h3><p>Angles, symétries et déformations.</p></article><article class="forme"><h3>07 · Infini</h3><p>Courbe en huit évoquant le symbole ∞.</p></article><article class="forme"><h3>08 · Double Infini</h3><p>Entrelacs de boucles et doubles courbes.</p></article><article class="forme"><h3>09 · Cœur</h3><p>Forme en cœur à dégradés et proportions variables.</p></article><article class="forme"><h3>10 · Trèfle</h3><p>Pétales arrondis et compositions florales.</p></article><article class="forme"><h3>11 · Lissajous</h3><p>Courbes harmoniques et figures mathématiques.</p></article><article class="forme"><h3>12 · Rosace</h3><p>Motifs rayonnants aux pétales multiples.</p></article><article class="forme"><h3>13 · Spirographe</h3><p>Boucles régulières ; « Options formes » règle leur nombre.</p></article><article class="forme"><h3>14 · Lamé</h3><p>Courbes de type superellipse, entre formes rondes et carrées.</p></article><article class="forme"><h3>15 · Möbius</h3><p>Ruban torsadé à plusieurs orientations.</p></article><article class="forme"><h3>16 · Étoile polaire douce</h3><p>Étoile aux branches et aux contours adoucis.</p></article></div><p class="famille">Lune, objets célestes et galaxies — 17 à 31</p><div class="formes"><article class="forme"><h3>17 · Lune</h3><p>Forme lunaire historique, distincte de « La Lune » photographique.</p></article><article class="forme"><h3>18 · Étoile</h3><p>Étoile paramétrable avec branches et arrondi des pointes.</p></article><article class="forme"><h3>19 · Soucoupe volante</h3><p>Soucoupe et coupole ; inclinaison spécifique.</p></article><article class="forme"><h3>20 · Fusée</h3><p>Corps, hublot, ailerons et flammes réglables.</p></article><article class="forme"><h3>21 · Saturne</h3><p>Planète et anneaux inclinables, jusqu’à une vue de profil.</p></article><article class="forme"><h3>22 · Jupiter</h3><p>Planète à bandes et nuances, avec phase réglable.</p></article><article class="forme"><h3>23 · Mars</h3><p>Planète rouge, avec phase et teinte spécifiques.</p></article><article class="forme"><h3>24 · La Lune</h3><p>Lune photographique, avec phase, teinte et inclinaison.</p></article><article class="forme"><h3>25 · Terre</h3><p>Terre photographique, avec phase, teinte et inclinaison.</p></article><article class="forme"><h3>26 · Vénus</h3><p>Planète Vénus, avec phase, teinte et inclinaison.</p></article><article class="forme"><h3>27 · Soleil</h3><p>Disque lumineux à rayons, avec variation des teintes.</p></article><article class="forme"><h3>28 · Comète</h3><p>Noyau et traîne, avec inclinaison et teinte.</p></article><article class="forme"><h3>29 · Nébuleuse spirale</h3><p>Nuage spiralé et étoiles, avec réglages de rendu et de transparence.</p></article><article class="forme"><h3>30 · Galaxie Andromède</h3><p>Galaxie photographique ; réglages indépendants d’inclinaison, teinte et transparence.</p></article><article class="forme"><h3>31 · Galaxie Spirale</h3><p>Galaxie spirale distincte d’Andromède, avec ses propres réglages.</p></article></div><div class="note astuce">Pour une composition libre avec plusieurs de ces formes, voir <a href="#atelier">l’Atelier A</a>. Pour modifier un seul exemplaire d’un motif répété, voir <a href="#selection-z">Z = SÉLECTION</a>.</div></section>
+<section id="curseurs"><h2>4. Comprendre les curseurs FORMES</h2>
+<p>Les curseurs agissent sur les propriétés du moteur en cours. <strong>Hors Z</strong>, leurs changements peuvent recalculer l’ensemble du dessin. <strong>Dans l’Atelier A</strong>, la forme provisoire est réglée avant validation. <strong>Dans Z</strong>, les raccourcis D, C et I modifient seulement la forme choisie ; les curseurs globaux ne sont pas tous des réglages Z individuels.</p>
+<div class="defilement"><table><thead><tr><th>Réglage affiché</th><th>Rôle principal</th></tr></thead><tbody>
+<tr><td>Options formes</td><td>Propriété propre à la forme : rayons, pétales, finesse, dôme, détails photographiques, etc.</td></tr>
+<tr><td>Proportion Forme</td><td>Étirer ou resserrer les proportions de la forme.</td></tr>
+<tr><td>Épais. Textures</td><td>Épaisseur ou rendu des textures et de certains contours.</td></tr>
+<tr><td>Rotation Formes</td><td>Rotation des formes dans le dessin global.</td></tr>
+<tr><td>Coins arrondis</td><td>Adoucir les angles des figures compatibles.</td></tr>
+<tr><td>Dimensions</td><td>Grandeur globale des motifs ; raccourci individuel <kbd>D</kbd> pour la forme ciblée.</td></tr>
+<tr><td>Dégradé</td><td>Transition des couleurs.</td></tr>
+<tr><td>Écart CS1 CS2 / Écart CS2 CS3</td><td>Distribution des teintes dans le Quadricolore.</td></tr>
+<tr><td>Incrément Rotat.</td><td>Progression de rotation dans un ensemble répété.</td></tr>
+<tr><td>Zone neutre</td><td>Zone moins contrastée du dégradé.</td></tr>
+<tr><td>Rotation Dégradé</td><td>Orientation du dégradé, distincte de la rotation de la forme.</td></tr>
+</tbody></table></div>
+<div class="note">La disponibilité et l'effet des paramètres dépendent de la forme, du moteur choisi et du nombre de colonnes. Pour comprendre leur rôle, commencer par modifier un seul curseur à la fois.</div></section>
+<section id="specifiques"><h2>5. Réglages particuliers des formes</h2>
+<div class="defilement"><table><thead><tr><th>Forme</th><th>Commande</th><th>Effet</th></tr></thead><tbody>
+<tr><td>Spirographe</td><td>Options formes</td><td>Nombre de boucles.</td></tr>
+<tr><td>Étoile</td><td>Options formes / <kbd>Maj</kbd> + Coins arrondis</td><td>Branches / adoucissement des pointes.</td></tr>
+<tr><td>Soucoupe volante</td><td>Options formes / inclinaison <kbd>I</kbd> + <kbd>W</kbd></td><td>Dôme / orientation de la soucoupe.</td></tr>
+<tr><td>Fusée</td><td>Options formes / <kbd>Maj</kbd> + Options formes</td><td>Silhouette / longueur des flammes.</td></tr>
+<tr><td>Saturne</td><td>Inclinaison des anneaux</td><td>Anneaux plus ou moins ouverts, jusqu’au profil.</td></tr>
+<tr><td>Terre, Vénus, Mars, Jupiter, Saturne, La Lune</td><td><kbd>P</kbd> puis lettre ciblée + molette</td><td>Phase d’éclairement indépendante.</td></tr>
+<tr><td>Formes classiques</td><td><kbd>C</kbd>, <kbd>D</kbd>, <kbd>I</kbd> + molette</td><td>Couleurs, dimensions et inclinaison.</td></tr>
+<tr><td>Comète</td><td><kbd>I</kbd> + <kbd>C</kbd> / <kbd>C</kbd> puis ciblage de la comète</td><td>Inclinaison et teinte.</td></tr>
+<tr><td>Nébuleuse spirale</td><td><kbd>T</kbd> + molette</td><td>Transparence de la nébuleuse.</td></tr>
+<tr><td>Galaxie Andromède</td><td><kbd>I</kbd> + <kbd>G</kbd>, <kbd>C</kbd> + <kbd>G</kbd>, <kbd>T</kbd> + <kbd>G</kbd></td><td>Inclinaison, teinte, transparence.</td></tr>
+<tr><td>Galaxie Spirale</td><td><kbd>I</kbd> + <kbd>X</kbd>, <kbd>C</kbd> + <kbd>X</kbd>, <kbd>T</kbd> + <kbd>X</kbd></td><td>Trois réglages distincts de ceux d’Andromède.</td></tr>
+</tbody></table></div>
+<div class="note astuce">« <kbd>I</kbd> + <kbd>G</kbd> » signifie activer le mode I, puis cibler G si nécessaire ; tourner ensuite la molette sur la toile. Les commandes historiques par <kbd>Alt</kbd> ou <kbd>Maj</kbd> associées à certains curseurs restent disponibles.</div></section>
+<section id="couleurs"><h2>6. Couleurs et dégradés : Tricolore / Quadricolore</h2>
+<p><strong>MOTIF TRICOLORE</strong> propose notamment <strong>BS1, BS2 et BSC</strong>. <strong>MOTIF QUADRICOLORE</strong> utilise également <strong>CS1 à CS4</strong>. Les formes photographiques gardent leurs détails et possèdent des réglages de teinte dédiés.</p>
+<ol><li>Choisir le moteur de rendu.</li><li>Cliquer sur le bouton de couleur souhaité.</li><li>Sélectionner la teinte, puis confirmer avec <strong>OK</strong>.</li><li>Comparer les boutons d’inversion et les curseurs de dégradé.</li><li>Pour une seule occurrence du dessin, activer <kbd>Z</kbd>, cliquer sur la forme, puis <kbd>C</kbd> + molette.</li></ol>
+<h3>Couleurs ou rotation ?</h3>
+<p><kbd>C</kbd> règle les teintes ; <kbd>I</kbd> règle l’angle ; <kbd>D</kbd> règle les dimensions. Dans l’Atelier A, les trois commandes s’appliquent à la <strong>forme en cours d’ajout</strong>. Hors Atelier, sans Z, les curseurs de l’interface restent globaux.</p>
+<div class="note">La couleur du fond peut être changée sans sélectionner une forme. Le fond n’est pas une couleur de l’occurrence Z : ses réglages relèvent du mode FOND ou des commandes de toile.</div></section>
+<section id="alternance">
+<h2>7. Dessiner avec deux, trois ou quatre formes</h2>
+<p><strong>Button89</strong> fait passer successivement de <strong>2 FORMES ENSEMBLE</strong> à <strong>3 FORMES ENSEMBLE</strong>, puis <strong>4 FORMES ENSEMBLE</strong>, et revient à 2.</p>
+<div class="grille"><div class="mini"><strong>Deux formes et MODULO</strong><p>Le fonctionnement historique est conservé. Après avoir choisi les deux formes, sélectionner <strong>MODULO 2, 3 ou 4</strong>. Cela fait varier la fréquence de leur alternance.</p></div>
+<div class="mini"><strong>Trois ou quatre formes</strong><p>Le programme demande successivement <strong>CHOISIR FORME 1/3</strong> ou <strong>1/4</strong>, jusqu'à ce que toutes les formes soient choisies. Il n'y a pas de menu MODULO supplémentaire dans ces modes.</p></div></div>
+<h3>Procédure pour quatre formes</h3>
+<ol class="etapes"><li>Cliquer sur Button89 jusqu'à lire <strong>4 FORMES ENSEMBLE</strong>.</li>
+<li>Cliquer sur <strong>LISTE FORMES</strong> : choisir la première figure.</li>
+<li>Choisir successivement les deuxième, troisième et quatrième figures dans la liste.</li>
+<li>Activer <strong>Alterné</strong> si le bouton indique encore <strong>Normal</strong>.</li>
+<li>Adapter les couleurs, les dimensions et les autres réglages ; observer la répartition sur la toile.</li>
+</ol>
+<p>Le principe est identique pour <strong>3 FORMES ENSEMBLE</strong>. Pour revenir à une forme seule, repasser en <strong>Normal</strong> avec le bouton Normal / Alterné.</p>
+<div class="note"><strong>Exemple :</strong> La Lune + Jupiter + Mars, puis régler les phases avec <kbd>P</kbd> et les lettres <kbd>L</kbd>, <kbd>J</kbd> et <kbd>M</kbd>. Avec quatre formes, ajouter Saturne ou Fusée.</div>
+<p>La liste des noms s'affiche avec la police <strong>Segoe UI 10 points en gras</strong> ; le menu peut se positionner légèrement plus haut afin de faire tenir les 31 formes. Si nécessaire, utiliser la barre de défilement.</p>
+</section>
+<section id="od">
+<h2>8. Le petit bouton O / D (Button90)</h2>
+<div class="grille"><div class="mini"><strong>O — Original</strong><p>Mode initial : conserve le rendu et le choix des couleurs habituels. Bouton bleu foncé et texte jaune.</p></div>
+<div class="mini"><strong>D — Différent</strong><p>Décale automatiquement la teinte selon le rang de la forme dans une composition alternée, sans modifier les boutons de couleurs. Bouton jaune et texte bleu foncé.</p></div></div>
+<p>Un clic sur <strong>O / D</strong> inverse le choix. L'option est particulièrement intéressante pour les compositions de trois ou quatre formes, lorsqu'on veut éviter d'attribuer manuellement une palette à chacune.</p>
+<p>Les effets sont les plus visibles en <strong>Alterné</strong> avec plusieurs formes. Certaines figures possèdent des couleurs internes spécifiques : la Fusée conserve notamment ses flammes rouges, et Jupiter réaliste sa palette atmosphérique.</p>
+</section>
+<section id="phases"><h2>9. Phases, couleurs et inclinaisons des planètes</h2>
+<p>Les planètes disposent de réglages distincts. La version du 6 novembre conserve les détails des images tout en permettant d’agir sur les phases, teintes et inclinaisons.</p>
+<h3>Phases : P puis la lettre de la planète</h3>
+<p>Choisir la planète dans Button8 si nécessaire, appuyer sur <kbd>P</kbd>, puis tourner la molette sur la toile. Dans les assemblages, la lettre permet de cibler la planète voulue.</p>
+<div class="defilement"><table><thead><tr><th>Ciblage après P</th><th>Planète</th><th>Réglage</th></tr></thead><tbody>
+<tr><td><kbd>P</kbd> + <kbd>T</kbd></td><td>Terre</td><td>Phase jour / nuit</td></tr>
+<tr><td><kbd>P</kbd> + <kbd>V</kbd></td><td>Vénus</td><td>Phase</td></tr>
+<tr><td><kbd>P</kbd> + <kbd>M</kbd></td><td>Mars</td><td>Phase</td></tr>
+<tr><td><kbd>P</kbd> + <kbd>J</kbd></td><td>Jupiter</td><td>Phase</td></tr>
+<tr><td><kbd>P</kbd> + <kbd>S</kbd></td><td>Saturne</td><td>Phase</td></tr>
+<tr><td><kbd>P</kbd> + <kbd>L</kbd></td><td>La Lune</td><td>Phase de la Lune photographique</td></tr>
+</tbody></table></div>
+<p>La plage des réglages de phase est généralement de 0 à 100, avec la position centrale autour de 50 pour les planètes photographiques. La forme historique « Lune » conserve son fonctionnement propre.</p>
+<h3>Teintes : C puis la lettre</h3>
+<p>Les cibles de teinte reconnues comprennent <kbd>O</kbd> Soleil, <kbd>L</kbd> La Lune, <kbd>T</kbd> Terre, <kbd>V</kbd> Vénus, <kbd>M</kbd> Mars, <kbd>J</kbd> Jupiter, <kbd>S</kbd> Saturne, <kbd>C</kbd> Comète, <kbd>G</kbd> Andromède et <kbd>X</kbd> Galaxie Spirale.</p>
+<h3>Inclinaisons : I puis la lettre</h3>
+<p>Pour cibler une forme cosmique, le mode <kbd>I</kbd> accepte notamment : <kbd>T</kbd>, <kbd>V</kbd>, <kbd>M</kbd>, <kbd>J</kbd>, <kbd>S</kbd>, <kbd>L</kbd>, <kbd>F</kbd> (Fusée), <kbd>W</kbd> (Soucoupe), <kbd>C</kbd> (Comète), <kbd>N</kbd> (Nébuleuse), <kbd>G</kbd> (Andromède) et <kbd>X</kbd> (Galaxie Spirale). Tourner ensuite la molette sur la toile. Le mode I peut atteindre une rotation complète dans les limites prévues par le programme, indépendamment de certains curseurs historiques.</p>
+<div class="note astuce"><strong>Astuce :</strong> en Atelier A, <kbd>P</kbd>, <kbd>C</kbd> et <kbd>I</kbd> concernent la forme en cours d’ajout. Après <kbd>Entrée</kbd>, la forme validée n’est plus modifiée par ces réglages.</div></section>
+<section id="atelier"><h2>10. Atelier Formes : composer librement (Colonnes = 1)</h2>
+<p>L’<strong>Atelier Formes</strong> permet de réunir des formes géométriques et célestes dans une même image, à des positions et dimensions indépendantes. Il fonctionne en <strong>Tricolore</strong> et en <strong>Quadricolore</strong>, lorsque <strong>Colonnes = 1</strong> et que les conditions du mode sont réunies.</p>
+<h3>Ajouter et déplacer une forme</h3>
+<ol class="etapes">
+<li>Choisir <strong>Colonnes = 1</strong> et un rendu TRI ou QUADRI compatible.</li>
+<li>Appuyer sur <kbd>A</kbd> pour entrer en mode <strong>AJOUTER</strong>.</li>
+<li>Choisir la forme courante dans <strong>Button8</strong> ; elle reste provisoire tant qu’elle n’a pas été validée.</li>
+<li>La déplacer par <strong>clic gauche + glisser-déposer</strong> ; on peut aussi utiliser <kbd>H</kbd> + molette (horizontal) et <kbd>V</kbd> + molette (vertical).</li>
+<li>Régler si nécessaire <kbd>D</kbd> + molette (dimensions), <kbd>I</kbd> + molette (inclinaison) et <kbd>C</kbd> + molette (couleurs).</li>
+<li>Appuyer sur <kbd>Entrée</kbd> pour <strong>valider</strong> la forme. La choisir à nouveau pour en placer une autre.</li>
+</ol>
+<div class="grille"><div class="mini"><strong>Forme courante</strong><p>Avant Entrée : déplacements et réglages possibles. Les formes déjà validées sont conservées sur leur calque.</p></div><div class="mini"><strong>Après Entrée</strong><p>La forme est fixée ; l’ajout suivant ne doit pas la déplacer ni modifier ses couleurs.</p></div></div>
+<h3>Annulation et fin de l’Atelier</h3>
+<p><kbd>Ctrl</kbd> + <kbd>Z</kbd> peut annuler la dernière <strong>validation</strong> de l’Atelier. La touche <kbd>A</kbd> permet de sortir du mode AJOUTER. Les compositions peuvent être associées à un fond ou à une incrustation.</p>
+<div class="note astuce"><strong>Important :</strong> <kbd>Z</kbd> n’est <strong>pas nécessaire</strong> en mode A : <kbd>C</kbd>, <kbd>D</kbd> et <kbd>I</kbd> s’appliquent directement à la candidate. Le glisser-déposer reste prioritaire.</div></section><section id="selection-z"><h2>11. Z = SÉLECTION : modifier un seul exemplaire hors Atelier</h2>
+<p>Lorsqu’une même figure est répétée sur la toile, <kbd>Z</kbd> permet de choisir <strong>une occurrence</strong> et de la transformer sans imposer le changement à toute sa famille.</p>
+<ol class="etapes">
+<li>Créer un dessin en mode FORMES avec plusieurs figures répétées.</li>
+<li>Appuyer sur <kbd>Z</kbd> pour activer la sélection.</li>
+<li><strong>Cliquer directement sur une figure</strong> sur la toile. Le nom de la forme peut être signalé par le clignotement vert de <strong>Button8</strong>, sans cadre noir ni carré de sélection visible sur le dessin.</li>
+<li>Appuyer sur <kbd>D</kbd>, <kbd>I</kbd> ou <kbd>C</kbd>, puis tourner la molette <strong>au-dessus de la toile</strong>.</li>
+<li>Cliquer sur une autre forme pour la modifier, ou appuyer sur <kbd>Z</kbd> une seconde fois pour fermer le mode.</li>
+</ol>
+<div class="grille"><div class="mini"><strong>D = Dimensions</strong><p>Agrandir ou réduire l’occurrence choisie.</p></div><div class="mini"><strong>I = Inclinaison</strong><p>Pivoter cette occurrence.</p></div><div class="mini"><strong>C = Couleurs</strong><p>Modifier sa teinte sans recolorer toutes les autres occurrences.</p></div><div class="mini"><strong>Ctrl+Z progressif</strong><p>Annuler les dernières transformations Z successivement.</p></div></div>
+<h3>Après fermeture de Z</h3>
+<p>Les réglages Z restent mémorisés dans la session : il est possible de changer les <strong>colonnes</strong>, les dispositions <strong>1 / 4 / 9 / 16</strong> et les <strong>résolutions</strong> prises en charge. Les formes correspondantes sont recherchées dans la disposition recalculée.</p>
+<div class="note attention"><strong>Limites pratiques :</strong> Z travaille sur des formes détectées dans le rendu. Une figure très fine, ajourée, superposée ou accolée à une autre peut être plus difficile à reconnaître. La persistance Z lors de l’enregistrement puis de la réouverture d’un fichier <code>.vasareli</code> n’est pas documentée ici comme garantie.</div></section><section id="dispositions"><h2>12. Colonnes, dispositions et changement de résolution</h2>
+<p>Trois commandes différentes agissent sur la structure du dessin : <strong>Colonnes</strong> répartit les motifs ; <strong>SIMPLE 1 / 4 / 9 / 16</strong> choisit une disposition ; <strong>Résolution toile</strong> fixe les dimensions du bitmap. <strong>Échelle 1/1 ou 1/4</strong> est encore un réglage distinct.</p>
+<h3>Conserver les changements Z entre les dispositions</h3>
+<ol class="etapes">
+<li>À <strong>1200 × 1200</strong> par exemple, sélectionner une forme avec <kbd>Z</kbd> et modifier D, I ou C.</li>
+<li><strong>Fermer Z</strong> par un nouvel appui sur la touche.</li>
+<li>Passer à une autre valeur de Colonnes ou à SIMPLE <strong>4, 9 ou 16</strong>.</li>
+<li>Observer les occurrences correspondantes dans le nouveau motif ; les réglages peuvent aussi être retrouvés en revenant à la disposition initiale.</li>
+<li>Changer si nécessaire la résolution de la toile, puis effectuer un retour pour vérifier la conservation.</li>
+</ol>
+<h3>Résolutions vérifiées dans la version de référence</h3>
+<p>Les essais du 6 novembre ont validé le suivi des transformations Z sur des toiles carrées de <strong>1200 × 1200</strong> à <strong>6000 × 6000</strong>, avec les modes 1, 4, 9 et 16, aussi bien en <strong>Tricolore</strong> qu’en <strong>Quadricolore</strong>. Les hautes résolutions peuvent accroître le temps de calcul.</p>
+<div class="note astuce"><strong>Exemple :</strong> modifier un Losange central à 1200 × 1200, fermer Z, passer à 2400 puis 3600, et comparer SIMPLE 1 et SIMPLE 4. Les changements ne doivent plus se perdre simplement parce que la toile a changé de taille.</div></section><section id="fond"><h2>13. Associer les formes à un FOND</h2>
+<p>Les FORMES et le FOND sont deux composantes complémentaires de VasareliMania : toile unie, texture, grain, image ou incrustation selon les commandes disponibles.</p>
+<ol><li>Passer en <strong>FOND</strong> pour préparer le fond et ses paramètres.</li><li>Choisir ses couleurs, effets ou textures.</li><li>Revenir dans <strong>FORMES</strong> et composer les figures.</li><li>Utiliser <strong>Incrusté / Non Incrusté</strong> pour l’intégration souhaitée.</li></ol>
+<div class="note attention"><strong>À distinguer :</strong> les paramètres du fond sont différents des réglages Z d’une occurrence. En Atelier A, les formes déjà validées sont conservées par leur calque ; leurs détails ne doivent pas être remplacés par un rectangle opaque.</div></section>
+<section id="sessions"><h2>14. RECORD, REJOUER et sauvegarde</h2>
+<h3>Enregistrer une session</h3>
+<ol><li>Cliquer sur <strong>RECORD</strong> avant ou pendant la création.</li><li>Modifier formes, couleurs, dispositions et paramètres.</li><li>Cliquer sur <strong>STOP</strong>, puis nommer la session quand l’application le demande.</li></ol>
+<p>Le format de session est <code>.vasareli</code>. Les fichiers peuvent être enregistrés dans le dossier habituel <code>C:\Sessions VasareliMania</code>, selon la configuration de l’application.</p>
+<h3>Rejouer une session</h3>
+<ol><li>Cliquer sur <strong>REJOUER</strong>.</li><li>Choisir le fichier <code>.vasareli</code>.</li><li>Utiliser les commandes de lecture et de pause disponibles.</li></ol>
+<div class="defilement"><table><thead><tr><th>Commande</th><th>Effet pendant REJOUER</th></tr></thead><tbody>
+<tr><td><kbd>Alt</kbd> + <kbd>P</kbd></td><td>État précédent pendant une pause.</td></tr>
+<tr><td><kbd>Alt</kbd> + <kbd>S</kbd></td><td>État suivant pendant une pause.</td></tr>
+<tr><td><kbd>Maj</kbd> + <kbd>A</kbd></td><td>Demander l’arrêt de la lecture.</td></tr>
+<tr><td>Molette pendant PAUSE</td><td>Parcourir les états lorsque cette fonction est active.</td></tr>
+</tbody></table></div>
+<div class="note attention"><strong>Attention :</strong> une modification Z conservée pendant la session courante n’est pas nécessairement garantie dans tous les anciens formats de sessions enregistrées. Pour garder une image finale, utiliser aussi les fonctions d’enregistrement/export adaptées.</div>
+<p><strong>REC / SAUVE</strong> est distinct de <strong>RECORD / REJOUER</strong> : le premier ensemble de commandes concerne les séquences d’images animées, et non les fichiers de session.</p></section>
+<section id="exemples"><h2>15. Six exercices pour découvrir les FORMES</h2>
+<div class="grille">
+<div class="mini"><strong>A — Géométrie et couleurs</strong><p>Comparer Carré et Losange en Tricolore puis Quadricolore ; essayer les dégradés.</p></div>
+<div class="mini"><strong>B — Atelier libre</strong><p>Colonnes = 1, <kbd>A</kbd>, Carré + Terre + Galaxie Andromède ; déplacer par glisser-déposer et valider chaque forme avec <kbd>Entrée</kbd>.</p></div>
+<div class="mini"><strong>C — Sélection individuelle Z</strong><p>Avec cinq colonnes, sélectionner un seul motif et lui appliquer <kbd>D</kbd>, <kbd>I</kbd>, <kbd>C</kbd> ; tester <kbd>Ctrl</kbd>+<kbd>Z</kbd>.</p></div>
+<div class="mini"><strong>D — Dispositions et résolution</strong><p>Après Z, tester SIMPLE 1, 4, 9, 16 puis passer de 1200 à 2400 ou 3600.</p></div>
+<div class="mini"><strong>E — Planètes</strong><p>Associer Terre, Mars, Jupiter et Saturne ; utiliser <kbd>P</kbd> et les lettres de ciblage pour leurs phases.</p></div>
+<div class="mini"><strong>F — Galaxies et fond</strong><p>Comparer Galaxie Andromède et Galaxie Spirale, varier leurs teintes et placer le résultat sur un fond choisi.</p></div>
+</div></section>
+<section id="depannage"><h2>16. Questions fréquentes et solutions</h2>
+<h3>En Atelier, C, D ou I ne semble pas agir</h3><p>Vérifier que <kbd>A</kbd> est activé et qu’une forme <strong>provisoire</strong> est visible. Après <kbd>Entrée</kbd>, la forme validée ne doit plus réagir. Il n’est pas nécessaire d’activer Z.</p>
+<h3>Impossible de glisser une forme dans l’Atelier</h3><p>Vérifier <strong>Colonnes = 1</strong> dans un mode TRI/QUADRI compatible, puis activer <kbd>A</kbd>. Maintenir le bouton gauche de la souris pendant le déplacement.</p>
+<h3>Z ne sélectionne pas la forme souhaitée</h3><p>Cliquer sur un contour ou une zone de couleur bien visible ; les très petites formes, objets ajourés ou superposés peuvent être plus difficiles à isoler.</p>
+<h3>Ctrl+Z n’annule pas la bonne action</h3><p>En Atelier A, Ctrl+Z annule une validation ; hors Atelier, il annule progressivement les transformations Z conservées dans l’historique.</p>
+<h3>Les paramètres changent toutes les formes</h3><p>Les curseurs classiques sont en grande partie <strong>globaux</strong>. Pour D/I/C sur une occurrence, activer Z, cliquer sur la forme, puis utiliser la touche et la molette.</p>
+<h3>Après Z, Colonnes ou SIMPLE 4 a un autre résultat</h3><p>Fermer Z, puis changer la disposition. Le moteur recherche les figures correspondantes ; les changements structurels très importants ou les chevauchements peuvent rendre l’appariement moins évident.</p>
+<h3>Une planète ne répond pas à P, C ou I</h3><p>La planète doit être présente dans la composition. Appuyer d’abord sur le mode voulu, cibler la lettre si nécessaire, puis utiliser la molette au-dessus de la toile.</p>
+<h3>Une couleur ne s’applique pas</h3><p>Vérifier le mode de rendu et valider la couleur avec <strong>OK</strong>. Les planètes photographiques peuvent conserver un rendu plus réaliste que les formes géométriques.</p>
+<h3>REJOUER ne retrouve pas une création</h3><p>Rechercher la session <code>.vasareli</code> enregistrée ; ne pas confondre ce format avec un enregistrement d’image ou de séquence GIF.</p></section>
+<section id="evolution"><h2>17. Nouveautés confirmées au 6 novembre 2026</h2>
+<p>La version officielle <code>Form1(20261106-214340).vb</code> regroupe les développements récents :</p>
+<ul>
+<li><strong>31 formes</strong> et de nouveaux objets célestes, dont Vénus, Soleil, les deux galaxies et la Lune photographique.</li>
+<li><strong>Atelier A</strong> : composition libre, ajout successif, glisser-déposer, validation Entrée et réglages de la forme courante.</li>
+<li><strong>Z = SÉLECTION</strong> hors Atelier : couleurs, dimensions et inclinaison d’une occurrence précise.</li>
+<li><strong>Ctrl+Z progressif</strong> : annulation des modifications Z et historique propre à l’Atelier.</li>
+<li><strong>Transfert des réglages Z</strong> entre colonnes et dispositions 1, 4, 9, 16.</li>
+<li><strong>Conservation à haute résolution</strong>, jusqu’à 6000 × 6000 dans les essais validés.</li>
+<li><strong>Tricolore et Quadricolore</strong> : conservation indépendante des résultats et de leurs textures et contours.</li>
+</ul>
+<p>Pour le détail chronologique, voir <a href="nouveautes.html">la rubrique Nouveautés du site</a>.</p></section><section id="raccourcis"><h2>18. Aide-mémoire des commandes essentielles</h2>
+<div class="defilement"><table><thead><tr><th>Geste</th><th>Action</th></tr></thead><tbody>
+<tr><td>Clic ou molette sur Button8</td><td>Parcourir les 31 formes.</td></tr>
+<tr><td><kbd>A</kbd> (Atelier Colonnes = 1)</td><td>Activer / quitter l’ajout des formes.</td></tr>
+<tr><td>Souris gauche : glisser-déposer (Atelier A)</td><td>Déplacer la forme provisoire.</td></tr>
+<tr><td><kbd>H</kbd> / <kbd>V</kbd> + molette (Atelier A)</td><td>Déplacement horizontal / vertical.</td></tr>
+<tr><td><kbd>D</kbd> / <kbd>I</kbd> / <kbd>C</kbd> + molette</td><td>Dimensions / inclinaison / couleurs de la forme active.</td></tr>
+<tr><td><kbd>Entrée</kbd> (Atelier A)</td><td>Valider la forme provisoire.</td></tr>
+<tr><td><kbd>Z</kbd> puis clic (hors Atelier)</td><td>Sélectionner une occurrence ; Z à nouveau pour quitter.</td></tr>
+<tr><td><kbd>Ctrl</kbd> + <kbd>Z</kbd></td><td>Annuler progressivement (transformations Z, ou validation en Atelier).</td></tr>
+<tr><td><kbd>P</kbd>, puis <kbd>T/V/M/J/S/L</kbd> + molette</td><td>Phases de Terre / Vénus / Mars / Jupiter / Saturne / La Lune.</td></tr>
+<tr><td><kbd>C</kbd> puis lettre de la forme</td><td>Ciblage des teintes planétaires et des galaxies.</td></tr>
+<tr><td><kbd>I</kbd> puis lettre de la forme</td><td>Ciblage des inclinaisons des corps célestes et des objets compatibles.</td></tr>
+<tr><td><kbd>T</kbd> + molette</td><td>Transparence de la nébuleuse ou de la galaxie ciblée.</td></tr>
+<tr><td>Button89 : 2 / 3 / 4 FORMES ENSEMBLE</td><td>Choisir une composition alternée de plusieurs formes.</td></tr>
+<tr><td>Button90 : O / D</td><td>Original / teintes différenciées.</td></tr>
+<tr><td>RECORD / REJOUER</td><td>Créer ou relire une session <code>.vasareli</code>.</td></tr>
+</tbody></table></div>
+<div class="note astuce"><strong>À retenir :</strong> <strong>Atelier = A, déplacer, C/D/I, Entrée</strong> ; <strong>hors Atelier = Z, cliquer, C/D/I, Z pour fermer</strong> ; <strong>Ctrl+Z</strong> pour annuler les dernières opérations prises en charge.</div>
+<a class="retour-haut" href="#haut">↑ Retour en haut de la page</a></section>
+</main>
 </div>
-<footer class="bas">
-  <div>Pierre Tcherukine © 2008–2026 · VasareliMania</div>
-  <div>Guide du mode FORMES — édition du 22 octobre 2026</div>
-  <div style="margin-top:6px"><a href="index.html">Retour à l'accueil</a></div>
-</footer>
+</div>
+<footer class="bas"><div>Pierre Tcherukine © 2008–2026 · VasareliMania</div>
+<div>Guide du mode FORMES — mise à jour du 6 novembre 2026 · Référence : <code>Form1(20261106-214340).vb</code></div>
+<div style="margin-top:6px"><a href="index.html">Retour à l’accueil</a></div></footer>
 </body>
 </html>
-
