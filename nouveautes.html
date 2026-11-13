@@ -130,6 +130,75 @@ hr{
 Retour accueil
 </a>
 <div class="text">
+<!-- VERSION OFFICIELLE 2026.11.13 -->
+<section class="update" id="nouveautes-2026-11-13">
+<h2>13 novembre 2026 — ATELIER FORMES 3D, version V39 validée</h2>
+
+<h3>Quatre nouveaux modèles 3D</h3>
+<p>Quatre surfaces paramétriques s'ajoutent à la liste des modèles :</p>
+<ul>
+<li><strong>Plan quadrillé</strong> : surface plane avec maillage régulier.</li>
+<li><strong>Creux central</strong> : grille incurvée vers le bas en son centre.</li>
+<li><strong>Cœur 3D</strong> : surface en forme de cœur, représentée par un maillage.</li>
+<li><strong>Vague centrale</strong> : surface ondulée avec relief progressif.</li>
+</ul>
+<p>Ces modèles conservent les réglages de dimensions, proportion, rotations, couleurs,
+facettes et les formules X, Y, Z modifiables.</p>
+
+<h3>Éclairage 3D : projecteur réglable</h3>
+<p>Un projecteur indépendant permet d'ajuster la lumière sur les solides et les surfaces,
+notamment sur le ruban de Möbius :</p>
+<ul>
+<li><strong>SHIFT + glisser</strong> : déplacer le projecteur.</li>
+<li><strong>D + molette</strong> : direction du faisceau.</li>
+<li><strong>O + molette</strong> : ouverture du faisceau.</li>
+<li><strong>R + molette</strong> : recul / distance.</li>
+<li><strong>I + molette</strong> : intensité lumineuse.</li>
+<li><strong>C + molette</strong> : couleur de la lumière.</li>
+</ul>
+<p>Les modes d'éclairage de Möbius comprennent le faisceau <strong>NET</strong> et le faisceau
+<strong>DOUX</strong>. Le repère du projecteur est un outil de réglage : il n'est pas copié
+avec la forme ni incrusté sur le fond.</p>
+
+<h3>Nouveau dégradé « Surface 3D »</h3>
+<p>Le menu Dégradé propose <strong>Surface 3D</strong> en complément des modes existants.
+Les couleurs sont réparties sur le maillage du modèle et interpolées entre les sommets
+des facettes ; le dégradé suit ainsi la surface lorsqu'elle tourne.</p>
+<p>Les palettes existantes et l'affichage des tracés restent utilisables.</p>
+
+<h3>Interconnexion des quatre modes</h3>
+<ul>
+<li><strong>SANS MOTIF</strong> : moteur de remplissage Turbo LockBits.</li>
+<li><strong>AVEC MOTIF</strong> : moteur historique des formes et des dispositions.</li>
+<li><strong>ATELIER FORMES</strong> : composition, réglages et utilisation de « 3D temporaire ».</li>
+<li><strong>ATELIER FORMES 3D</strong> : création, éclairage et colorisation de surfaces 3D.</li>
+</ul>
+<p>Le transfert <strong>3D TEMP. → FORMES</strong> permet d'utiliser une forme 3D dans
+le moteur historique, y compris avec plusieurs colonnes et l'option
+<strong>2 FORMES ENSEMBLE</strong>. Il n'existe pas de grille indépendante
+pour ces copies : les positions sont calculées par le moteur original.</p>
+
+<h3>REJOUER : sauvegarde et restauration 3D</h3>
+<p>La sauvegarde des sessions inclut désormais les données nécessaires à la restauration
+d'une scène 3D et de la forme « 3D temporaire » transférée. Les transitions entre
+ATELIER FORMES 3D, FORMES et FOND sont mieux prises en charge.</p>
+<p>La version V39 corrige les <strong>affichages intermédiaires</strong> pendant REJOUER.
+Les essais ont confirmé la restauration de sessions associant
+<strong>3D temporaire</strong> et <strong>Cœur</strong>, ainsi que les changements
+de disposition et de paramètres. Les anciennes sessions dépourvues de données 3D
+ne peuvent pas retrouver une source 3D qui n'avait pas été enregistrée.</p>
+
+<h3>Présentation et stabilité</h3>
+<p>Les commandes de l'ATELIER FORMES 3D restent regroupées dans un panneau compact,
+<strong>sans ascenseur</strong>. Les quatre modes partagent les mécanismes de dessin
+et de transfert existants, sans remplacement du moteur historique.</p>
+
+<p class="release-note"><strong>Nouvelle version de référence validée :</strong>
+<code>Form1(20261113)_ATELIER_3D_V39_REJOUER_ETATS_INTERMEDIAIRES_3D_CORRIGE_ESSAI.vb</code>
+<br><strong>Situation :</strong> version retenue pour la préparation du Setup de VasareliMania.</p>
+</section>
+<hr/>
+
 <!-- VERSION OFFICIELLE 2026.11.11 -->
 <section class="update" id="nouveautes-2026-11-11">
 <h2>11 novembre 2026 — Comète V7 optimisée</h2>
