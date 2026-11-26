@@ -130,6 +130,48 @@ hr{
 Retour accueil
 </a>
 <div class="text">
+<!-- VERSION OFFICIELLE 2026.11.26 -->
+<section class="update" id="nouveautes-2026-11-26">
+<h2>26 novembre 2026 — Paramètre C, modèles ABC et formes personnelles</h2>
+<p class="release-note">26 novembre 2026 · Atelier Formes 3D — Version V54</p>
+<h3>Un troisième paramètre : C — Courbure</h3>
+<p>L’Atelier 3D dispose désormais de trois réglages <strong>A, B et C</strong>, utilisables dans les formules paramétriques <code>X, Y, Z</code> et les surfaces implicites <code>F</code>.</p>
+<ul>
+<li><strong>A</strong> : taille, écartement ou proportion, selon le modèle.</li>
+<li><strong>B</strong> : relief, épaisseur ou fusion des volumes.</li>
+<li><strong>C</strong> : courbure, ouverture ou déformation, selon la formule.</li>
+</ul>
+<p>C est réglable au millième ; sa valeur initiale est <strong>0,030</strong>. Les modèles personnels peuvent enregistrer et restaurer ce nouveau paramètre.</p>
+<h3>Une interface 3D plus lisible</h3>
+<p>Les paramètres A, B et C restent visibles en permanence. Leurs libellés et leurs valeurs numériques sont agrandis et affichés en gras. <strong>C</strong> est placé à côté de <strong>RETOUR</strong> ; les commandes <strong>INCRUSTER SUR FOND</strong> et <strong>3D TEMP → FORMES</strong> sont réunies sur une même rangée. Le panneau conserve son affichage sans ascenseur.</p>
+<h3>Surfaces implicites : correction du rendu</h3>
+<p>Correction d’un dépassement d’indice dans la gestion des palettes de couleurs des surfaces implicites. Le rendu fonctionne désormais avec les variantes récentes des formules 3D, notamment les essais de cubes tubulaires et de surfaces calculées à partir de <code>F(x,y,z)=0</code>.</p>
+<p>Le moteur conserve ses optimisations de calcul parallèle, sans modification du fonctionnement des autres modes.</p>
+<h3>Ouvrir un modèle 3D par double-clic</h3>
+<p>Les fichiers personnels <code>.modele3d</code> peuvent désormais être associés à VasareliMania sous Windows. Un <strong>double-clic</strong> ouvre directement l’application dans l’<strong>ATELIER 3D</strong>, avec le nom du modèle, ses formules et ses réglages enregistrés.</p>
+<p>Les fichiers de session <code>.vasareli</code> conservent leur fonctionnement distinct avec REJOUER. Le bouton <strong>CHARGER MODÈLE</strong> reste disponible.</p>
+<h3>Nouvelles collections de modèles personnels ABC</h3>
+<p>Des collections de modèles personnels ont été adaptées pour utiliser A, B et C :</p>
+<ul>
+<li><strong>24 plantes et fleurs</strong> en surfaces implicites.</li>
+<li><strong>36 modèles implicites</strong> répartis entre volumes séparés, volumes proches, liaisons partielles et sculptures reliées.</li>
+</ul>
+<p>Les formules ont été préparées pour conserver leur forme d’origine à <strong>C = 0,030</strong>. Ces modèles sont enregistrables dans le dossier <code>C:\Sessions VasareliMania\MODÈLES</code> et ouvrables individuellement par double-clic.</p>
+<h3>Une bibliothèque de formes personnelles</h3>
+<p>Dans l’<strong>ATELIER FORMES</strong>, les compositions réalisées avec plusieurs formes peuvent désormais être enregistrées comme <strong>une seule nouvelle forme personnelle</strong>. La commande <strong>ENREGISTRER FORME...</strong> rassemble les éléments validés et crée un fichier <code>PNG</code> transparent, sans le fond de la toile.</p>
+<p>Les créations sont conservées dans <code>C:\Sessions VasareliMania\MODÈLES\FORMES PERSO</code>. La commande <strong>FORMES PERSO...</strong> permet de les retrouver et de les réutiliser, sans modifier le programme.</p>
+<h3>Compositions et formes 3D temporaires</h3>
+<p>La commande <strong>COMPOSITION → 3D TEMP</strong> transfère une composition de l’Atelier Formes vers l’un des <strong>quatre emplacements 3D temporaires</strong>. Les éléments assemblés deviennent une image transparente réutilisable comme une forme unique, avec son apparence en relief.</p>
+<p>Exemple validé : une <strong>marguerite</strong> composée de pétales clairs et d’un cœur jaune, enregistrée puis répétée sur la toile avec des dimensions variées. Il s’agit d’une forme-image transparente, et non d’un maillage 3D éditable par les formules A, B et C.</p>
+<h3>Une boîte d’enregistrement bordeaux</h3>
+<p>La commande <strong>ENREGISTRER FORME...</strong> dispose d’une boîte dédiée aux couleurs de VasareliMania : <strong>fond bordeaux</strong>, titres <strong>jaunes en gras</strong>, grand champ de saisie lisible, bouton <strong>ENREGISTRER</strong> vert et bouton <strong>ANNULER</strong> bleu marine. Une confirmation est demandée avant de remplacer une forme existante.</p>
+<h3>Compatibilité préservée</h3>
+<p>Les quatre grands modes de VasareliMania, les formes 3D temporaires, les palettes, les modèles personnels et les sessions REJOUER restent disponibles. Les nouvelles formes personnelles s’ajoutent sans devoir reconstruire l’application à chaque création.</p>
+<p class="release-note">VasareliMania — Atelier de création géométrique et de surfaces 3D · 26 novembre 2026</p>
+</section>
+<hr/>
+
+
 <!-- VERSION OFFICIELLE 2026.11.22 -->
 <section class="update" id="nouveautes-2026-11-22">
 <h2>22 novembre 2026 — Nouvelles surfaces 3D, palettes et reliefs</h2>
@@ -1188,181 +1230,4 @@ Correction de l’affichage du texte « Couleur Toile »
 après relecture d’une session.
 </li>
 <li>
-Amélioration de la gestion des sessions <b>.vasareli</b>.
-</li>
-<li>
-Meilleure prise en compte des contrôles lors des relectures.
-</li>
-<li>
-Correction de plusieurs problèmes d’affichage liés aux replays.
-</li>
-<li>
-Amélioration de la stabilité générale de VasareliMania.
-</li>
-<li>
-Optimisations diverses de l’interface utilisateur.
-</li>
-<li>
-Ajout du clignotement de <b>Couleur Toile</b> au démarrage.
-</li>
-<li>
-Vitesse de fonctionnement retrouvée.
-</li>
-<li>
-Sessions et Replay toujours pleinement fonctionnels.
-</li>
-</ul>
-<p>
-Cette amélioration transforme la relecture d'une session
-en véritable point de départ pour de nouvelles créations.
-Une session peut être rejouée, puis immédiatement modifiée et enrichie
-afin de poursuivre les expérimentations.
-</p>
-<p>
-Cette mise à jour améliore le confort d'utilisation quotidien de VasareliMania
-tout en conservant la compatibilité avec les sessions enregistrées
-et le système Replay.
-</p>
-<hr/>
-<!-- ===================================================== -->
-<!-- VERSION 2026.06.14 -->
-<!-- ===================================================== -->
-<h2>Version 2026.06.14</h2>
-<p>
-Cette version apporte de nombreuses améliorations au système de sessions,
-au Replay et à la fluidité générale de VasareliMania.
-</p>
-<h3>Améliorations du système Replay</h3>
-<ul>
-<li>
-Button7 (<b>InvertCoul</b>) désormais pris en compte dans les sessions.
-</li>
-<li>
-Button75 (<b>TurboInvertColor / TurboInvertLD</b>)
-désormais pris en compte dans les sessions.
-</li>
-<li>
-Message <b>REPLAY EN COURS</b> stabilisé dans Panel5.
-</li>
-<li>
-Réintégration propre de <b>ResetEtatAvantReplay</b>.
-</li>
-<li>
-Suppression du clignotement des textures pendant les relectures.
-</li>
-<li>
-Suppression des flashs d'affichage pendant les sessions.
-</li>
-<li>
-Affichage uniquement à la fin de chaque :
-<br/>
-<b>----- FIN ETAT COMPLET -----</b>
-</li>
-<li>
-Relecture des sessions beaucoup plus fluide.
-</li>
-</ul>
-<p>
-Le système de sessions est désormais plus stable et plus agréable à utiliser.
-Les relectures sont plus fluides, les affichages parasites ont été supprimés
-et la prise en compte des boutons d'inversion permet une restitution plus fidèle
-des créations enregistrées.
-</p>
-<hr/>
-<!-- ===================================================== -->
-<!-- VERSION 2026.06.10 -->
-<!-- ===================================================== -->
-<h2>Version 2026.06.10</h2>
-<p>
-Cette version marque une étape importante dans l'évolution de VasareliMania,
-avec plusieurs améliorations majeures du logiciel,
-du système de sessions et du site Web.
-</p>
-<h3>Améliorations du système de sessions</h3>
-<ul>
-<li>
-Création automatique du dossier :
-<br/>
-<b>C:\Sessions VasareliMania</b>
-</li>
-<li>
-Support des fichiers <b>.vasareli</b>.
-</li>
-<li>
-Association automatique des fichiers <b>.vasareli</b>.
-</li>
-<li>
-Double-clic sur une session :
-<br/>
-ouverture automatique dans VasareliMania.
-</li>
-<li>
-Amélioration du système Replay
-<br/>
-(Pause / Reprise / Arrêt).
-</li>
-<li>
-Renommage du fichier d'installation :
-<br/>
-<b>VasareliMania-Setup.msi</b>
-</li>
-</ul>
-<p>
-Ces améliorations préparent l'arrivée d'une véritable bibliothèque
-de sessions permettant de sauvegarder, partager et rejouer
-des créations complètes réalisées avec VasareliMania.
-</p>
-<h3>Sessions enregistrables et rejouables</h3>
-<p>
-Un nouveau système de sessions permet d'enregistrer les actions effectuées
-dans le logiciel afin de pouvoir les rejouer ultérieurement.
-L'objectif est de retrouver exactement une création précédente,
-d'étudier sa construction étape par étape
-ou de poursuivre un travail interrompu.
-</p>
-<h3>Remaniement de l'interface utilisateur</h3>
-<p>
-L'interface a été progressivement réorganisée afin de rendre l'utilisation
-du logiciel plus intuitive.
-Les différents modes de création ont été clarifiés,
-plusieurs commandes ont été regroupées
-et de nouvelles pages d'aide sont désormais disponibles
-sur le site de VasareliMania.
-</p>
-<h3>Nouvelles fonctions de dégradés</h3>
-<p>
-De nombreuses améliorations ont été apportées au moteur de dégradés :
-</p>
-<ul>
-<li>nouveaux modes de dégradés</li>
-<li>inversion du sens des dégradés</li>
-<li>gestion améliorée des couleurs</li>
-<li>dégradés tricolores et quadricolores</li>
-<li>meilleure intégration avec les textures et motifs</li>
-<li>optimisations de vitesse de calcul</li>
-</ul>
-<p>
-Ces évolutions permettent d'obtenir des effets visuels plus riches,
-plus progressifs et plus proches de l'esprit de l'Op Art
-et de Victor Vasarely.
-</p>
-<h3>Développement du site Web VasareliMania</h3>
-<ul>
-<li>Page de présentation du projet</li>
-<li>Guide de démarrage</li>
-<li>Documentation sur les GIF animés</li>
-<li>Présentation du système de sessions</li>
-<li>Page d'exemples de sessions téléchargeables</li>
-<li>Galerie d'images</li>
-<li>Téléchargement direct du fichier MSI</li>
-</ul>
-<p>
-Le site continuera à s'enrichir au fil des prochaines versions.
-</p>
-</div>
-<div class="footer">
-Pierre Tcherukine © 2008-2026
-</div>
-</div>
-</body>
-</html>
+Amélioration de la gestion des sess
